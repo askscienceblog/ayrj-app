@@ -1,0 +1,41 @@
+<template>
+  <v-sheet
+    width="80%"
+    class="py-12 px-16 mx-auto text-left mt-16"
+    color="#d3d3d3"
+    height="150"
+  >
+    <a class="py-3 text-h3 blue font-weight-medium">{{ articleSection }}</a>
+  </v-sheet>
+  <v-sheet width="80%" class="mx-auto mb-16">
+    <v-card class="py-16" v-for="(project, index) in projects">
+      <v-card-title class="text-h4 text-wrap mx-10">{{
+        project.title
+      }}</v-card-title>
+      <v-card-subtitle class="mx-10"> </v-card-subtitle>
+      <v-card-text class="mx-10">
+        {{ project.description }}
+        <v-spacer></v-spacer>
+        <v-chip variant="text" class="my-5 mx-n3">
+          <a class="blue">Read More</a>
+          <v-icon class="ml-1">mdi-arrow-right</v-icon>
+        </v-chip>
+      </v-card-text>
+    </v-card>
+  </v-sheet>
+</template>
+
+<script>
+export default {
+  props: {
+    projects: Array,
+    articleSection: String,
+  },
+};
+</script>
+
+<style>
+.blue {
+  color: #0c4160;
+}
+</style>

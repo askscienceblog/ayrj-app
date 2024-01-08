@@ -4,7 +4,7 @@
       class="icon-image text-right my-auto"
       src="../public/imgs/logo.png"
     ></NuxtImg>
-    <v-sheet class="my-auto ml-3 mr-16" width="180px">
+    <v-sheet class="my-auto ml-3 mr-16 text-wrap" min-width="180">
       <a class="font-weight-bold">Asean Young Researchers' Journal</a>
       <v-spacer></v-spacer>
       <a class="text-subtitle-2">For students, by students</a>
@@ -13,9 +13,9 @@
     <v-tabs>
       <v-tabs>
         <v-tab to="/">Home</v-tab>
-        <v-tab to="/articles"
+        <v-tab to="/articles/articles"
           ><v-sheet class="text-center my-auto">
-            <v-menu open-on-hover="True">
+            <v-menu :open-on-hover="true">
               <template v-slot:activator="{ props: menu }">
                 <v-tooltip location="top">
                   <template v-slot:activator="{ props: tooltip }">
@@ -66,7 +66,7 @@ export default {
 </script>
 <style>
 .icon-image {
-  width: 200px;
+  width: 100px;
   height: 100px;
   margin-left: 100px;
 }
