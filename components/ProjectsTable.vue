@@ -1,9 +1,9 @@
 <template>
   <v-sheet
     width="80%"
-    class="py-12 px-16 mx-auto text-left mt-16"
+    class="py-8 px-16 mx-auto text-left mt-16"
     color="#d3d3d3"
-    height="150"
+    height="110"
   >
     <a class="py-3 text-h3 blue font-weight-medium">{{ articleSection }}</a>
   </v-sheet>

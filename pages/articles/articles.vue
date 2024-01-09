@@ -17,21 +17,21 @@
 
       <v-row>
         <v-sheet class="mx-auto mb-5" width="100%">
-          <p class="text-h5 my-10 font-weight-bold">Featured articles</p>
+          <p class="text-h5 my-15 font-weight-bold">Featured articles</p>
           <v-sheet color="black" height="2" class="mt-n6"></v-sheet>
         </v-sheet>
       </v-row>
 
       <v-row>
-        <v-sheet class="my-16" v-for="(article, index) in featured">
+        <v-sheet
+          width="100%"
+          class="my-16"
+          v-for="(article, index) in featured"
+        >
           <v-container>
             <v-row>
               <v-col>
-                <v-card
-                  v-if="!isOdd(index)"
-                  class="text-left span-a"
-                  variant="flat"
-                >
+                <v-card v-if="!isOdd(index)" class="text-left" variant="flat">
                   <p class="text-wrap text-h4 font-weight-medium">
                     {{ article.title }}
                   </p>
