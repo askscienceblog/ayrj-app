@@ -1,6 +1,6 @@
 <template>
   <v-app-bar density="prominent">
-    <NuxtImg
+    <!-- <NuxtImg
       class="icon-image text-right my-auto"
       src="../public/imgs/logo.png"
     ></NuxtImg>
@@ -8,12 +8,13 @@
       <a class="font-weight-bold">Asean Young Researchers' Journal</a>
       <v-spacer></v-spacer>
       <a class="text-subtitle-2">For students, by students</a>
-    </v-sheet>
+    </v-sheet> -->
+    <logo></logo>
 
     <v-tabs>
       <v-tabs>
         <v-tab to="/">Home</v-tab>
-        <v-tab to="/articles/articles"
+        <v-tab to="/articles/"
           ><v-sheet class="text-center my-auto">
             <v-menu :open-on-hover="true">
               <template v-slot:activator="{ props: menu }">
@@ -47,6 +48,7 @@
 </template>
 <script>
 import { mergeProps } from "vue";
+import Logo from "./Logo.vue";
 
 export default {
   data: () => ({
@@ -61,6 +63,9 @@ export default {
   }),
   methods: {
     mergeProps,
+  },
+  components: {
+    Logo,
   },
 };
 </script>

@@ -41,7 +41,7 @@
         <v-row no-gutters>
           <v-col>
             <v-sheet
-              class="mx-auto"
+              class="mx-auto mt-2"
               min-width="200"
               max-width="200"
               color="#00000000"
@@ -118,13 +118,13 @@
         </v-row>
 
         <v-row>
-          <v-expansion-panels>
-            <v-expansion-panel v-for="faq in faqs" class="elevation-0">
+          <v-expansion-panels class="mb-10">
+            <v-expansion-panel v-for="faq in faqs">
               <v-expansion-panel-title expand-icon="" collapse-icon="">
                 <v-icon class="mx-3">mdi-play</v-icon>
                 <p class="font-weight-bold">{{ faq.question }}</p>
               </v-expansion-panel-title>
-              <v-expansion-panel-text>
+              <v-expansion-panel-text class="pa-1">
                 {{ faq.answer }}
               </v-expansion-panel-text>
             </v-expansion-panel>
