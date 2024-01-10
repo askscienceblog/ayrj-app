@@ -9,7 +9,7 @@
               <v-row>
                 <!-- Logo -->
                 <v-col class="v-col-5">
-                  <logo class="logo-position" width="480"></logo>
+                  <logo class="logo-position ml-5" width="480"></logo>
                 </v-col>
 
                 <v-divider vertical></v-divider>
@@ -62,6 +62,7 @@
                         <v-form>
                           <p class="font-weight-bold">First Name:</p>
                           <v-text-field
+                            variant="outlined"
                             :rules="rules"
                             v-model="firstName"
                             label="Your First Name"
@@ -69,6 +70,7 @@
 
                           <p class="font-weight-bold">Email Address:</p>
                           <v-text-field
+                            variant="outlined"
                             :rules="rules"
                             v-model="emailAddress"
                             label="Your Email Address"
@@ -126,7 +128,7 @@ export default {
     return {
       pages: [
         { title: "How we operate", href: "/about" },
-        { title: "Articles", href: "/about" },
+        { title: "Articles", href: "/articles/" },
         { title: "Experiment Blog", href: "/blog" },
         { title: "Contact Us", href: "/submit" },
         { title: "Submit your manuscript", href: "/submit" },

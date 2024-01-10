@@ -16,11 +16,11 @@
         </v-col>
         <v-col>
           <v-sheet
-            class="ml-n6 my-3 text-wrap"
+            class="ml-n9 my-3 text-wrap"
             color="#00000000"
             min-width="180"
           >
-            <a class="font-weight-bold">Asean Young Researchers' Journal</a>
+            <a class="font-weight-black">ASEAN Young Researchers' Journal</a>
             <v-spacer></v-spacer>
             <a class="text-subtitle-2">For students, by students</a>
           </v-sheet>

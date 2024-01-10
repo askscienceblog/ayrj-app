@@ -20,18 +20,16 @@
           <p class="text-h4 mt-16 font-weight-bold">{{ aboutUs.title }}</p>
         </v-col>
         <v-col>
-          <v-sheet>
-            <p class="text-h6 text-wrap font-weight-bold mt-16">
-              {{ aboutUs.subtitle }}
-            </p>
-            <p class="text-wrap my-8">
-              {{ aboutUs.text_1 }}
-            </p>
-            <p class="text-wrap">
-              {{ aboutUs.text_2 }}
-            </p>
-            <p class="text-h6 font-weight-bold my-16">Jamie & Team</p>
-          </v-sheet>
+          <p class="text-h6 text-wrap font-weight-bold mt-16">
+            {{ aboutUs.subtitle }}
+          </p>
+          <p class="text-wrap my-8">
+            {{ aboutUs.text_1 }}
+          </p>
+          <p class="text-wrap">
+            {{ aboutUs.text_2 }}
+          </p>
+          <p class="text-h6 font-weight-bold my-16">Jamie & Team</p>
         </v-col>
       </v-row>
     </v-container>
