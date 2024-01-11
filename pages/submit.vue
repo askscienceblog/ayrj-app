@@ -1,14 +1,14 @@
 <template>
   <!-- Manuscript Submission Instructions -->
-  <v-sheet color="#AAC9DD" width="100%" height="auto">
-    <p class="pa-16 text-h3 text-center font-weight-bold" style="color: black">
+  <v-sheet color="#52787b" style="opacity: 0.7" width="100%" height="auto">
+    <p class="pa-16 text-h3 text-center font-weight-bold" style="color: white">
       Submit Your Manuscript
     </p>
     <p class="text-h5" style="margin-left: 300px">Manuscript Requirements:</p>
     <v-container>
       <v-row v-for="req in reqs">
         <v-chip
-          style="margin-left: 155px; color: black"
+          style="margin-left: 155px; color: white"
           class="my-2"
           variant="text"
         >
