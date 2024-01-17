@@ -85,18 +85,37 @@
           <v-sheet width="100%" color="#000000" height="80px">
             <v-container variant="bg-surface-variant">
               <v-col class="text-left">
-                <v-sheet color="white" height="1" width="100%"> </v-sheet>
+                <v-sheet color="white" height="1" width="100%" class="mb-2">
+                </v-sheet>
 
-                <v-chip variant="text" class="mt-1">
-                  <v-btn max-width="5" variant="text">
-                    <v-icon class="mx-1">mdi-email</v-icon>
-                    <v-icon class="mx-1">mdi-twitter</v-icon>
-                    <v-icon class="mx-1" href="https://instagram.com"
-                      >mdi-instagram</v-icon
-                    >
-                  </v-btn>
-                  <a class="mx-3">@The Science Journal</a>
-                </v-chip>
+                <v-btn
+                  class="mx-1"
+                  density="compact"
+                  variant="text"
+                  icon="mdi-email"
+                  href=""
+                >
+                </v-btn>
+
+                <v-btn
+                  class="mx-1"
+                  density="compact"
+                  variant="text"
+                  icon="mdi-linkedin"
+                  href="https://www.linkedin.com/company/aseanyouthresearchjournal"
+                >
+                </v-btn>
+
+                <v-btn
+                  class="mx-1"
+                  density="compact"
+                  variant="text"
+                  icon="mdi-instagram"
+                  href="https://instagram.com"
+                >
+                </v-btn>
+
+                <a class="">@The Science Journal</a>
               </v-col>
             </v-container>
           </v-sheet>
