@@ -9,10 +9,10 @@
     <v-container fluid>
       <v-row>
         <v-col>
-          <NuxtImg
+          <img
             class="icon-image text-right my-auto"
-            src="../public/imgs/logo.png"
-          ></NuxtImg>
+            src="/public/imgs/logo.png"
+          />
         </v-col>
         <v-col>
           <v-sheet

@@ -4,90 +4,79 @@
       <v-container fluid>
         <v-row>
           <!-- Website Publicity -->
-          <v-sheet color="#eeeeee" width="100%" height="auto">
-            <v-container fluid>
-              <v-row>
-                <!-- Logo -->
-                <v-col class="v-col-5">
-                  <logo class="logo-position ml-5" width="480"></logo>
-                </v-col>
+          <v-sheet color="#eeeeee" width="100%" height="auto" class="py-16">
+            <v-sheet color="#00000000" class="flex-container">
+              <!-- Logo -->
+              <logo width="480" class="flex-item-center my-auto mr-10"></logo>
 
-                <v-divider vertical></v-divider>
+              <v-divider vertical></v-divider>
 
-                <!-- About Us -->
-                <v-col class="v-col-2">
-                  <v-sheet
-                    height="auto"
-                    width="180"
-                    class="aboutus-position"
-                    color="#eeeeee"
-                  >
-                    <v-container fluid>
-                      <v-row
-                        ><p class="text-h5 mx-3 my-3 font-weight-bold">
-                          About Us
-                        </p>
-                      </v-row>
-                      <v-row v-for="page in pages"
-                        ><v-btn variant="text">
-                          <a
-                            class="text-subtitle-2"
-                            :href="page.href"
-                            style="text-decoration: none"
-                            >{{ page.title }}</a
-                          >
-                        </v-btn>
-                      </v-row>
-                    </v-container>
-                  </v-sheet>
-                </v-col>
+              <!-- About Us -->
+              <v-sheet
+                height="auto"
+                width="180"
+                class="flex-item-center mx-5"
+                color="#eeeeee"
+              >
+                <p class="text-h5 text-center font-weight-bold">About Us</p>
 
-                <v-divider vertical></v-divider>
+                <div v-for="page in pages" class="text-center">
+                  <v-btn variant="text">
+                    <a
+                      class="text-subtitle-2"
+                      :href="page.href"
+                      style="text-decoration: none"
+                      >{{ page.title }}</a
+                    >
+                  </v-btn>
+                </div>
+              </v-sheet>
 
-                <!-- Form -->
-                <v-col class="">
-                  <v-container>
-                    <v-row>
-                      <p class="font-weight-bold form-position ml-6">
-                        Join our newsletter. No spam. Just Knowledge
-                      </p>
-                    </v-row>
+              <v-divider vertical></v-divider>
 
-                    <v-row>
-                      <v-sheet
-                        min-width="380"
-                        class="my-5 ml-6"
-                        color="#00000000"
-                      >
-                        <v-form>
-                          <p class="font-weight-bold">First Name:</p>
-                          <v-text-field
-                            variant="outlined"
-                            :rules="rules"
-                            v-model="firstName"
-                            label="Your First Name"
-                          ></v-text-field>
+              <!-- Form -->
+              <v-sheet class="flex-item-center mx-5" color="#00000000">
+                <v-container>
+                  <v-row>
+                    <p class="font-weight-bold ml-6">
+                      Join our newsletter. No spam. Just Knowledge
+                    </p>
+                  </v-row>
 
-                          <p class="font-weight-bold">Email Address:</p>
-                          <v-text-field
-                            variant="outlined"
-                            :rules="rules"
-                            v-model="emailAddress"
-                            label="Your Email Address"
-                          ></v-text-field>
+                  <v-row>
+                    <v-sheet
+                      min-width="380"
+                      class="my-6 ml-6"
+                      color="#00000000"
+                    >
+                      <v-form>
+                        <p class="font-weight-bold">First Name:</p>
+                        <v-text-field
+                          variant="outlined"
+                          :rules="rules"
+                          v-model="firstName"
+                          label="Your First Name"
+                        ></v-text-field>
 
-                          <v-sheet width="100" class="mt-n1"
-                            ><v-btn type="submit" color="blue" block
-                              >Submit</v-btn
-                            ></v-sheet
-                          >
-                        </v-form>
-                      </v-sheet>
-                    </v-row>
-                  </v-container>
-                </v-col>
-              </v-row>
-            </v-container>
+                        <p class="font-weight-bold">Email Address:</p>
+                        <v-text-field
+                          variant="outlined"
+                          :rules="rules"
+                          v-model="emailAddress"
+                          label="Your Email Address"
+                        ></v-text-field>
+
+                        <v-sheet width="100" class="mt-n1"
+                          ><v-btn type="submit" color="blue" block
+                            >Submit</v-btn
+                          ></v-sheet
+                        >
+                      </v-form>
+                    </v-sheet>
+                  </v-row>
+                </v-container>
+              </v-sheet>
+            </v-sheet>
           </v-sheet>
         </v-row>
 
@@ -146,17 +135,13 @@ export default {
 </script>
 
 <style>
-.logo-position {
-  margin-top: 160px;
-  margin-bottom: 130px;
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.aboutus-position {
-  margin-top: 80px;
-  margin-left: 20px;
-}
-
-.form-position {
-  margin-top: 80px;
+.flex-item-center {
+  align-self: center;
 }
 </style>

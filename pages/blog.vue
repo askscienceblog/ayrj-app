@@ -1,7 +1,7 @@
 <template>
   <v-sheet height="auto">
     <img
-      src="@/public/imgs/background/articles.jpg"
+      src="/public/imgs/background/articles.jpg"
       class="pub-background"
       height="230"
       width="100%"
