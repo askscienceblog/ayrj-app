@@ -1,135 +1,130 @@
 <template>
-  <v-sheet height="auto">
+  <v-sheet class="text-center" height="auto">
     <img
       src="/public/imgs/background/articles.jpg"
       class="pub-background"
       height="230"
       width="100%"
     />
-    <v-container>
-      <v-row>
-        <v-sheet
-          color="#00000000"
-          class="text-h3 pub-title font-weight-bold mx-auto"
-          >About AYRJ</v-sheet
-        >
-      </v-row>
 
-      <v-row>
+    <p class="text-h3 font-weight-bold page-title">About AYRJ</p>
+  </v-sheet>
+
+  <v-container>
+    <v-row>
+      <v-col>
+        <p class="text-h4 mt-16 font-weight-bold">{{ aboutUs.title }}</p>
+      </v-col>
+      <v-col>
+        <p class="text-h6 text-wrap font-weight-bold mt-16">
+          {{ aboutUs.subtitle }}
+        </p>
+        <p class="text-wrap my-8">
+          {{ aboutUs.text_1 }}
+        </p>
+        <p class="text-wrap">
+          {{ aboutUs.text_2 }}
+        </p>
+        <p class="text-h6 font-weight-bold my-16">Jamie & Team</p>
+      </v-col>
+    </v-row>
+  </v-container>
+
+  <v-sheet color="#eeeeee" width="100%" height="auto" class="py-16">
+    <v-container>
+      <v-row no-gutters>
         <v-col>
-          <p class="text-h4 mt-16 font-weight-bold">{{ aboutUs.title }}</p>
+          <v-sheet
+            class="mx-auto mt-2"
+            min-width="200"
+            max-width="200"
+            color="#00000000"
+          >
+            <p class="text-h1">{{ noOfArticles }}</p>
+            <v-spacer></v-spacer>
+            <p class="text-h6 mx-n13 pa-3">Articles Published</p>
+          </v-sheet>
+        </v-col>
+
+        <v-sheet
+          color="#000000"
+          height="300"
+          width="1"
+          class="mr-10 ml-n15 mt-n10"
+        ></v-sheet>
+
+        <v-col>
+          <v-sheet
+            class="mx-3 ml-10"
+            min-width="200"
+            max-width="200"
+            color="#00000000"
+          >
+            <p class="text-h4 custom-bold">{{ goals[0].title }}</p>
+            <p class="my-5">{{ goals[0].subtitle }}</p>
+          </v-sheet>
         </v-col>
         <v-col>
-          <p class="text-h6 text-wrap font-weight-bold mt-16">
-            {{ aboutUs.subtitle }}
-          </p>
-          <p class="text-wrap my-8">
-            {{ aboutUs.text_1 }}
-          </p>
-          <p class="text-wrap">
-            {{ aboutUs.text_2 }}
-          </p>
-          <p class="text-h6 font-weight-bold my-16">Jamie & Team</p>
+          <v-sheet
+            class="mx-3"
+            min-width="200"
+            max-width="200"
+            color="#00000000"
+          >
+            <p class="text-h4 custom-bold">{{ goals[1].title }}</p>
+            <p class="my-5">{{ goals[1].subtitle }}</p>
+          </v-sheet>
+        </v-col>
+        <v-col>
+          <v-sheet
+            class="mx-3"
+            min-width="200"
+            max-width="200"
+            color="#00000000"
+          >
+            <p class="text-h4 custom-bold">{{ goals[2].title }}</p>
+            <v-sheet
+              color="#00000000"
+              class="ml-n5 mt-3"
+              height="auto"
+              width="180"
+            >
+              <v-chip
+                variant="text"
+                v-for="(value, index) in goals[2].subtitle"
+              >
+                <v-icon class="pa-4">mdi-play</v-icon>
+                <p>{{ value }}</p>
+              </v-chip>
+            </v-sheet>
+          </v-sheet>
         </v-col>
       </v-row>
     </v-container>
+  </v-sheet>
 
-    <v-sheet color="#eeeeee" width="100%" height="auto" class="py-16">
-      <v-container>
-        <v-row no-gutters>
-          <v-col>
-            <v-sheet
-              class="mx-auto mt-2"
-              min-width="200"
-              max-width="200"
-              color="#00000000"
-            >
-              <p class="text-h1">{{ noOfArticles }}</p>
-              <v-spacer></v-spacer>
-              <p class="text-h6 mx-n13 pa-3">Articles Published</p>
-            </v-sheet>
-          </v-col>
+  <v-sheet>
+    <v-container>
+      <v-row>
+        <p class="text-h4 mt-16 mb-5 custom-bold">
+          Frequently Asked Questions (FAQ)
+        </p>
+      </v-row>
 
-          <v-sheet
-            color="#000000"
-            height="300"
-            width="1"
-            class="mr-10 ml-n15 mt-n10"
-          ></v-sheet>
-
-          <v-col>
-            <v-sheet
-              class="mx-3 ml-10"
-              min-width="200"
-              max-width="200"
-              color="#00000000"
-            >
-              <p class="text-h4 custom-bold">{{ goals[0].title }}</p>
-              <p class="my-5">{{ goals[0].subtitle }}</p>
-            </v-sheet>
-          </v-col>
-          <v-col>
-            <v-sheet
-              class="mx-3"
-              min-width="200"
-              max-width="200"
-              color="#00000000"
-            >
-              <p class="text-h4 custom-bold">{{ goals[1].title }}</p>
-              <p class="my-5">{{ goals[1].subtitle }}</p>
-            </v-sheet>
-          </v-col>
-          <v-col>
-            <v-sheet
-              class="mx-3"
-              min-width="200"
-              max-width="200"
-              color="#00000000"
-            >
-              <p class="text-h4 custom-bold">{{ goals[2].title }}</p>
-              <v-sheet
-                color="#00000000"
-                class="ml-n5 mt-3"
-                height="auto"
-                width="180"
-              >
-                <v-chip
-                  variant="text"
-                  v-for="(value, index) in goals[2].subtitle"
-                >
-                  <v-icon class="pa-4">mdi-play</v-icon>
-                  <p>{{ value }}</p>
-                </v-chip>
-              </v-sheet>
-            </v-sheet>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-sheet>
-
-    <v-sheet>
-      <v-container>
-        <v-row>
-          <p class="text-h4 mt-16 mb-5 custom-bold">
-            Frequently Asked Questions (FAQ)
-          </p>
-        </v-row>
-
-        <v-row>
-          <v-expansion-panels class="mb-10">
-            <v-expansion-panel v-for="faq in faqs">
-              <v-expansion-panel-title expand-icon="" collapse-icon="">
-                <v-icon class="mx-3">mdi-play</v-icon>
-                <p class="font-weight-bold">{{ faq.question }}</p>
-              </v-expansion-panel-title>
-              <v-expansion-panel-text class="pa-1">
-                {{ faq.answer }}
-              </v-expansion-panel-text>
-            </v-expansion-panel>
-          </v-expansion-panels>
-        </v-row>
-      </v-container>
-    </v-sheet>
+      <v-row>
+        <v-expansion-panels class="mb-10">
+          <v-expansion-panel v-for="faq in faqs">
+            <v-expansion-panel-title expand-icon="" collapse-icon="">
+              <v-icon class="mx-3">mdi-play</v-icon>
+              <p class="font-weight-bold">{{ faq.question }}</p>
+            </v-expansion-panel-title>
+            <v-expansion-panel-text class="pa-1">
+              {{ faq.answer }}
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+        </v-expansion-panels>
+      </v-row>
+    </v-container>
   </v-sheet>
 </template>
 
@@ -203,19 +198,12 @@ export default {
 };
 </script>
 
-<style>
-.pub-background {
-  object-fit: fill;
-  width: 100%;
-  overflow: hidden;
-}
-
-.pub-title {
-  margin-top: -140px;
-  margin-left: 100px;
+<style scoped>
+.page-title {
+  margin-top: -150px;
+  margin-bottom: 120px;
   color: white;
 }
-
 .featured-image {
   max-height: 500px;
   max-width: 500px;

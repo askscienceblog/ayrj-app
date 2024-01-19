@@ -31,24 +31,27 @@
 
   <!-- Ad #1 -->
   <!-- Carousel -->
-  <v-sheet class="mx-16">
-    <v-carousel hide-delimiter-background show-arrows="hover">
-      <v-carousel-item>
-        <v-sheet class="text-center my-16">
+  <v-carousel hide-delimiter-background show-arrows="hover">
+    <v-carousel-item>
+      <v-sheet
+        color="#00000000"
+        class="my-16 px-3 d-flex flex-row flex-wrap align-content-center"
+      >
+        <div class="mx-auto">
           <v-btn
             v-for="highlight in highlights"
             width="300"
             height="300"
-            class="display-inline mx-2"
+            class="mx-2"
             rounded="0"
             color="#6fa2a6"
           >
             <p class="text-h5 text-wrap">{{ highlight.title }}</p>
           </v-btn>
-        </v-sheet>
-      </v-carousel-item>
-    </v-carousel></v-sheet
-  >
+        </div>
+      </v-sheet>
+    </v-carousel-item>
+  </v-carousel>
 
   <!-- Message -->
   <v-sheet height="500" width="100%" class="">
@@ -120,9 +123,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.display-inline {
-  display: inline-block;
-}
-</style>

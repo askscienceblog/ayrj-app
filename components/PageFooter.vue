@@ -5,7 +5,7 @@
         <v-row>
           <!-- Website Publicity -->
           <v-sheet color="#eeeeee" width="100%" height="auto" class="py-16">
-            <v-sheet color="#00000000" class="flex-container">
+            <v-sheet color="#00000000" class="d-flex flex-row flex-wrap mx-8">
               <!-- Logo -->
               <logo width="480" class="flex-item-center my-auto mr-10"></logo>
 
@@ -154,12 +154,6 @@ export default {
 </script>
 
 <style>
-.flex-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
 .flex-item-center {
   align-self: center;
 }

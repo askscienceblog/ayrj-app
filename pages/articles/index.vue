@@ -1,76 +1,67 @@
 <template>
-  <v-sheet height="auto">
+  <v-sheet class="text-center" height="auto">
     <img
-      src="@/public/imgs/background/articles.jpg"
+      src="/public/imgs/background/articles.jpg"
       class="pub-background"
       height="230"
       width="100%"
     />
-    <v-container>
-      <v-row>
-        <v-sheet
-          color="#00000000"
-          class="text-h3 pub-title font-weight-bold mx-auto"
-          >Publications</v-sheet
-        >
-      </v-row>
 
-      <v-row>
-        <v-sheet class="mx-auto mb-5" width="100%">
-          <p class="text-h5 my-15 font-weight-bold">Featured articles</p>
-          <v-sheet color="black" height="2" class="mt-n6"></v-sheet>
-        </v-sheet>
-      </v-row>
-
-      <v-row>
-        <v-sheet
-          width="100%"
-          class="my-16"
-          v-for="(article, index) in featured"
-        >
-          <v-container>
-            <v-row>
-              <v-col>
-                <v-card v-if="!isOdd(index)" class="text-left" variant="flat">
-                  <p class="text-wrap text-h4 font-weight-medium">
-                    {{ article.title }}
-                  </p>
-                  <p class="text-wrap text-subtitle-1 my-5">
-                    {{ article.subtitle }}
-                  </p>
-                  <v-btn variant="elevated" color="black"> Read More! </v-btn>
-                </v-card>
-
-                <v-sheet v-else width="100%" class="my-10 mx-10" height="100%"
-                  ><NuxtImg class="featured-image" :src="article.img"></NuxtImg>
-                </v-sheet>
-              </v-col>
-
-              <v-col color="black">
-                <v-sheet
-                  v-if="!isOdd(index)"
-                  width="100%"
-                  class="my-10 mx-10"
-                  height="100%"
-                  ><NuxtImg class="featured-image" :src="article.img"></NuxtImg>
-                </v-sheet>
-
-                <v-card v-else class="text-left span-a" variant="flat">
-                  <p class="text-wrap text-h4 font-weight-medium">
-                    {{ article.title }}
-                  </p>
-                  <p class="text-wrap text-subtitle-1 my-5">
-                    {{ article.subtitle }}
-                  </p>
-                  <v-btn variant="elevated" color="black"> Read More! </v-btn>
-                </v-card>
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-sheet>
-      </v-row>
-    </v-container>
+    <p class="text-h3 font-weight-bold page-title">Publications</p>
   </v-sheet>
+
+  <v-container>
+    <v-row>
+      <v-sheet class="mx-auto mb-5" width="100%">
+        <p class="text-h5 my-15 font-weight-bold">Featured articles</p>
+        <v-sheet color="black" height="2" class="mt-n6"></v-sheet>
+      </v-sheet>
+    </v-row>
+
+    <v-row>
+      <v-sheet width="100%" class="my-16" v-for="(article, index) in featured">
+        <v-container>
+          <v-row>
+            <v-col>
+              <v-card v-if="!isOdd(index)" class="text-left" variant="flat">
+                <p class="text-wrap text-h4 font-weight-medium">
+                  {{ article.title }}
+                </p>
+                <p class="text-wrap text-subtitle-1 my-5">
+                  {{ article.subtitle }}
+                </p>
+                <v-btn variant="elevated" color="black"> Read More! </v-btn>
+              </v-card>
+
+              <v-sheet v-else width="100%" class="my-10 mx-10" height="100%"
+                ><NuxtImg class="featured-image" :src="article.img"></NuxtImg>
+              </v-sheet>
+            </v-col>
+
+            <v-col color="black">
+              <v-sheet
+                v-if="!isOdd(index)"
+                width="100%"
+                class="my-10 mx-10"
+                height="100%"
+                ><NuxtImg class="featured-image" :src="article.img"></NuxtImg>
+              </v-sheet>
+
+              <v-card v-else class="text-left span-a" variant="flat">
+                <p class="text-wrap text-h4 font-weight-medium">
+                  {{ article.title }}
+                </p>
+                <p class="text-wrap text-subtitle-1 my-5">
+                  {{ article.subtitle }}
+                </p>
+                <v-btn variant="elevated" color="black"> Read More! </v-btn>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-sheet>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -110,19 +101,12 @@ export default {
 };
 </script>
 
-<style>
-.pub-background {
-  object-fit: fill;
-  width: 100%;
-  overflow: hidden;
-}
-
-.pub-title {
-  margin-top: -140px;
-  margin-left: 100px;
+<style scoped>
+.page-title {
+  margin-top: -150px;
+  margin-bottom: 120px;
   color: white;
 }
-
 .featured-image {
   max-height: 500px;
   max-width: 500px;

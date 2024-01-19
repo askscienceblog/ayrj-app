@@ -1,21 +1,12 @@
 <template>
   <v-app-bar density="prominent">
-    <!-- <NuxtImg
-      class="icon-image text-right my-auto"
-      src="../public/imgs/logo.png"
-    ></NuxtImg>
-    <v-sheet class="my-auto ml-3 mr-16 text-wrap" min-width="180">
-      <a class="font-weight-bold">Asean Young Researchers' Journal</a>
-      <v-spacer></v-spacer>
-      <a class="text-subtitle-2">For students, by students</a>
-    </v-sheet> -->
     <logo></logo>
 
     <v-tabs>
       <v-tabs>
         <v-tab to="/">Home</v-tab>
-        <v-tab to="/articles/"
-          ><v-sheet class="text-center my-auto">
+        <v-tab to="/articles/">
+          <v-sheet class="text-center my-auto">
             <v-menu :open-on-hover="true">
               <template v-slot:activator="{ props: menu }">
                 <v-tooltip location="top">
@@ -36,9 +27,9 @@
                 </v-list-item>
               </v-list>
             </v-menu>
-          </v-sheet></v-tab
-        >
-
+          </v-sheet>
+        </v-tab>
+        <v-tab to="/downloads">Downloads</v-tab>
         <v-tab to="/blog">Experiment Blog</v-tab>
         <v-tab to="/about">About AYRJ</v-tab>
         <v-tab to="/submit">Submit your manuscript</v-tab>
