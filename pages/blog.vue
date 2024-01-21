@@ -1,13 +1,10 @@
 <template>
-  <v-sheet class="text-center" height="auto">
-    <img
-      src="/public/imgs/background/articles.jpg"
-      class="pub-background"
-      height="230"
-      width="100%"
-    />
-
-    <p class="text-h3 font-weight-bold page-title">Experiment Blogs</p>
+  <v-sheet
+    class="text-center text-h3 page-title font-weight-bold background"
+    height="300"
+    width="100%"
+  >
+    Experiment Blog
   </v-sheet>
 
   <v-container>
@@ -102,13 +99,22 @@ export default {
 </script>
 
 <style scoped>
-.page-title {
-  margin-top: -150px;
-  margin-bottom: 120px;
-  color: white;
-}
 .featured-image {
   max-height: 500px;
   max-width: 500px;
+}
+
+.page-title {
+  padding-top: 120px;
+  color: white;
+}
+
+.background {
+  width: auto;
+  height: 200px;
+
+  background-image: url("/public/imgs/background/incubator.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 </style>

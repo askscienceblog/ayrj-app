@@ -1,6 +1,6 @@
 <template>
   <v-app-bar density="prominent">
-    <logo></logo>
+    <img class="logo-image" src="/public/imgs/logo.png" />
 
     <v-tabs>
       <v-tabs>
@@ -39,7 +39,6 @@
 </template>
 <script>
 import { mergeProps } from "vue";
-import Logo from "./Logo.vue";
 
 export default {
   data: () => ({
@@ -55,15 +54,13 @@ export default {
   methods: {
     mergeProps,
   },
-  components: {
-    Logo,
-  },
 };
 </script>
-<style>
-.icon-image {
-  width: 100px;
-  height: 100px;
-  margin-left: 100px;
+<style scoped>
+.logo-image {
+  max-width: 400px;
+  max-height: 300px;
+  margin-top: -60px;
+  margin-inline: 50px;
 }
 </style>

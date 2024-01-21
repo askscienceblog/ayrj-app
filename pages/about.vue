@@ -1,13 +1,10 @@
 <template>
-  <v-sheet class="text-center" height="auto">
-    <img
-      src="/public/imgs/background/articles.jpg"
-      class="pub-background"
-      height="230"
-      width="100%"
-    />
-
-    <p class="text-h3 font-weight-bold page-title">About AYRJ</p>
+  <v-sheet
+    class="text-center text-h3 page-title font-weight-bold background"
+    height="300"
+    width="100%"
+  >
+    About AYRJ
   </v-sheet>
 
   <v-container>
@@ -200,9 +197,17 @@ export default {
 
 <style scoped>
 .page-title {
-  margin-top: -150px;
-  margin-bottom: 120px;
+  padding-top: 120px;
   color: white;
+}
+
+.background {
+  width: auto;
+  height: 200px;
+
+  background-image: url("/public/imgs/background/pipette.jpeg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 .featured-image {
   max-height: 500px;

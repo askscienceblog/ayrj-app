@@ -7,7 +7,7 @@
           <v-sheet color="#eeeeee" width="100%" height="auto" class="py-16">
             <v-sheet color="#00000000" class="d-flex flex-row flex-wrap mx-8">
               <!-- Logo -->
-              <logo width="480" class="flex-item-center my-auto mr-10"></logo>
+              <img class="logo-image" src="/public/imgs/logo.png" />
 
               <v-divider vertical></v-divider>
 
@@ -126,13 +126,8 @@
 </template>
 
 <script>
-import Logo from "./Logo.vue";
-
 export default {
-  components: {
-    Logo,
-  },
-  data() {
+  data: () => {
     return {
       pages: [
         { title: "How we operate", href: "/about" },
@@ -153,8 +148,15 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .flex-item-center {
   align-self: center;
+}
+
+.logo-image {
+  max-width: 400px;
+  max-height: 300px;
+  margin-top: 40px;
+  margin-inline: 100px;
 }
 </style>
