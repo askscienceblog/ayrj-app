@@ -6,8 +6,16 @@
   >
     Publications
   </v-sheet>
+  <v-text-field
+    label="Search Publications"
+    hide-details="auto"
+    variant="outlined"
+    class="my-10 mx-16"
+    v-model="userSearchContent"
+    @input="search"
+  ></v-text-field>
 
-  <v-container>
+  <v-container v-show="showFeatured">
     <v-row>
       <v-sheet class="mx-auto mb-5" width="100%">
         <p class="text-h5 my-15 font-weight-bold">Featured articles</p>
@@ -59,9 +67,16 @@
       </v-sheet>
     </v-row>
   </v-container>
+
+  <ProjectsTable
+    :projects="content"
+    :articleSection="tableHeader"
+  ></ProjectsTable>
 </template>
 
 <script>
+import ProjectsTable from "../components/ProjectsTable.vue";
+
 export default {
   methods: {
     isOdd(index) {
@@ -71,10 +86,30 @@ export default {
         return true;
       }
     },
+    async search() {
+      if (true) {
+        const reqContent = await useBaseFetch("/list/published", {
+          method: "GET",
+          query: {
+            length: 5,
+            contains_content: this.userSearchContent,
+            content_match_quality_limit: 0.2,
+          },
+        });
+        this.tableHeader = `Search Results For ${this.userSearchContent}`;
+        this.content = toRaw(reqContent.data.value);
+        console.log(typeof this.content);
+        this.showFeatured = false;
+      }
+    },
   },
 
   data() {
     return {
+      showFeatured: true,
+      userSearchContent: "",
+      tableHeader: "",
+      content: [],
       featured: [
         {
           section: "Biology",
@@ -94,6 +129,9 @@ export default {
         },
       ],
     };
+  },
+  components: {
+    ProjectsTable,
   },
 };
 </script>
