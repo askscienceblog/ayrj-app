@@ -1,32 +1,35 @@
 <template>
   <!-- Section Title -->
-  <v-sheet
-    width="100%"
-    height="550"
-    color="#52787b"
-    style="opacity: 0.7"
-    class="text-center"
-  >
-    <v-card variant="text" max-width="800" class="mx-auto">
-      <p class="text-h3 text-wrap font-weight-bold mt-16">
-        Asean Young Researchers' Journal
-      </p>
-      <p class="text-h6 my-6">
-        Be empowered to contribute to science! Submit your manuscripts here and
-        have them published in Asean's only Young Scientist Journal. No prior
-        publications required.
-      </p>
-      <v-btn
-        class="display-inline mt-5"
-        height="80"
-        rounded="0"
-        variant="outlined"
-        >PUBLISH WITH US</v-btn
-      >
-      <v-btn class="display-inline mt-5" height="80" rounded="0"
-        >READ PUBLICATIONS</v-btn
-      >
-    </v-card>
+  <v-sheet class="text-center background" width="100%">
+    <div
+      style="
+        color: white;
+        backdrop-filter: blur(8px);
+        position: relative;
+        top: 14%;
+      "
+    >
+      <v-card variant="text" max-width="1000" class="mx-auto">
+        <p class="text-h3 text-wrap font-weight-bold mt-16">
+          Asean Young Researchers' Journal
+        </p>
+        <p class="text-h6 my-6">
+          Be empowered to contribute to science! Submit your manuscripts here
+          and have them published in Asean's only Young Scientist Journal. No
+          prior publications required.
+        </p>
+        <v-btn
+          class="display-inline mt-5"
+          height="80"
+          rounded="0"
+          variant="outlined"
+          >PUBLISH WITH US</v-btn
+        >
+        <v-btn class="display-inline mt-5" height="80" rounded="0"
+          >READ PUBLICATIONS</v-btn
+        >
+      </v-card>
+    </div>
   </v-sheet>
 
   <!-- Ad #1 -->
@@ -123,3 +126,14 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.background {
+  width: auto;
+  height: 500px;
+
+  background-image: url("/public/imgs/background/petridish.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+</style>

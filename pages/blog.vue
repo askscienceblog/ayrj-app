@@ -4,7 +4,13 @@
     height="300"
     width="100%"
   >
-    Experiment Blog
+    <v-sheet
+      color="#00000000"
+      width="500"
+      class="pa-3 mx-auto"
+      style="backdrop-filter: blur(8px); color: white"
+      >Experiment Blog
+    </v-sheet>
   </v-sheet>
 
   <v-container>

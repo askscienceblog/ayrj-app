@@ -4,7 +4,13 @@
     height="300"
     width="100%"
   >
-    Downloads
+    <v-sheet
+      color="#00000000"
+      width="300"
+      class="pa-3 mx-auto"
+      style="backdrop-filter: blur(8px); color: white"
+      >Downloads
+    </v-sheet>
   </v-sheet>
 
   <v-sheet class="mx-auto mb-8" width="80%">

@@ -1,25 +1,23 @@
 <template>
   <!-- Manuscript Submission Instructions -->
-  <v-sheet color="#52787b" style="opacity: 0.7" width="100%" height="auto">
-    <p class="pa-16 text-h3 text-center font-weight-bold" style="color: white">
-      Submit Your Manuscript
-    </p>
-    <p class="text-h5" style="margin-left: 300px">Manuscript Requirements:</p>
-    <v-container>
-      <v-row v-for="req in reqs">
-        <v-chip
-          style="margin-left: 155px; color: white"
-          class="my-2"
-          variant="text"
-        >
-          <v-icon class="pa-4">mdi-play</v-icon>
-          <p class="text-h5">{{ req }}</p>
-        </v-chip>
-      </v-row>
-    </v-container>
-    <p class="text-h5 pt-6 pb-16" style="margin-left: 300px">
-      Email your completed manuscript to askscienceblog@gmail.com
-    </p>
+  <v-sheet class="background" width="100%" height="auto">
+    <div style="color: white; backdrop-filter: blur(15px)">
+      <p class="pa-16 text-h3 text-center font-weight-bold">
+        Submit Your Manuscript
+      </p>
+      <p class="text-h5" style="margin-left: 300px">Manuscript Requirements:</p>
+      <v-container>
+        <v-row v-for="req in reqs">
+          <v-chip style="margin-left: 155px" class="my-2" variant="text">
+            <v-icon class="pa-4">mdi-play</v-icon>
+            <p class="text-h5">{{ req }}</p>
+          </v-chip>
+        </v-row>
+      </v-container>
+      <p class="text-h5 pt-6 pb-16" style="margin-left: 300px">
+        Email your completed manuscript to askscienceblog@gmail.com
+      </p>
+    </div>
   </v-sheet>
 
   <!-- Question -->
@@ -133,3 +131,14 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.background {
+  width: auto;
+  height: 500px;
+
+  background-image: url("/public/imgs/background/incubatorout.jpeg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+</style>

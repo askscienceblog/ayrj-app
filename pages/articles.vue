@@ -4,18 +4,39 @@
     height="300"
     width="100%"
   >
-    Publications
+    <v-sheet
+      color="#00000000"
+      width="400"
+      class="pa-3 mx-auto"
+      style="backdrop-filter: blur(8px); color: white"
+      >Publications</v-sheet
+    >
   </v-sheet>
-  <v-text-field
-    label="Search Publications"
-    hide-details="auto"
-    variant="outlined"
-    class="my-10 mx-16"
-    v-model="userSearchContent"
-    @input="search"
-  ></v-text-field>
 
-  <v-container v-show="showFeatured">
+  <div class="text-center mt-16">
+    <v-text-field
+      style="display: inline-table; width: 60%"
+      label="Search Publications"
+      hide-details="auto"
+      variant="outlined"
+      v-model="userSearchContent"
+      @input="search"
+    ></v-text-field>
+
+    <v-select
+      style="display: inline-table; width: 20%"
+      label="Categories"
+      variant="outlined"
+      :items="articleCategories"
+      v-model="userSelectedCategory"
+      @click="searchtest"
+      multiple
+      chips
+    >
+    </v-select>
+  </div>
+
+  <v-container v-if="showFeatured">
     <v-row>
       <v-sheet class="mx-auto mb-5" width="100%">
         <p class="text-h5 my-15 font-weight-bold">Featured articles</p>
@@ -69,6 +90,7 @@
   </v-container>
 
   <ProjectsTable
+    v-else
     :projects="content"
     :articleSection="tableHeader"
   ></ProjectsTable>
@@ -87,7 +109,7 @@ export default {
       }
     },
     async search() {
-      if (true) {
+      if (this.userSearchContent) {
         const reqContent = await useBaseFetch("/list/published", {
           method: "GET",
           query: {
@@ -98,18 +120,36 @@ export default {
         });
         this.tableHeader = `Search Results For ${this.userSearchContent}`;
         this.content = toRaw(reqContent.data.value);
-        console.log(typeof this.content);
         this.showFeatured = false;
+      } else {
+        this.showFeatured = true;
       }
+    },
+
+    searchtest() {
+      console.log(toRaw(this.userSelectedCategory));
     },
   },
 
   data() {
     return {
       showFeatured: true,
-      userSearchContent: "",
+      articleCategories: [
+        { title: "Biology", value: "Biology" },
+        { title: "Chemistry", value: "Chemistry" },
+        { title: "Physics", value: "Physics" },
+        { title: "Mathematics", value: "Mathematics" },
+        { title: "Computing", value: "Computing" },
+        { title: "Engineering", value: "Engineering" },
+      ],
+      // User Inputs
+      userSearchContent: null,
+      userSelectedCategory: null,
+
+      // Dynamic Content
       tableHeader: "",
       content: [],
+
       featured: [
         {
           section: "Biology",

@@ -4,7 +4,13 @@
     height="300"
     width="100%"
   >
-    About AYRJ
+    <v-sheet
+      color="#00000000"
+      width="400"
+      class="pa-3 mx-auto"
+      style="backdrop-filter: blur(8px); color: white"
+      >About AYRJ
+    </v-sheet>
   </v-sheet>
 
   <v-container>
