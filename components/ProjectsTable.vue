@@ -3,7 +3,7 @@
     width="80%"
     class="py-8 px-16 mx-auto text-left mt-16"
     color="#d3d3d3"
-    height="110"
+    height="auto"
   >
     <a class="py-3 text-h4 blue font-weight-medium">{{ articleSection }}</a>
   </v-sheet>
@@ -16,10 +16,15 @@
       <v-card-text class="mx-10">
         {{ project.abstract }}
         <v-spacer></v-spacer>
-        <v-chip variant="text" class="my-5 mx-n3">
+        <v-btn
+          variant="text"
+          density="compact"
+          class="ml-n4 my-4"
+          :to="`/articles/${project.id}`"
+        >
           <a class="blue">Read More</a>
           <v-icon class="ml-1">mdi-arrow-right</v-icon>
-        </v-chip>
+        </v-btn>
       </v-card-text>
     </v-card>
   </v-sheet>

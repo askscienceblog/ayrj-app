@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   build: {
     transpile: ["vuetify"],
   },
+
   modules: [
     "@nuxt/image",
     (_options, nuxt) => {
@@ -14,6 +15,7 @@ export default defineNuxtConfig({
     },
     //...
   ],
+
   vite: {
     vue: {
       template: {

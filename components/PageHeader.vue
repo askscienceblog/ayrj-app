@@ -5,7 +5,7 @@
     <v-tabs>
       <v-tabs>
         <v-tab to="/">Home</v-tab>
-        <v-tab to="/articles">Articles</v-tab>
+        <v-tab to="/articles/">Articles</v-tab>
         <v-tab to="/downloads">Downloads</v-tab>
         <v-tab to="/blog">Experiment Blog</v-tab>
         <v-tab to="/about">About AYRJ</v-tab>

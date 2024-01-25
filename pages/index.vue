@@ -3,10 +3,10 @@
   <v-sheet class="text-center background" width="100%">
     <div
       style="
+        height: 500px;
         color: white;
         backdrop-filter: blur(8px);
         position: relative;
-        top: 14%;
       "
     >
       <v-card variant="text" max-width="1000" class="mx-auto">
@@ -23,9 +23,14 @@
           height="80"
           rounded="0"
           variant="outlined"
+          href="/articles/"
           >PUBLISH WITH US</v-btn
         >
-        <v-btn class="display-inline mt-5" height="80" rounded="0"
+        <v-btn
+          class="display-inline mt-5"
+          height="80"
+          rounded="0"
+          href="/articles/"
           >READ PUBLICATIONS</v-btn
         >
       </v-card>
@@ -81,6 +86,7 @@
             variant="outlined"
             rounded="0"
             color="#52787b"
+            href="/submit"
           >
             SUBMIT YOUR MANUSCRIPT
           </v-btn>
@@ -106,7 +112,13 @@
         volunteer with us to spread knowledge and fight disinformation.
         Volunteers of all walks of life welcome!
       </p>
-      <v-btn class="mt-5 px-10" height="50" rounded="0" variant="outlined">
+      <v-btn
+        class="mt-5 px-10"
+        height="50"
+        rounded="0"
+        variant="outlined"
+        href="/submit"
+      >
         CONTACT
       </v-btn>
     </v-card>
