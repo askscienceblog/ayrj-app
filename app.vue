@@ -1,10 +1,10 @@
 <template>
   <v-app>
-    <page-header :device="device"></page-header>
+    <page-header v-if="render" :device="device"></page-header>
     <v-main>
-      <NuxtPage></NuxtPage>
+      <NuxtPage v-if="render" :device="device"></NuxtPage>
     </v-main>
-    <page-footer :device="device"></page-footer>
+    <page-footer v-if="render" :device="device"></page-footer>
   </v-app>
 </template>
 
@@ -15,32 +15,43 @@ import PageFooter from "./components/PageFooter.vue";
 export default {
   data() {
     return {
-      windowWidth: 2000,
+      render: false,
     };
   },
-
-  computed: {
-    device() {
-      console.log(this.windowWidth);
-      if (1100 >= this.windowWidth > 0) {
+  methods: {
+    findDevice(width) {
+      if (1100 >= width > 0) {
         return "s";
       } else {
         return "l";
       }
     },
+
+    resizeEvent() {
+      this.render = false;
+      this.device = this.findDevice(window.innerWidth);
+      this.render = true;
+    },
+  },
+
+  beforeMount() {
+    const findDevice = function (width) {
+      if (1100 >= width > 0) {
+        return "s";
+      } else {
+        return "l";
+      }
+    };
+    this.device = findDevice(window.innerWidth);
+    this.render = true;
   },
 
   mounted() {
     window.addEventListener("resize", this.resizeEvent);
-    this.windowWidth = window.innerWidth;
   },
+
   unmounted() {
-    window.removeEventListener("resize", this.resizeEvent);
-  },
-  methods: {
-    resizeEvent() {
-      this.windowWidth = window.innerWidth;
-    },
+    window.removeEventListener("resize", this.resize);
   },
 
   components: {

@@ -1,6 +1,14 @@
 <template>
   <!-- Manuscript Submission Instructions -->
-  <v-sheet class="background" width="100%" height="auto">
+  <v-sheet
+    class="background"
+    :class="{
+      'l-background-scale': device === 'l' ? true : false,
+      's-background-scale': device === 's' ? true : false,
+    }"
+    width="100%"
+    height="auto"
+  >
     <div style="color: white; backdrop-filter: blur(12px)" class="flex-column">
       <p class="pa-16 text-h3 text-center font-weight-bold">
         Submit Your Manuscript
@@ -89,6 +97,11 @@
 
 <script>
 export default {
+  computed: {
+    device() {
+      return useAttrs().device;
+    },
+  },
   data() {
     return {
       reqs: [
@@ -145,7 +158,15 @@ export default {
   height: 500px;
 
   background-image: url("/public/imgs/background/samples-blue.jpg");
-  background-size: 100% 100%;
   background-repeat: no-repeat;
+}
+
+.s-background-scale {
+  background-size: auto 100%;
+  background-position: center center;
+}
+
+.l-background-scale {
+  background-size: 100% 100%;
 }
 </style>

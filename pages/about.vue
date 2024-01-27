@@ -213,8 +213,10 @@ export default {
   height: 200px;
 
   background-image: url("/public/imgs/background/pipette.jpeg");
-  background-size: 100% 100%;
   background-repeat: no-repeat;
+  background-size: 100%;
+  transition: background-size 4s ease;
+  background-position: center center;
 }
 .featured-image {
   max-height: 500px;

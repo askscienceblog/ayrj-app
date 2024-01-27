@@ -47,7 +47,7 @@ export default {
   data: () => ({
     pages: [
       { title: "Home", page: "/" },
-      { title: "Articles", page: "/articles/" },
+      { title: "Publications", page: "/publications/" },
       { title: "Journals", page: "/journals" },
       { title: "Experiment Blog", page: "/blog" },
       { title: "About AYRJ", page: "/about" },

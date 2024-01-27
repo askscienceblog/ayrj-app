@@ -67,7 +67,8 @@ export default {
   height: 200px;
 
   background-image: url("/public/imgs/background/microscope.png");
-  background-size: 100% 100%;
+  background-size: 100%;
+  background-position: center center;
   background-repeat: no-repeat;
 }
 </style>

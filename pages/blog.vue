@@ -120,7 +120,9 @@ export default {
   height: 400px;
 
   background-image: url("/public/imgs/background/samples-orange.jpg");
-  background-size: 100% 100%;
+  background-size: 100%;
+  transition: background-size 4s ease;
   background-repeat: no-repeat;
+  background-position: center center;
 }
 </style>

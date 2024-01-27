@@ -2,6 +2,10 @@
   <div style="position: relative; text-align: center; color: white">
     <v-sheet
       class="background"
+      :class="{
+        'l-background-scale': device === 'l' ? true : false,
+        's-background-scale': device === 's' ? true : false,
+      }"
       height="300"
       width="100%"
       style="filter: blur(4px); color: white"
@@ -105,6 +109,7 @@
 </template>
 
 <script>
+import { useAttrs } from "vue";
 import ProjectsTable from "../components/ProjectsTable.vue";
 
 export default {
@@ -138,8 +143,13 @@ export default {
     tableHeaderString() {
       return `Search Results for \"${this.userSearchContent}\"`;
     },
+    device() {
+      return useAttrs().device;
+    },
   },
-
+  mounted() {
+    console.log(useAttrs().device);
+  },
   data() {
     return {
       showFeatured: true,
@@ -206,7 +216,14 @@ export default {
   height: 200px;
 
   background-image: url("/public/imgs/background/incubator.jpg");
-  background-size: 100% 100%;
   background-repeat: no-repeat;
+}
+
+.l-background-scale {
+  background-size: 100% 100%;
+}
+.s-background-scale {
+  background-position: center center;
+  background-size: auto 100%;
 }
 </style>

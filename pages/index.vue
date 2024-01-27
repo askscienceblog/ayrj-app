@@ -1,15 +1,23 @@
 <template>
   <!-- Section Title -->
-  <v-sheet class="background text-center" width="100%" height="auto">
+  <v-sheet
+    class="background text-center"
+    :class="{
+      'l-background-scale': device === 'l' ? true : false,
+      's-background-scale': device === 's' ? true : false,
+    }"
+    width="100%"
+    height="auto"
+  >
     <div
-      style="color: white; backdrop-filter: blur(8px); height: 500px"
+      style="color: white; backdrop-filter: blur(8px); padding-block: 100px"
       class="flex-column"
     >
       <div
         style="max-width: 1000px; position: relative; top: 20%"
         class="mx-auto page-title"
       >
-        <p class="text-h3 text-wrap font-weight-bold" style="">
+        <p class="text-h3 text-wrap font-weight-bold">
           Asean Young Researchers' Journal
         </p>
         <p class="text-h6 my-6">
@@ -23,10 +31,10 @@
             height="80"
             rounded="0"
             variant="outlined"
-            href="/articles/"
+            href="/publications/"
             >PUBLISH WITH US</v-btn
           >
-          <v-btn class="mt-5" height="80" rounded="0" href="/articles/"
+          <v-btn class="mt-5" height="80" rounded="0" href="/publications/"
             >READ PUBLICATIONS</v-btn
           >
         </div>
@@ -124,6 +132,11 @@
 
 <script>
 export default {
+  computed: {
+    device() {
+      return useAttrs().device;
+    },
+  },
   data() {
     return {
       highlights: [
@@ -142,7 +155,16 @@ export default {
   height: 500px;
 
   background-image: url("/public/imgs/background/petridish.jpg");
-  background-size: 100% 100%;
   background-repeat: no-repeat;
+  transition: background-size 4s ease;
+  background-position: center center;
+}
+
+.l-background-scale {
+  background-size: 100% 100%;
+}
+
+.s-background-scale {
+  background-size: auto 100%;
 }
 </style>

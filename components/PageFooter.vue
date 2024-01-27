@@ -111,7 +111,7 @@
         Join our newsletter. No spam. Just Knowledge
       </p>
 
-      <v-sheet width="300px" class="my-6 ml-6" color="#00000000">
+      <v-sheet width="300px" class="my-6 mx-auto" color="#00000000">
         <v-form>
           <p class="font-weight-bold">First Name:</p>
           <v-text-field
