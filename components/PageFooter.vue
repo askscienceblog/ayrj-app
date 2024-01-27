@@ -2,12 +2,16 @@
   <template>
     <v-footer inset>
       <v-container fluid>
-        <v-row>
+        <v-row v-if="device === 'l'">
           <!-- Website Publicity -->
           <v-sheet color="#eeeeee" width="100%" height="auto" class="py-16">
-            <v-sheet color="#00000000" class="d-flex flex-row flex-wrap mx-8">
+            <v-sheet
+              color="#00000000"
+              class="d-flex flex-wrap"
+              style="position: relative; left: 5%"
+            >
               <!-- Logo -->
-              <img class="logo-image" src="/public/imgs/logo.png" />
+              <img class="l-logo-image" src="/public/imgs/logo.png" />
 
               <v-divider vertical></v-divider>
 
@@ -36,45 +40,101 @@
 
               <!-- Form -->
               <v-sheet class="flex-item-center mx-5" color="#00000000">
-                <v-container>
-                  <v-row>
-                    <p class="font-weight-bold ml-6">
-                      Join our newsletter. No spam. Just Knowledge
-                    </p>
-                  </v-row>
+                <p class="font-weight-bold ml-6">
+                  Join our newsletter. No spam. Just Knowledge
+                </p>
 
-                  <v-row>
-                    <v-sheet
-                      min-width="380"
-                      class="my-6 ml-6"
-                      color="#00000000"
+                <v-sheet min-width="380" class="my-6 ml-6" color="#00000000">
+                  <v-form>
+                    <p class="font-weight-bold">First Name:</p>
+                    <v-text-field
+                      variant="outlined"
+                      :rules="rules"
+                      v-model="firstName"
+                      label="Your First Name"
+                    ></v-text-field>
+
+                    <p class="font-weight-bold">Email Address:</p>
+                    <v-text-field
+                      variant="outlined"
+                      :rules="rules"
+                      v-model="emailAddress"
+                      label="Your Email Address"
+                    ></v-text-field>
+
+                    <v-sheet width="100" class="mt-n1"
+                      ><v-btn type="submit" color="blue" block
+                        >Submit</v-btn
+                      ></v-sheet
                     >
-                      <v-form>
-                        <p class="font-weight-bold">First Name:</p>
-                        <v-text-field
-                          variant="outlined"
-                          :rules="rules"
-                          v-model="firstName"
-                          label="Your First Name"
-                        ></v-text-field>
+                  </v-form>
+                </v-sheet>
+              </v-sheet>
+            </v-sheet>
+          </v-sheet>
+        </v-row>
 
-                        <p class="font-weight-bold">Email Address:</p>
-                        <v-text-field
-                          variant="outlined"
-                          :rules="rules"
-                          v-model="emailAddress"
-                          label="Your Email Address"
-                        ></v-text-field>
+        <v-row v-if="device === 's'">
+          <!-- Website Publicity -->
+          <v-sheet color="#eeeeee" width="100%" height="auto" class="py-16">
+            <!-- Logo -->
+            <img class="s-footer-logo" src="/public/imgs/logo.png" />
 
-                        <v-sheet width="100" class="mt-n1"
-                          ><v-btn type="submit" color="blue" block
-                            >Submit</v-btn
-                          ></v-sheet
-                        >
-                      </v-form>
-                    </v-sheet>
-                  </v-row>
-                </v-container>
+            <!-- About Us -->
+            <v-sheet
+              height="auto"
+              width="180"
+              class="s-footer-about mx-5"
+              color="#eeeeee"
+            >
+              <p class="text-h5 text-center font-weight-bold">About Us</p>
+
+              <div v-for="page in pages" class="text-center">
+                <v-btn variant="text">
+                  <a
+                    class="text-subtitle-2"
+                    :href="page.href"
+                    style="text-decoration: none"
+                    >{{ page.title }}</a
+                  >
+                </v-btn>
+              </div>
+            </v-sheet>
+
+            <!-- Form -->
+            <v-sheet
+              class="mx-auto text-center"
+              color="#00000000"
+              max-width="400px"
+            >
+              <p class="font-weight-bold ml-6 text-wrap">
+                Join our newsletter. No spam. Just Knowledge
+              </p>
+
+              <v-sheet width="300px" class="my-6 ml-6" color="#00000000">
+                <v-form>
+                  <p class="font-weight-bold">First Name:</p>
+                  <v-text-field
+                    variant="outlined"
+                    :rules="rules"
+                    v-model="firstName"
+                    label="Your First Name"
+                  ></v-text-field>
+
+                  <p class="font-weight-bold">Email Address:</p>
+                  <v-text-field
+                    variant="outlined"
+                    :rules="rules"
+                    v-model="emailAddress"
+                    label="Your Email Address"
+                  ></v-text-field>
+
+                  <v-sheet width="100" class="mx-auto"
+                    ><v-btn type="submit" color="blue" block
+                      >Submit</v-btn
+                    ></v-sheet
+                  >
+                </v-form>
               </v-sheet>
             </v-sheet>
           </v-sheet>
@@ -127,6 +187,7 @@
 
 <script>
 export default {
+  props: { device: String },
   data: () => {
     return {
       pages: [
@@ -153,10 +214,27 @@ export default {
   align-self: center;
 }
 
-.logo-image {
+.l-logo-image {
   max-width: 400px;
   max-height: 300px;
   margin-top: 40px;
   margin-inline: 100px;
+}
+
+.s-footer-logo {
+  max-width: 400px;
+  max-height: 300px;
+
+  position: relative;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, -50%);
+}
+
+.s-footer-about {
+  position: relative;
+  left: 50%;
+  top: 0%;
+  transform: translate(-50%, -50%);
 }
 </style>

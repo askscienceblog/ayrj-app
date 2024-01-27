@@ -1,16 +1,15 @@
 <template>
   <!-- Section Title -->
-  <v-sheet class="text-center background" width="100%">
+  <v-sheet class="background text-center" width="100%" height="auto">
     <div
-      style="
-        height: 500px;
-        color: white;
-        backdrop-filter: blur(8px);
-        position: relative;
-      "
+      style="color: white; backdrop-filter: blur(8px); height: 500px"
+      class="flex-column"
     >
-      <v-card variant="text" max-width="1000" class="mx-auto">
-        <p class="text-h3 text-wrap font-weight-bold mt-16">
+      <div
+        style="max-width: 1000px; position: relative; top: 20%"
+        class="mx-auto page-title"
+      >
+        <p class="text-h3 text-wrap font-weight-bold" style="">
           Asean Young Researchers' Journal
         </p>
         <p class="text-h6 my-6">
@@ -18,22 +17,20 @@
           and have them published in Asean's only Young Scientist Journal. No
           prior publications required.
         </p>
-        <v-btn
-          class="display-inline mt-5"
-          height="80"
-          rounded="0"
-          variant="outlined"
-          href="/articles/"
-          >PUBLISH WITH US</v-btn
-        >
-        <v-btn
-          class="display-inline mt-5"
-          height="80"
-          rounded="0"
-          href="/articles/"
-          >READ PUBLICATIONS</v-btn
-        >
-      </v-card>
+        <div style="display: inline">
+          <v-btn
+            class="mt-5"
+            height="80"
+            rounded="0"
+            variant="outlined"
+            href="/articles/"
+            >PUBLISH WITH US</v-btn
+          >
+          <v-btn class="mt-5" height="80" rounded="0" href="/articles/"
+            >READ PUBLICATIONS</v-btn
+          >
+        </div>
+      </div>
     </div>
   </v-sheet>
 
@@ -43,7 +40,7 @@
     <v-carousel-item>
       <v-sheet
         color="#00000000"
-        class="my-16 px-3 d-flex flex-row flex-wrap align-content-center"
+        class="pt-16 px-3 d-flex flex-row flex-wrap align-content-center"
       >
         <div class="mx-auto">
           <v-btn
@@ -62,7 +59,7 @@
   </v-carousel>
 
   <!-- Message -->
-  <v-sheet height="500" width="100%" class="">
+  <v-sheet height="auto" width="100%" class="mb-10">
     <v-container>
       <v-row> </v-row>
       <v-row>

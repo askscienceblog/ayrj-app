@@ -1,17 +1,14 @@
 <template>
-  <v-sheet
-    class="text-center text-h3 page-title font-weight-bold background"
-    height="300"
-    width="100%"
-  >
+  <div style="position: relative; text-align: center; color: white">
     <v-sheet
-      color="#00000000"
-      width="400"
-      class="pa-3 mx-auto"
-      style="backdrop-filter: blur(8px); color: white"
-      >About AYRJ
+      class="background"
+      height="300"
+      width="100%"
+      style="filter: blur(4px); color: white"
+    >
     </v-sheet>
-  </v-sheet>
+    <p class="text-h3 font-weight-bold page-title">About AYRJ</p>
+  </div>
 
   <v-container>
     <v-row>
@@ -203,7 +200,11 @@ export default {
 
 <style scoped>
 .page-title {
-  padding-top: 120px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   color: white;
 }
 

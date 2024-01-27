@@ -1,17 +1,14 @@
 <template>
-  <v-sheet
-    class="text-center text-h3 page-title font-weight-bold background"
-    height="300"
-    width="100%"
-  >
+  <div style="position: relative; text-align: center; color: white">
     <v-sheet
-      color="#00000000"
-      width="300"
-      class="pa-3 mx-auto"
-      style="backdrop-filter: blur(8px); color: white"
-      >Downloads
+      class="background"
+      height="300"
+      width="100%"
+      style="filter: blur(4px); color: white"
+    >
     </v-sheet>
-  </v-sheet>
+    <p class="text-h3 font-weight-bold page-title">Journals</p>
+  </div>
 
   <v-sheet class="mx-auto mb-8" width="80%">
     <p class="text-h5 my-15 font-weight-bold">Quarterly Releases</p>
@@ -41,9 +38,9 @@ export default {
   data() {
     return {
       downloads: [
-        { title: "Research Journal 2024 Q1", id: "2024q1" },
-        { title: "Research Journal 2024 Q2", id: "2024q2" },
-        { title: "Research Journal 2024 Q3", id: "2024q3" },
+        { title: "AYRJ Volume 1 Issue 1", id: "2024q1" },
+        { title: "AYRJ Volume 1 Issue 2", id: "2024q2" },
+        { title: "AYRJ Volume 1 Issue 3", id: "2024q3" },
       ],
     };
   },
@@ -58,15 +55,18 @@ export default {
 
 <style scoped>
 .page-title {
-  padding-top: 120px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   color: white;
 }
-
 .background {
   width: auto;
   height: 200px;
 
-  background-image: url("/public/imgs/background/pipette.jpeg");
+  background-image: url("/public/imgs/background/microscope.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
