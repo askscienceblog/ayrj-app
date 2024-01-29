@@ -1,11 +1,7 @@
 <template>
   <div style="position: relative; text-align: center; color: white">
-    <v-sheet
-      class="background"
-      width="100%"
-      style="filter: blur(4px); color: white"
-    >
-    </v-sheet>
+    <v-sheet class="background"> </v-sheet>
+    <v-sheet class="overlay"></v-sheet>
     <p class="text-h3 font-weight-bold page-title">Experiment Blogs</p>
   </div>
 
@@ -111,18 +107,33 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 1;
 
   color: white;
 }
 
 .background {
-  width: auto;
-  height: 400px;
+  z-index: 0;
+
+  width: 100%;
+  height: 300px;
 
   background-image: url("/public/imgs/background/samples-orange.jpg");
+  background-repeat: no-repeat;
   background-size: 100%;
   transition: background-size 4s ease;
-  background-repeat: no-repeat;
   background-position: center center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0%;
+  z-index: 0;
+
+  height: 300px;
+  width: 100%;
+
+  background-color: black;
+  opacity: 0.5;
 }
 </style>

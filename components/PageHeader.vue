@@ -2,8 +2,8 @@
   <v-app-bar density="prominent" app>
     <img
       :class="{
-        'l-logo-image': device === 'l' ? true : false,
-        's-logo-image': device === 's' ? true : false,
+        'l-logo-image': device === 'l',
+        's-logo-image': device === 's',
       }"
       src="/public/imgs/logo.png"
     />

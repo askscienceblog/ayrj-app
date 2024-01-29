@@ -3,20 +3,16 @@
   <v-sheet
     class="background text-center"
     :class="{
-      'l-background-scale': device === 'l' ? true : false,
-      's-background-scale': device === 's' ? true : false,
+      'l-background-scale': device === 'l',
+      's-background-scale': device === 's',
     }"
     width="100%"
-    height="auto"
+    height="500px"
+    style="position: relative"
   >
-    <div
-      style="color: white; backdrop-filter: blur(8px); padding-block: 100px"
-      class="flex-column"
-    >
-      <div
-        style="max-width: 1000px; position: relative; top: 20%"
-        class="mx-auto page-title"
-      >
+    <v-sheet class="overlay"></v-sheet>
+    <div style="max-width: 1000px" class="page-title">
+      <div class="mx-auto">
         <p class="text-h3 text-wrap font-weight-bold">
           Asean Young Researchers' Journal
         </p>
@@ -150,14 +146,36 @@ export default {
 </script>
 
 <style scoped>
+.page-title {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+
+  color: white;
+}
+
 .background {
-  width: auto;
-  height: 500px;
+  z-index: 0;
 
   background-image: url("/public/imgs/background/petridish.jpg");
   background-repeat: no-repeat;
+  background-size: 100%;
   transition: background-size 4s ease;
   background-position: center center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0%;
+  z-index: 0;
+
+  width: 100%;
+  height: 500px;
+
+  background-color: black;
+  opacity: 0.5;
 }
 
 .l-background-scale {

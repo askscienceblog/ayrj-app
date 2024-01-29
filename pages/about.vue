@@ -2,11 +2,15 @@
   <div style="position: relative; text-align: center; color: white">
     <v-sheet
       class="background"
+      :class="{
+        'l-background-scale': device === 'l' ? true : false,
+        's-background-scale': device === 's' ? true : false,
+      }"
       height="300"
       width="100%"
-      style="filter: blur(4px); color: white"
     >
     </v-sheet>
+    <v-sheet class="overlay" height="300" width="100%"> </v-sheet>
     <p class="text-h3 font-weight-bold page-title">About AYRJ</p>
   </div>
 
@@ -30,77 +34,51 @@
     </v-row>
   </v-container>
 
-  <v-sheet color="#eeeeee" width="100%" height="auto" class="py-16">
-    <v-container>
-      <v-row no-gutters>
-        <v-col>
-          <v-sheet
-            class="mx-auto mt-2"
-            min-width="200"
-            max-width="200"
-            color="#00000000"
-          >
-            <p class="text-h1">{{ noOfArticles }}</p>
-            <v-spacer></v-spacer>
-            <p class="text-h6 mx-n13 pa-3">Articles Published</p>
-          </v-sheet>
-        </v-col>
+  <v-sheet
+    color="#eeeeeeee"
+    width="100%"
+    height="auto"
+    class="py-16 d-flex text-center justify-center"
+  >
+    <v-sheet class="mt-2" min-width="200" max-width="200" color="#00000000">
+      <p class="text-h1">{{ noOfArticles }}</p>
+      <p class="text-h6 mx-n13 pa-3">Articles Published</p>
+    </v-sheet>
 
-        <v-sheet
-          color="#000000"
-          height="300"
-          width="1"
-          class="mr-10 ml-n15 mt-n10"
-        ></v-sheet>
+    <v-divider
+      vertical
+      :thickness="4"
+      class="border-opacity-100 mx-6"
+    ></v-divider>
+    <v-sheet
+      class="mx-3 ml-10"
+      min-width="200"
+      max-width="200"
+      color="#00000000"
+    >
+      <p class="text-h4 custom-bold">{{ goals[0].title }}</p>
+      <p class="my-5">{{ goals[0].subtitle }}</p>
+    </v-sheet>
 
-        <v-col>
-          <v-sheet
-            class="mx-3 ml-10"
-            min-width="200"
-            max-width="200"
-            color="#00000000"
-          >
-            <p class="text-h4 custom-bold">{{ goals[0].title }}</p>
-            <p class="my-5">{{ goals[0].subtitle }}</p>
-          </v-sheet>
-        </v-col>
-        <v-col>
-          <v-sheet
-            class="mx-3"
-            min-width="200"
-            max-width="200"
-            color="#00000000"
-          >
-            <p class="text-h4 custom-bold">{{ goals[1].title }}</p>
-            <p class="my-5">{{ goals[1].subtitle }}</p>
-          </v-sheet>
-        </v-col>
-        <v-col>
-          <v-sheet
-            class="mx-3"
-            min-width="200"
-            max-width="200"
-            color="#00000000"
-          >
-            <p class="text-h4 custom-bold">{{ goals[2].title }}</p>
-            <v-sheet
-              color="#00000000"
-              class="ml-n5 mt-3"
-              height="auto"
-              width="180"
-            >
-              <v-chip
-                variant="text"
-                v-for="(value, index) in goals[2].subtitle"
-              >
-                <v-icon class="pa-4">mdi-play</v-icon>
-                <p>{{ value }}</p>
-              </v-chip>
-            </v-sheet>
-          </v-sheet>
-        </v-col>
-      </v-row>
-    </v-container>
+    <v-sheet class="mx-3" min-width="200" max-width="200" color="#00000000">
+      <p class="text-h4 custom-bold">{{ goals[1].title }}</p>
+      <p class="my-5">{{ goals[1].subtitle }}</p>
+    </v-sheet>
+
+    <v-sheet class="mx-3" min-width="200" max-width="200" color="#00000000">
+      <p class="text-h4 custom-bold">{{ goals[2].title }}</p>
+      <v-sheet
+        color="#00000000"
+        class="mt-3 ml-2 text-left"
+        height="auto"
+        width="180"
+      >
+        <v-chip variant="text" v-for="(value, index) in goals[2].subtitle">
+          <v-icon class="pa-4">mdi-play</v-icon>
+          <p>{{ value }}</p>
+        </v-chip>
+      </v-sheet>
+    </v-sheet>
   </v-sheet>
 
   <v-sheet>
@@ -130,6 +108,12 @@
 
 <script>
 export default {
+  computed: {
+    device() {
+      return useAttrs().device;
+    },
+  },
+
   methods: {
     isOdd(index) {
       if (index % 2 === 0) {
@@ -204,6 +188,7 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 1;
 
   color: white;
 }
@@ -211,12 +196,28 @@ export default {
 .background {
   width: auto;
   height: 200px;
+  z-index: 0;
 
   background-image: url("/public/imgs/background/pipette.jpeg");
   background-repeat: no-repeat;
-  background-size: 100%;
   transition: background-size 4s ease;
   background-position: center center;
+}
+
+.l-background-scale {
+  background-size: 100%;
+}
+
+.s-background-scale {
+  background-size: auto 100%;
+}
+.overlay {
+  position: absolute;
+  top: 0%;
+  z-index: 0;
+
+  background-color: black;
+  opacity: 0.5;
 }
 .featured-image {
   max-height: 500px;

@@ -1,16 +1,14 @@
 <template>
-  <div style="position: relative; text-align: center; color: white">
+  <div style="position: relative">
     <v-sheet
       class="background"
       :class="{
         'l-background-scale': device === 'l' ? true : false,
         's-background-scale': device === 's' ? true : false,
       }"
-      height="300"
-      width="100%"
-      style="filter: blur(4px); color: white"
     >
     </v-sheet>
+    <v-sheet class="overlay"></v-sheet>
     <p class="text-h3 font-weight-bold page-title">Publications</p>
   </div>
 
@@ -207,16 +205,34 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 1;
 
   color: white;
 }
 
 .background {
-  width: auto;
-  height: 200px;
+  z-index: 0;
+
+  width: 100%;
+  height: 300px;
 
   background-image: url("/public/imgs/background/incubator.jpg");
   background-repeat: no-repeat;
+  background-size: 100%;
+  transition: background-size 4s ease;
+  background-position: center center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0%;
+  z-index: 0;
+
+  height: 300px;
+  width: 100%;
+
+  background-color: black;
+  opacity: 0.5;
 }
 
 .l-background-scale {

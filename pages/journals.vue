@@ -1,25 +1,20 @@
 <template>
   <div style="position: relative; text-align: center; color: white">
-    <v-sheet
-      class="background"
-      height="300"
-      width="100%"
-      style="filter: blur(4px); color: white"
-    >
-    </v-sheet>
+    <v-sheet class="background"> </v-sheet>
+    <v-sheet class="overlay"></v-sheet>
     <p class="text-h3 font-weight-bold page-title">Journals</p>
   </div>
 
   <v-sheet class="mx-auto mb-8" width="80%">
-    <p class="text-h5 my-15 font-weight-bold">Quarterly Releases</p>
+    <p class="text-h5 my-15 font-weight-bold">Journals</p>
     <v-sheet color="black" height="2" class="mt-n6"></v-sheet>
   </v-sheet>
 
   <v-card
     v-for="download in downloads"
-    class="d-flex flex-fill mx-auto my-2"
+    class="d-flex mx-auto my-2"
     height="100"
-    max-width="1200"
+    max-width="80%"
   >
     <p class="my-auto mx-auto me-auto text-h5 font-weight-bold">
       {{ download.title }}
@@ -59,16 +54,33 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 2;
 
   color: white;
 }
+
 .background {
-  width: auto;
-  height: 200px;
+  z-index: 0;
+
+  width: 100%;
+  height: 300px;
 
   background-image: url("/public/imgs/background/microscope.png");
-  background-size: 100%;
-  background-position: center center;
   background-repeat: no-repeat;
+  background-size: 100%;
+  transition: background-size 4s ease;
+  background-position: center center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0%;
+  z-index: 0;
+
+  height: 300px;
+  width: 100%;
+
+  background-color: black;
+  opacity: 0.5;
 }
 </style>
