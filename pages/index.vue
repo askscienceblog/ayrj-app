@@ -6,8 +6,6 @@
       'l-background-scale': device === 'l',
       's-background-scale': device === 's',
     }"
-    width="100%"
-    height="500px"
     style="position: relative"
   >
     <v-sheet class="overlay"></v-sheet>
@@ -159,6 +157,9 @@ export default {
 .background {
   z-index: 0;
 
+  width: 100%;
+  height: 600px;
+
   background-image: url("/public/imgs/background/petridish.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
@@ -172,7 +173,7 @@ export default {
   z-index: 0;
 
   width: 100%;
-  height: 500px;
+  height: 600px;
 
   background-color: black;
   opacity: 0.5;

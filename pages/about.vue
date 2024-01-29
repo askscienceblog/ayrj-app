@@ -17,22 +17,57 @@
   <v-container>
     <v-row>
       <v-col>
-        <p class="text-h4 mt-16 font-weight-bold">{{ aboutUs.title }}</p>
+        <p class="text-h4 mt-16 font-weight-bold">Established in 2023!</p>
       </v-col>
       <v-col>
         <p class="text-h6 text-wrap font-weight-bold mt-16">
-          {{ aboutUs.subtitle }}
+          ASEAN Young Researchers’ Journal aims to provide a platform for Young
+          Researchers in the region to showcase their findings. We hope to
+          provide a safe environment for holistic development and impactful
+          interactions with like-minded peers.
         </p>
         <p class="text-wrap my-8">
-          {{ aboutUs.text_1 }}
+          We are a volunteer run project and am not related or affiliated with
+          Ministry of Education, Singapore Science Centre or the Association of
+          Southeast Asian Nations.
         </p>
-        <p class="text-wrap">
-          {{ aboutUs.text_2 }}
-        </p>
+        <p class="text-wrap">We look forward to recieving your manuscripts.</p>
         <p class="text-h6 font-weight-bold my-16">Jamie & Team</p>
       </v-col>
     </v-row>
   </v-container>
+
+  <v-divider horizontal thickness="5" class="border-opacity-100"></v-divider>
+  <div
+    class="text-h2 text-center mx-auto"
+    width="300"
+    style="margin-block: 120px"
+  >
+    Our Team
+  </div>
+  <v-divider horizontal thickness="5" class="border-opacity-100"></v-divider>
+
+  <v-card
+    v-for="team in ourTeam"
+    class="my-10 mx-16 text-center"
+    variant="text"
+  >
+    <p class="text-h4 mt-10 font-weight-bold">{{ team.committee }}</p>
+    <p class="mt-3 text-h6">{{ team.description }}</p>
+    <div class="d-flex flex-wrap justify-center align-center my-10">
+      <NameCard
+        v-for="member in team.members"
+        :name="member.name"
+        :title="member.title"
+        :description="member.intro"
+      ></NameCard
+      ><v-divider
+        horizontal
+        thickness="5"
+        class="mt-16 border-opacity-100"
+      ></v-divider>
+    </div>
+  </v-card>
 
   <v-sheet
     color="#eeeeeeee"
@@ -107,35 +142,182 @@
 </template>
 
 <script>
+import NameCard from "../components/NameCard.vue";
+
 export default {
+  components: { NameCard },
   computed: {
     device() {
       return useAttrs().device;
     },
   },
 
-  methods: {
-    isOdd(index) {
-      if (index % 2 === 0) {
-        return false;
-      } else {
-        return true;
-      }
-    },
-  },
+  methods: {},
 
   data() {
     return {
       noOfArticles: 3,
-      aboutUs: {
-        title: "Established in 2023!",
-        subtitle:
-          "ASEAN Young Researchers’ Journal aims to provide a platform for Young Researchers in the region to showcase their findings. We hope to provide a safe environment for holistic development and impactful interactions with like-minded peers. ",
-        text_1:
-          "We are a volunteer run project and am not related or affiliated with Ministry of Education, Singapore Science Centre or the Association of Southeast Asian Nations.",
 
-        text_2: "We look forward to recieving your manuscripts.",
-      },
+      ourTeam: [
+        {
+          committee: "Journal Board",
+          description:
+            "The Journal Board is the main decision making body of AYRJ and oversees all committees.",
+          email: null,
+          members: [
+            {
+              name: "Jamie Wen",
+              title: "Founder | Chief Editor",
+              pic: "",
+              email: "",
+              intro: "",
+            },
+            {
+              name: "Jian Hui",
+              title: "Senior Editorial Board",
+              pic: "",
+              email: "",
+              intro: "",
+            },
+            {
+              name: "Jeremy Tan",
+              title: "Administrative Director",
+              pic: "",
+              email: "",
+              intro: "",
+            },
+            {
+              name: "Nicole",
+              title: "Communications Director",
+              pic: "",
+              email: "",
+              intro: "",
+            },
+            {
+              name: "Harry Cheong",
+              title: "Lead Frontend Developer",
+              pic: "",
+              email: "",
+              intro: "",
+            },
+            {
+              name: "Wang Chen",
+              title: "Lead Backend Developer",
+              pic: "",
+              email: "",
+              intro: "",
+            },
+          ],
+        },
+        {
+          committee: "Editorial Board",
+          description:
+            "The Editorial Board is in charge of the processing, appraisal and approval of all received research papers.",
+          email: "",
+          members: [
+            {
+              name: "Jian Hui",
+              title: "Senior Editorial Board",
+              pic: "",
+              email: "",
+              intro: "",
+            },
+            {
+              name: "Wang Chen",
+              title: "Editorial Board",
+              pic: "",
+              email: "",
+              intro: "",
+            },
+            {
+              name: "Daisy",
+              title: "Editorial Board",
+              pic: "",
+              email: "",
+              intro: "",
+            },
+            {
+              name: "Ze Dong",
+              title: "Editorial Board",
+              pic: "",
+              email: "",
+              intro: "",
+            },
+          ],
+        },
+        {
+          committee: "Admin",
+          description:
+            "The Administrative Committee is in charge of managing paper work and external relations with partnering organisations.",
+          email: "",
+          members: [
+            {
+              name: "Jeremy Tan",
+              title: "Administrative Director",
+              pic: "",
+              email: "",
+              intro: "",
+            },
+            {
+              name: "Kai Zhe",
+              title: "Administrative Associate",
+              pic: "",
+              email: "",
+              intro: "",
+            },
+            {
+              name: "Linus",
+              title: "Administrative Associate",
+              pic: "",
+              email: "",
+              intro: "",
+            },
+          ],
+        },
+        {
+          committee: "Science Communications",
+          description:
+            "The Science Communications Committee is in charge of publicity and design to grow our community of researchers.",
+          email: "",
+          members: [
+            {
+              name: "Nicole",
+              title: "Science Communication Director",
+              pic: "",
+              email: "",
+              intro: "",
+            },
+            {
+              name: "Valerie",
+              title: "Social Media Manager",
+              pic: "",
+              email: "",
+              intro: "",
+            },
+            {
+              name: "Erm Min",
+              title: "Social Media Manager",
+              pic: "",
+              email: "",
+              intro: "",
+            },
+            {
+              name: "Ru Ting",
+              title: "Publicity Manager",
+              pic: "",
+              email: "",
+              intro: "",
+            },
+            {
+              name: "Li Xuan",
+              title: "Publicity Manager",
+              pic: "",
+              email: "",
+              intro: "",
+            },
+          ],
+        },
+      ],
       goals: [
         {
           title: "Mission",
