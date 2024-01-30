@@ -1,5 +1,5 @@
 <template>
-  <v-container v-show="pageExists" fluid>
+  <v-container v-show="pageExists && loaded" fluid>
     <v-row class="text-center">
       <p class="font-weight-bold text-h3 pa-16 pb-5 mx-auto">
         {{ article.title }}
@@ -22,7 +22,7 @@
     </v-row>
     <v-row>
       <p class="text-subtitle-1 mx-auto mb-5">
-        {{ article.authors.join(", ") }}
+        {{ article.authors }}
       </p>
     </v-row>
 
@@ -50,7 +50,7 @@
     </v-row>
   </v-container>
 
-  <div v-show="!pageExists">
+  <div v-show="!pageExists && loaded">
     <NotFound></NotFound>
   </div>
 </template>
@@ -58,61 +58,40 @@
 <script>
 import NotFound from "/components/NotFound.vue";
 export default {
+  components: { NotFound },
+  methods: {
+    async reqPaper() {
+      const article = await useBaseFetch("/list/published", {
+        method: "GET",
+        query: {
+          length: 1,
+          start_at_id: this.$route.params.id,
+          content_match_quality_limit: 1,
+        },
+      });
+
+      if (toRaw(article.data.value)[0].id === this.$route.params.id) {
+        this.pageExists = true;
+        this.article = toRaw(article.data.value)[0];
+        this.article["authors"] = toRaw(this.article.authors.join(", "));
+        this.loaded = true;
+      } else {
+        this.pageExists = false;
+        this.loaded = true;
+      }
+    },
+  },
+
   data() {
     return {
       loaded: false,
-      article: {
-        // Dummy Data
-        title:
-          "The Environmental, Social And Economic Impact Of Alternate Meat Products",
-        authors: [
-          "Ze Dong Saw",
-          "Kai Zhe Tan",
-          "Kyson Kyi Sheng Chua",
-          "Jamie Wen",
-        ],
-        categories: ["Biology", "Food"],
-        abstract:
-          "Conventional agriculture requires large amounts of energy and resources to produce meat, and is one of the leading contributors to climate change. Hence, it is important to look into alternative meat products, which include cell based and plant based meats. This study took into account the multiple factors that contribute to social and environmental sustainability. It was found that cell based meats may be the best alternative meat option. ",
-        biblio: [
-          {
-            name: "Organisation for Economic Co-operation and Development. (2022). Meat consumption [Dataset]. Organisation for Economic Co-operation and Development. https://data.oecd.org/agroutput/meat-consumption.htm",
-            id: 1,
-          },
-          {
-            name: "The Humane League. (2020, December 1). Factory Farming: What It Is and Why It’s a Problem. https://thehumaneleague.org/article/what-is-factory-farming",
-            id: 2,
-          },
-          {
-            name: "[3] FAIRR Initiative. (2020, November 9). Intensive/Factory Farming - Investor information. FAIRR. https://www.fairr.org/article/intensive-factory-farming/",
-            id: 3,
-          },
-        ],
-      },
+      article: {},
     };
   },
-
-  components: { NotFound },
-
   computed: {},
 
-  async mounted() {
-    console.log(this.$route.params.id);
-    const article = await useBaseFetch("/list/published", {
-      method: "GET",
-      query: {
-        length: 1,
-        start_at_id: this.$route.params.id,
-        content_match_quality_limit: 0,
-      },
-    });
-    console.log(toRaw(article));
-    //   this.article = article.data.value;
-    //   if (toRaw(article.data.value).id === this.$route.params.id) {
-    //     this.pageExists = true;
-    //   } else {
-    //     this.pageExists = false;
-    //   }
+  mounted() {
+    setTimeout(this.reqPaper, 10);
   },
 };
 </script>
