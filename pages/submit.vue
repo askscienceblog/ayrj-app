@@ -148,8 +148,8 @@ export default {
             },
             {
               icon: "mdi-instagram",
-              iconTag: "@askscienceblog",
-              href: "https://www.instagram.com/",
+              iconTag: "@asean.youthresearchjournal",
+              href: "https://www.instagram.com/asean.youngresearchersjournal?igsh=ZXlzaDR3OXQzM2xj",
             },
           ],
         },

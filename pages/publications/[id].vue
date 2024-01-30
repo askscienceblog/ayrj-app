@@ -2,13 +2,13 @@
   <v-container v-show="pageExists" fluid>
     <v-row class="text-center">
       <p class="font-weight-bold text-h3 pa-16 pb-5 mx-auto">
-        {{ title }}
+        {{ article.title }}
       </p>
     </v-row>
     <v-row>
       <div class="mx-auto">
         <p
-          v-for="category in categories"
+          v-for="category in article.categories"
           style="
             display: inline-block;
             color: #3366cc;
@@ -21,7 +21,9 @@
       </div>
     </v-row>
     <v-row>
-      <p class="text-subtitle-1 mx-auto mb-5">{{ authors.join(", ") }}</p>
+      <p class="text-subtitle-1 mx-auto mb-5">
+        {{ article.authors.join(", ") }}
+      </p>
     </v-row>
 
     <v-row>
@@ -34,14 +36,14 @@
       <v-card width="1200" class="mx-auto my-10" variant="text">
         <p class="text-h5 my-2">Abstract</p>
         <v-divider horizontal></v-divider>
-        <p class="text-wrap mt-3">{{ abstract }}</p>
+        <p class="text-wrap mt-3">{{ article.abstract }}</p>
       </v-card>
     </v-row>
     <v-row>
       <v-card width="1200" class="mx-auto my-10" variant="text">
         <p class="text-h5 my-2">Bibliography</p>
         <v-divider horizontal></v-divider>
-        <div v-for="src in biblio">
+        <div v-for="src in article.biblio">
           <p class="my-4">{{ src.id + ".   " + src.name }}</p>
         </div>
       </v-card>
@@ -58,43 +60,59 @@ import NotFound from "/components/NotFound.vue";
 export default {
   data() {
     return {
-      // Dummy Data
-      title:
-        "The Environmental, Social And Economic Impact Of Alternate Meat Products",
-      authors: [
-        "Ze Dong Saw",
-        "Kai Zhe Tan",
-        "Kyson Kyi Sheng Chua",
-        "Jamie Wen",
-      ],
-      categories: ["Biology", "Food"],
-      abstract:
-        "Conventional agriculture requires large amounts of energy and resources to produce meat, and is one of the leading contributors to climate change. Hence, it is important to look into alternative meat products, which include cell based and plant based meats. This study took into account the multiple factors that contribute to social and environmental sustainability. It was found that cell based meats may be the best alternative meat option. ",
-      biblio: [
-        {
-          name: "Organisation for Economic Co-operation and Development. (2022). Meat consumption [Dataset]. Organisation for Economic Co-operation and Development. https://data.oecd.org/agroutput/meat-consumption.htm",
-          id: 1,
-        },
-        {
-          name: "The Humane League. (2020, December 1). Factory Farming: What It Is and Why It’s a Problem. https://thehumaneleague.org/article/what-is-factory-farming",
-          id: 2,
-        },
-        {
-          name: "[3] FAIRR Initiative. (2020, November 9). Intensive/Factory Farming - Investor information. FAIRR. https://www.fairr.org/article/intensive-factory-farming/",
-          id: 3,
-        },
-      ],
+      loaded: false,
+      article: {
+        // Dummy Data
+        title:
+          "The Environmental, Social And Economic Impact Of Alternate Meat Products",
+        authors: [
+          "Ze Dong Saw",
+          "Kai Zhe Tan",
+          "Kyson Kyi Sheng Chua",
+          "Jamie Wen",
+        ],
+        categories: ["Biology", "Food"],
+        abstract:
+          "Conventional agriculture requires large amounts of energy and resources to produce meat, and is one of the leading contributors to climate change. Hence, it is important to look into alternative meat products, which include cell based and plant based meats. This study took into account the multiple factors that contribute to social and environmental sustainability. It was found that cell based meats may be the best alternative meat option. ",
+        biblio: [
+          {
+            name: "Organisation for Economic Co-operation and Development. (2022). Meat consumption [Dataset]. Organisation for Economic Co-operation and Development. https://data.oecd.org/agroutput/meat-consumption.htm",
+            id: 1,
+          },
+          {
+            name: "The Humane League. (2020, December 1). Factory Farming: What It Is and Why It’s a Problem. https://thehumaneleague.org/article/what-is-factory-farming",
+            id: 2,
+          },
+          {
+            name: "[3] FAIRR Initiative. (2020, November 9). Intensive/Factory Farming - Investor information. FAIRR. https://www.fairr.org/article/intensive-factory-farming/",
+            id: 3,
+          },
+        ],
+      },
     };
   },
 
   components: { NotFound },
 
-  beforeMount() {
-    if (this.$route.params.id === "1") {
-      this.pageExists = true;
-    } else {
-      this.pageExists = false;
-    }
+  computed: {},
+
+  async mounted() {
+    console.log(this.$route.params.id);
+    const article = await useBaseFetch("/list/published", {
+      method: "GET",
+      query: {
+        length: 1,
+        start_at_id: this.$route.params.id,
+        content_match_quality_limit: 0,
+      },
+    });
+    console.log(toRaw(article));
+    //   this.article = article.data.value;
+    //   if (toRaw(article.data.value).id === this.$route.params.id) {
+    //     this.pageExists = true;
+    //   } else {
+    //     this.pageExists = false;
+    //   }
   },
 };
 </script>

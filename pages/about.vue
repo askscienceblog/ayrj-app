@@ -59,7 +59,10 @@
         v-for="member in team.members"
         :name="member.name"
         :title="member.title"
-        :description="member.intro"
+        :statement="member.intro"
+        :links="member.links"
+        :device="device"
+        :srcpath="member.pic"
       ></NameCard
       ><v-divider
         horizontal
@@ -150,6 +153,56 @@ export default {
     device() {
       return useAttrs().device;
     },
+
+    ourTeam() {
+      let team = [
+        {
+          committee: "Journal Board",
+          description:
+            "The Journal Board is the main decision making body of AYRJ and oversees all committees.",
+          email: null,
+          members: this.ourMembers.filter((member) => {
+            if (toRaw(member).committees.includes("Board")) {
+              return true;
+            }
+          }),
+        },
+        {
+          committee: "Editorial Board",
+          description:
+            "The Editorial Board is in charge of the processing, appraisal and approval of all received research papers.",
+          email: "",
+          members: this.ourMembers.filter((member) => {
+            if (toRaw(member).committees.includes("Editorial")) {
+              return true;
+            }
+          }),
+        },
+        {
+          committee: "Science Communications",
+          description:
+            "The Science Communications Committee is in charge of publicity and design to grow our community of researchers.",
+          email: "",
+          members: this.ourMembers.filter((member) => {
+            if (toRaw(member).committees.includes("Comms")) {
+              return true;
+            }
+          }),
+        },
+        {
+          committee: "Admin",
+          description:
+            "The Administrative Committee is in charge of managing paper work and external relations with partnering organisations.",
+          email: "",
+          members: this.ourMembers.filter((member) => {
+            if (toRaw(member).committees.includes("Admin")) {
+              return true;
+            }
+          }),
+        },
+      ];
+      return team;
+    },
   },
 
   methods: {},
@@ -158,164 +211,186 @@ export default {
     return {
       noOfArticles: 3,
 
-      ourTeam: [
+      ourMembers: [
         {
-          committee: "Journal Board",
-          description:
-            "The Journal Board is the main decision making body of AYRJ and oversees all committees.",
-          email: null,
-          members: [
-            {
-              name: "Jamie Wen",
-              title: "Founder | Chief Editor",
-              pic: "",
-              email: "",
-              intro: "",
-            },
-            {
-              name: "Jian Hui",
-              title: "Senior Editorial Board",
-              pic: "",
-              email: "",
-              intro: "",
-            },
-            {
-              name: "Jeremy Tan",
-              title: "Administrative Director",
-              pic: "",
-              email: "",
-              intro: "",
-            },
-            {
-              name: "Nicole",
-              title: "Communications Director",
-              pic: "",
-              email: "",
-              intro: "",
-            },
-            {
-              name: "Harry Cheong",
-              title: "Lead Frontend Developer",
-              pic: "",
-              email: "",
-              intro: "",
-            },
-            {
-              name: "Wang Chen",
-              title: "Lead Backend Developer",
-              pic: "",
-              email: "",
-              intro: "",
-            },
-          ],
+          name: "Jamie Wen",
+          title: "Founder | Chief Editor",
+          committees: ["Board", "Editorial"],
+          pic: "",
+          email: "",
+          intro:
+            "It has been my dream to make research more equitable. AYRJ is a tangible initiative that empowers young researchers to showcase their findings. Come join us to push the boundaries of research!",
+          links: {
+            linkedIn: "https://www.linkedin.com/in/jamie-wen-1a8a4b258/",
+            github: "",
+          },
         },
         {
-          committee: "Editorial Board",
-          description:
-            "The Editorial Board is in charge of the processing, appraisal and approval of all received research papers.",
+          name: "Dr. Jian Hui",
+          title: "Senior Editorial Board",
+          committees: ["Board", "Editorial"],
+          pic: "",
           email: "",
-          members: [
-            {
-              name: "Jian Hui",
-              title: "Senior Editorial Board",
-              pic: "",
-              email: "",
-              intro: "",
-            },
-            {
-              name: "Wang Chen",
-              title: "Editorial Board",
-              pic: "",
-              email: "",
-              intro: "",
-            },
-            {
-              name: "Daisy",
-              title: "Editorial Board",
-              pic: "",
-              email: "",
-              intro: "",
-            },
-            {
-              name: "Ze Dong",
-              title: "Editorial Board",
-              pic: "",
-              email: "",
-              intro: "",
-            },
-          ],
+          intro: "NUS Researcher",
+          links: {
+            linkedIn: "",
+            github: "",
+          },
         },
         {
-          committee: "Admin",
-          description:
-            "The Administrative Committee is in charge of managing paper work and external relations with partnering organisations.",
+          name: "Jeremy Tan",
+          title: "Administrative Director",
+          committees: ["Board", "Admin"],
+          pic: "",
           email: "",
-          members: [
-            {
-              name: "Jeremy Tan",
-              title: "Administrative Director",
-              pic: "",
-              email: "",
-              intro: "",
-            },
-            {
-              name: "Kai Zhe",
-              title: "Administrative Associate",
-              pic: "",
-              email: "",
-              intro: "",
-            },
-            {
-              name: "Linus",
-              title: "Administrative Associate",
-              pic: "",
-              email: "",
-              intro: "",
-            },
-          ],
+          intro:
+            '"You aren\'t afraid of failing, you are just afraid of what people think of you if you fail" ~Someone. ',
+          links: {
+            linkedIn: "https://www.linkedin.com/in/jeremy-tan-554875262",
+            github: "",
+          },
         },
         {
-          committee: "Science Communications",
-          description:
-            "The Science Communications Committee is in charge of publicity and design to grow our community of researchers.",
+          name: "Nicole",
+          title: "Communications Director",
+          committees: ["Board", "Comms"],
+          pic: "",
           email: "",
-          members: [
-            {
-              name: "Nicole",
-              title: "Science Communication Director",
-              pic: "",
-              email: "",
-              intro: "",
-            },
-            {
-              name: "Valerie",
-              title: "Social Media Manager",
-              pic: "",
-              email: "",
-              intro: "",
-            },
-            {
-              name: "Erm Min",
-              title: "Social Media Manager",
-              pic: "",
-              email: "",
-              intro: "",
-            },
-            {
-              name: "Ru Ting",
-              title: "Publicity Manager",
-              pic: "",
-              email: "",
-              intro: "",
-            },
-            {
-              name: "Li Xuan",
-              title: "Publicity Manager",
-              pic: "",
-              email: "",
-              intro: "",
-            },
-          ],
+          intro:
+            "Everyone should have the opportunity to engage with science without barriers! I look forward to connecting with passionate youth scientists and working with AYRJ to make research more accessible.",
+          links: {
+            linkedIn: "https://www.linkedin.com/in/nicole-ho-557253202/",
+            github: "",
+          },
+        },
+        {
+          name: "Harry Cheong",
+          title: "Lead Frontend Developer",
+          committees: ["Board"],
+          pic: "",
+          email: "",
+          intro:
+            "I love putting fluffy balls within lines, software development and cool ideas.",
+          links: {
+            linkedIn: "https://www.linkedin.com/in/harry-cheong-72bbb5212/",
+            github: "https://github.com/Harry-cheong",
+          },
+        },
+        {
+          name: "Wang Chen",
+          title: "Lead Backend Developer | Editorial Board",
+          committees: ["Board", "Editorial"],
+          pic: "",
+          email: "",
+          intro:
+            "AYRJ is the platform I wish I had as a student. Now, I am glad to do what I can to help other young researchers with their first publications.",
+          links: {
+            linkedIn: "",
+            github: "https://github.com/WANGCHEN722",
+          },
+        },
+        {
+          name: "Daisy",
+          title: "Editorial Board",
+          committees: ["Editorial"],
+          pic: "",
+          email: "",
+          intro:
+            "AYRJ would serve as a great platform to expose young scientists and students to the world of research. “It says Oooooo.” -Peter Griffin.",
+          links: {
+            linkedIn: "",
+            github: "",
+          },
+        },
+        {
+          name: "Ze Dong",
+          title: "Editorial Board",
+          committees: ["Editorial"],
+          pic: "",
+          email: "",
+          intro:
+            "Hi, I'm Ze Dong, part of AYRJ's editorial board. I believe that AYRJ can help encourage youths to take part in valuable research experiences!",
+          links: {
+            linkedIn: "https://www.linkedin.com/in/ze-dong-saw-9b3936242",
+            github: "https://github.com/sawzedong",
+          },
+        },
+        {
+          name: "Valerie",
+          title: "Social Media Manager",
+          committees: ["Comms"],
+          pic: "",
+          email: "",
+          intro:
+            "\“Science knows no country, because knowledge belongs to humanity\” — Louis Pasteur. Join our AYRJ family by sharing your research findings with young scientists across the ASEAN region!",
+          links: {
+            linkedIn: "http://linkedin.com/in/valerie-chan-wy",
+            github: "",
+          },
+        },
+        {
+          name: "Erm Min",
+          title: "Social Media Manager",
+          committees: ["Comms"],
+          pic: "",
+          email: "",
+          intro:
+            "An enthusiastic and passionate science student with a keen interest in research who looks forward in bringing scientific works of students together",
+          links: {
+            linkedIn: "https://www.linkedin.com/in/tan-ern-min-b0a63b2b1",
+            github: "",
+          },
+        },
+        {
+          name: "Ru Ting",
+          title: "Publicity Manager",
+          committees: ["Comms"],
+          pic: "",
+          email: "",
+          intro:
+            "I hope that I can contribute meaningfully to AYRJ although I am not very good at science haha",
+          links: {
+            linkedIn: "https://www.linkedin.com/in/ru-ting-ho-0025b02b1/",
+            github: "",
+          },
+        },
+        {
+          name: "Li Xuan",
+          title: "Publicity Manager",
+          committees: ["Comms"],
+          pic: "",
+          email: "",
+          intro: "eucalyptus, eu kaluptos, kaluptein",
+          links: {
+            linkedIn: "https://www.linkedin.com/in/lew-li-xuan-b2363a2b1",
+            github: "",
+          },
+        },
+        {
+          name: "Kai Zhe",
+          title: "Administrative Associate",
+          committees: ["Admin"],
+          pic: "",
+          email: "",
+          intro:
+            "I believe in the power of open communication and collaboration in advancing science. AYRJ enables this by providing a platform for student researchers to share their work with each other.",
+          links: {
+            linkedIn: "http://linkedin.com/in/kai-zhe-t-093683243",
+            github: "",
+          },
+        },
+        {
+          name: "Linus",
+          title: "Administrative Associate",
+          committees: ["Admin"],
+          pic: "",
+          email: "",
+          intro:
+            "Always intrigued by the wonders of science, always curious, always hungry",
+          links: {
+            linkedIn: "",
+            github: "",
+          },
         },
       ],
       goals: [

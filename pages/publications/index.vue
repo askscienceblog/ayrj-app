@@ -15,7 +15,7 @@
   <div class="text-center mt-16">
     <v-text-field
       style="display: inline-table; width: 60%"
-      label="Search Publications by Name, UEN, Authors etc"
+      label="Search Publications by Article Name"
       hide-details="auto"
       variant="outlined"
       v-model="userSearchContent"
@@ -57,7 +57,7 @@
                 <v-btn
                   variant="elevated"
                   color="black"
-                  :to="`/articles/${article.id}`"
+                  :to="`/publications/${article.id}`"
                 >
                   Read More!
                 </v-btn>
@@ -87,7 +87,7 @@
                 <v-btn
                   variant="elevated"
                   color="black"
-                  :to="`/articles/${article.id}`"
+                  :to="`/publications/${article.id}`"
                 >
                   Read More!
                 </v-btn>
@@ -130,6 +130,7 @@ export default {
       });
       if (this.userSearchContent) {
         this.content = toRaw(reqContent.data.value);
+        console.log(this.content);
         this.showFeatured = false;
       } else {
         this.showFeatured = true;
