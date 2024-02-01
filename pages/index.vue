@@ -15,9 +15,9 @@
           Asean Young Researchers' Journal
         </p>
         <p class="text-h6 my-6">
-          Be empowered to contribute to science! Submit your manuscripts here
-          and have them published in Asean's only Young Scientist Journal. No
-          prior publications required.
+          Based in Asia, open to the world. Be empowered to publish with ASEAN's
+          first and only journal for youth scientists. No prior publications
+          required.
         </p>
         <div style="display: inline">
           <v-btn
@@ -38,7 +38,7 @@
 
   <!-- Ad #1 -->
   <!-- Carousel -->
-  <v-carousel hide-delimiter-background show-arrows="hover">
+  <!-- <v-carousel hide-delimiter-background show-arrows="hover">
     <v-carousel-item>
       <v-sheet
         color="#00000000"
@@ -58,41 +58,49 @@
         </div>
       </v-sheet>
     </v-carousel-item>
-  </v-carousel>
+  </v-carousel> -->
 
+  <!-- <v-divider
+    horizontal
+    class="border-opacity-100 mx-auto"
+    width="1500"
+  ></v-divider> -->
   <!-- Message -->
-  <v-sheet height="auto" width="100%" class="mb-10">
-    <v-container>
-      <v-row> </v-row>
-      <v-row>
-        <v-col>
-          <p class="text-h4 mt-16 font-weight-bold">
-            A Journal by Young Scientists for Young Scientists
-          </p>
-        </v-col>
-        <v-col>
-          <p class="text-wrap text-h6 mt-16">
-            Starting out in research can be daunting, one feels like a small
-            fish in a big pond. We hope that this journal will help make the
-            pond smaller, make research exposure more accessiblte to all.
-          </p>
-          <p class="text-wrap text-h6 my-8">
-            We hope to see your manuscript soon.
-          </p>
-          <v-btn
-            class="mt-10 px-12"
-            height="50"
-            variant="outlined"
-            rounded="0"
-            color="#52787b"
-            href="/submit"
-          >
-            SUBMIT YOUR MANUSCRIPT
-          </v-btn>
-        </v-col>
-      </v-row>
-    </v-container>
-  </v-sheet>
+  <div
+    class="text-center"
+    style="
+      position: relative;
+      top: 10%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin-top: 100px;
+      margin-bottom: 150px;
+
+      max-width: 1000px;
+      height: auto;
+    "
+  >
+    <p class="text-h4 font-weight-bold my-10">
+      The platform for you to unleash your research potential
+    </p>
+    <div style="max-width: 600px" class="mx-auto">
+      <p class="text-wrap text-h6">
+        As youth scientists, we know the struggle. Join us in our battle to make
+        scientific research more accessible for all.
+      </p>
+    </div>
+
+    <v-btn
+      class="mt-14 px-12"
+      height="50"
+      variant="outlined"
+      rounded="0"
+      color="#52787b"
+      href="/submit"
+    >
+      PUBLISH WITH US NOW
+    </v-btn>
+  </div>
 
   <!-- Ad #2 -->
   <v-sheet
@@ -107,9 +115,9 @@
         Calling Citizen Scientists
       </p>
       <p class="my-6">
-        If you have a passion for science and love to answer questions, why not
-        volunteer with us to spread knowledge and fight disinformation.
-        Volunteers of all walks of life welcome!
+        We are on a quest to make science more equitable and share knowledge. If
+        you love to share your passion for science and research, we welcome you
+        to join us.
       </p>
       <v-btn
         class="mt-5 px-10"
@@ -118,7 +126,7 @@
         variant="outlined"
         href="/submit"
       >
-        CONTACT
+        JOIN US NOW
       </v-btn>
     </v-card>
   </v-sheet>
@@ -133,11 +141,11 @@ export default {
   },
   data() {
     return {
-      highlights: [
-        { title: "Mycobacterium and phages", href: "" },
-        { title: "Novel wastewater treatment", href: "" },
-        { title: "Genetic editing to better mushroom", href: "" },
-      ],
+      // highlights: [
+      //   { title: "Mycobacterium and phages", href: "" },
+      //   { title: "Novel wastewater treatment", href: "" },
+      //   { title: "Genetic editing to better mushroom", href: "" },
+      // ],
     };
   },
 };

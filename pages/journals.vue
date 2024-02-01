@@ -41,8 +41,13 @@ export default {
   },
 
   methods: {
-    reqDownload(id) {
-      console.log(id);
+    async reqDownload(id) {
+      const download = await useBaseFetch("/list/published", {
+        method: "GET",
+        query: {
+          id: id,
+        },
+      });
     },
   },
 };

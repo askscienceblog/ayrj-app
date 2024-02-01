@@ -27,7 +27,7 @@
     </v-row>
 
     <v-row>
-      <v-btn class="mx-auto mb-12 mt-3" color="black">
+      <v-btn class="mx-auto mb-12 mt-3" color="black" @click="reqDownload">
         Download full article
         <v-icon class="ml-2">mdi-download</v-icon>
       </v-btn>
@@ -79,6 +79,17 @@ export default {
         this.pageExists = false;
         this.loaded = true;
       }
+    },
+
+    async reqDownload() {
+      const download = await useBaseFetch("/get/published", {
+        method: "GET",
+        query: {
+          id: this.$route.params.id,
+        },
+      });
+
+      console.log(download);
     },
   },
 

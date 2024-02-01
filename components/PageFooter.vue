@@ -15,7 +15,7 @@
       <!-- Logo -->
       <img class="l-logo-image" src="/public/imgs/logo.png" />
 
-      <v-divider vertical></v-divider>
+      <v-divider vertical class="border-opacity-50"></v-divider>
 
       <!-- About Us -->
       <v-sheet
@@ -38,7 +38,7 @@
         </div>
       </v-sheet>
 
-      <v-divider vertical></v-divider>
+      <v-divider vertical class="border-opacity-50"></v-divider>
 
       <!-- Form -->
       <v-sheet class="flex-item-center mx-5" color="#00000000">
@@ -48,7 +48,7 @@
 
         <v-sheet min-width="380" class="my-6 ml-6" color="#00000000">
           <v-form>
-            <p class="font-weight-bold">First Name:</p>
+            <p class="font-weight-bold my-3">First Name:</p>
             <v-text-field
               variant="outlined"
               :rules="rules"
@@ -56,7 +56,7 @@
               label="Your First Name"
             ></v-text-field>
 
-            <p class="font-weight-bold">Email Address:</p>
+            <p class="font-weight-bold my-3">Email Address:</p>
             <v-text-field
               variant="outlined"
               :rules="rules"
@@ -65,8 +65,8 @@
             ></v-text-field>
 
             <v-sheet width="100" class="mt-n1"
-              ><v-btn type="submit" color="blue" block>Submit</v-btn></v-sheet
-            >
+              ><v-btn type="submit" color="blue" block>Submit</v-btn>
+            </v-sheet>
           </v-form>
         </v-sheet>
       </v-sheet>
@@ -74,17 +74,44 @@
   </v-sheet>
 
   <!-- "s" Devices -->
-  <v-sheet color="#eeeeee" class="py-16" width="100%" v-if="device === 's'">
+  <v-sheet
+    color="#eeeeee"
+    class="py-16"
+    width="100%"
+    height="1150"
+    v-if="device === 's'"
+  >
     <!-- Website Publicity -->
 
     <!-- Logo -->
-    <img class="s-footer-logo mt-16 mb-n10" src="/public/imgs/logo.png" />
+    <img
+      class="s-footer-logo"
+      style="
+        position: relative;
+        top: 15%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      "
+      src="/public/imgs/logo.png"
+    />
+
+    <v-divider
+      style="position: relative"
+      horizontal
+      class="border-opacity-100"
+    ></v-divider>
 
     <!-- About Us -->
     <v-sheet
       height="auto"
       width="180"
       class="s-footer-about mx-5"
+      style="
+        positon: relative;
+        top: 23%;
+        left: 48%;
+        transform: translate(-50%, -50%);
+      "
       color="#eeeeee"
     >
       <p class="text-h5 text-center font-weight-bold mt-n16">About Us</p>
@@ -101,9 +128,16 @@
       </div>
     </v-sheet>
 
+    <v-divider
+      style="position: relative; top: 18%"
+      horizontal
+      class="border-opacity-100"
+    ></v-divider>
+
     <!-- Form -->
     <v-sheet
-      class="mx-auto mt-n10 text-center"
+      class="mx-auto text-center"
+      style="position: relative; top: 25%"
       color="#00000000"
       max-width="400px"
     >
@@ -113,7 +147,7 @@
 
       <v-sheet width="300px" class="my-6 mx-auto" color="#00000000">
         <v-form>
-          <p class="font-weight-bold">First Name:</p>
+          <p class="font-weight-bold my-3">First Name:</p>
           <v-text-field
             variant="outlined"
             :rules="rules"
@@ -121,7 +155,7 @@
             label="Your First Name"
           ></v-text-field>
 
-          <p class="font-weight-bold">Email Address:</p>
+          <p class="font-weight-bold my-3">Email Address:</p>
           <v-text-field
             variant="outlined"
             :rules="rules"
@@ -215,10 +249,6 @@ export default {
 .s-footer-logo {
   max-width: 400px;
   max-height: 300px;
-
-  position: relative;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .s-footer-about {

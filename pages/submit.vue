@@ -42,63 +42,70 @@
     </v-sheet>
   </div>
 
-  <!-- Question -->
-  <v-sheet class="my-16">
-    <v-container>
-      <v-row>
-        <p class="text-h4 pa-5">Have a question?</p>
-      </v-row>
-      <v-row>
-        <v-col>
-          <v-form>
-            <v-text-field
-              variant="outlined"
-              label="Name"
-              :rules="rules"
-            ></v-text-field>
-            <v-text-field
-              variant="outlined"
-              label="Phone Number"
-              :rules="rules"
-            ></v-text-field>
-            <v-text-field
-              variant="outlined"
-              label="Email"
-              :rules="rules"
-            ></v-text-field>
-            <v-textarea
-              variant="outlined"
-              label="Message"
-              :rules="rules"
-            ></v-textarea>
-            <v-btn
-              type="submit"
-              variant="outlined"
-              class="px-10"
-              density="default"
-              height="50"
-            >
-              Submit
-            </v-btn>
-          </v-form>
-        </v-col>
+  <!-- Questions Section -->
+  <v-sheet
+    class="my-16 text-center"
+    :class="{
+      'd-flex': device === 'l',
+      'align-center': device === 'l',
+      'justify-center': device === 'l',
+    }"
+  >
+    <v-sheet
+      :class="{
+        'mx-auto': device === 's',
+        'mx-16': device === 'l',
+        's-form': device === 's',
+        'l-form': device === 'l',
+      }"
+      ><p class="text-h4 py-5">Have a question?</p>
+      <v-form>
+        <v-text-field
+          variant="outlined"
+          label="Name"
+          :rules="rules"
+        ></v-text-field>
+        <v-text-field
+          variant="outlined"
+          label="Phone Number"
+          :rules="rules"
+        ></v-text-field>
+        <v-text-field
+          variant="outlined"
+          label="Email"
+          :rules="rules"
+        ></v-text-field>
+        <v-textarea
+          variant="outlined"
+          label="Message"
+          :rules="rules"
+        ></v-textarea>
+        <v-btn
+          type="submit"
+          variant="outlined"
+          class="px-10"
+          density="default"
+          height="50"
+        >
+          Submit
+        </v-btn>
+      </v-form>
+    </v-sheet>
 
-        <!-- Channels -->
-        <v-col>
-          <p class="text-center text-h4">Get in Touch</p>
-          <div v-for="channel in channels" class="my-10 text-center">
-            <p class="text-h5 mb-3">{{ channel.name }}</p>
+    <!-- Channels -->
+    <div class="my-16">
+      <p class="text-center text-h4">Get in Touch</p>
+      <div v-for="channel in channels" class="my-10 text-center">
+        <p class="text-h5 mb-3">{{ channel.name }}</p>
 
-            <v-sheet class="mx-auto" v-for="content in channel.contents">
-              <v-btn variant="text" :href="content.href">
-                <v-icon class="pa-5">{{ content.icon }}</v-icon>
-                <p>{{ content.iconTag }}</p>
-              </v-btn>
-            </v-sheet>
-          </div>
-        </v-col>
-      </v-row>
-    </v-container>
+        <v-sheet class="mx-auto" v-for="content in channel.contents">
+          <v-btn variant="text" :href="content.href">
+            <v-icon class="pa-5">{{ content.icon }}</v-icon>
+            <p>{{ content.iconTag }}</p>
+          </v-btn>
+        </v-sheet>
+      </div>
+    </div>
   </v-sheet>
 </template>
 
@@ -216,5 +223,14 @@ export default {
   height: 800px;
 
   background-size: 100% 120%;
+}
+
+.s-form {
+  width: auto;
+  max-width: 500px;
+}
+
+.l-form {
+  width: 500px;
 }
 </style>

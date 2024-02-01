@@ -14,45 +14,54 @@
     <p class="text-h3 font-weight-bold page-title">About AYRJ</p>
   </div>
 
-  <v-container>
-    <v-row>
-      <v-col>
-        <p class="text-h4 mt-16 font-weight-bold">Established in 2023!</p>
-      </v-col>
-      <v-col>
-        <p class="text-h6 text-wrap font-weight-bold mt-16">
-          ASEAN Young Researchers’ Journal aims to provide a platform for Young
-          Researchers in the region to showcase their findings. We hope to
-          provide a safe environment for holistic development and impactful
-          interactions with like-minded peers.
-        </p>
-        <p class="text-wrap my-8">
-          We are a volunteer run project and am not related or affiliated with
-          Ministry of Education, Singapore Science Centre or the Association of
-          Southeast Asian Nations.
-        </p>
-        <p class="text-wrap">We look forward to recieving your manuscripts.</p>
-        <p class="text-h6 font-weight-bold my-16">Jamie & Team</p>
-      </v-col>
-    </v-row>
-  </v-container>
+  <div class="mx-auto pb-4" style="max-width: 1000px">
+    <p class="text-h4 mt-16 font-weight-bold text-center">
+      Established in 2023!
+    </p>
 
-  <v-divider horizontal thickness="5" class="border-opacity-100"></v-divider>
+    <p class="text-h6 text-wrap text-center font-weight-bold mt-16">
+      ASEAN Young Researchers’ Journal aims to provide a platform for Young
+      Researchers in the region to showcase their findings. We hope to provide a
+      safe environment for holistic development and impactful interactions with
+      like-minded peers.
+    </p>
+    <p class="text-wrap my-8 text-center">
+      We are a volunteer run project and am not related or affiliated with
+      Ministry of Education, Singapore Science Centre or the Association of
+      Southeast Asian Nations.
+    </p>
+    <p class="text-wrap text-center">
+      We look forward to recieving your manuscripts.
+    </p>
+    <p class="text-h6 text-center font-weight-bold my-16">- Jamie & Team</p>
+  </div>
+
+  <v-divider horizontal class="border-opacity-100" thickness="3"></v-divider>
   <div
-    class="text-h2 text-center mx-auto"
+    class="text-h3 text-center mx-auto"
     width="300"
-    style="margin-block: 120px"
+    style="margin-block: 80px"
   >
     Our Team
   </div>
-  <v-divider horizontal thickness="5" class="border-opacity-100"></v-divider>
+  <v-divider horizontal class="border-opacity-100" thickness="3"></v-divider>
 
   <v-card
     v-for="team in ourTeam"
     class="my-10 mx-16 text-center"
     variant="text"
   >
-    <p class="text-h4 mt-10 font-weight-bold">{{ team.committee }}</p>
+    <p
+      class="text-h5 mt-10 mb-5 mx-auto"
+      style="
+        width: fit-content;
+        padding-inline: 50px;
+        padding-block: 20px;
+        border: solid;
+      "
+    >
+      {{ team.committee }}
+    </p>
     <p class="mt-3 text-h6">{{ team.description }}</p>
     <div class="d-flex flex-wrap justify-center align-center my-10">
       <NameCard
@@ -226,12 +235,12 @@ export default {
           },
         },
         {
-          name: "Dr. Jian Hui",
+          name: "Dr. Low Jian Hui",
           title: "Senior Editorial Board",
           committees: ["Board", "Editorial"],
           pic: "",
           email: "",
-          intro: "NUS Researcher",
+          intro: "Researcher",
           links: {
             linkedIn: "",
             github: "",
@@ -265,7 +274,7 @@ export default {
         },
         {
           name: "Harry Cheong",
-          title: "Lead Frontend Developer",
+          title: "Frontend Developer",
           committees: ["Board"],
           pic: "",
           email: "",
@@ -278,7 +287,7 @@ export default {
         },
         {
           name: "Wang Chen",
-          title: "Lead Backend Developer | Editorial Board",
+          title: "Backend Developer | Editorial Board",
           committees: ["Board", "Editorial"],
           pic: "",
           email: "",
