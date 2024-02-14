@@ -74,70 +74,58 @@
   </v-sheet>
 
   <!-- "s" Devices -->
-  <v-sheet
-    color="#eeeeee"
-    class="py-16"
-    width="100%"
-    height="1150"
-    v-if="device === 's'"
-  >
-    <!-- Website Publicity -->
-
+  <v-sheet color="#eeeeee" v-if="device === 's'">
     <!-- Logo -->
     <img
       class="s-footer-logo"
       style="
         position: relative;
-        top: 15%;
+        top: 60%;
         left: 50%;
         transform: translate(-50%, -50%);
       "
       src="/public/imgs/logo.png"
     />
+  </v-sheet>
 
-    <v-divider
-      style="position: relative"
-      horizontal
-      class="border-opacity-100"
-    ></v-divider>
+  <v-divider
+    horizontal
+    class="border-opacity-100"
+    v-if="device === 's'"
+  ></v-divider>
 
-    <!-- About Us -->
+  <!-- About Us -->
+  <v-sheet color="#eeeeee" width="100%" height="300" v-if="device === 's'">
+    <p class="text-h5 text-center font-weight-bold mt-12">About Us</p>
+
+    <div v-for="page in pages" class="text-center">
+      <v-btn variant="text">
+        <a
+          class="text-subtitle-2"
+          :href="page.href"
+          style="text-decoration: none"
+          >{{ page.title }}</a
+        >
+      </v-btn>
+    </div>
+  </v-sheet>
+
+  <v-divider
+    horizontal
+    class="border-opacity-100"
+    v-if="device === 's'"
+  ></v-divider>
+
+  <!-- Form -->
+  <v-sheet class="py-10" color="#eeeeee" v-if="device === 's'">
     <v-sheet
-      height="auto"
-      width="180"
-      class="s-footer-about mx-5"
+      class="text-center"
       style="
-        positon: relative;
-        top: 23%;
-        left: 48%;
+        position: relative;
+        top: 50%;
+        left: 50%;
         transform: translate(-50%, -50%);
       "
-      color="#eeeeee"
-    >
-      <p class="text-h5 text-center font-weight-bold mt-n16">About Us</p>
-
-      <div v-for="page in pages" class="text-center">
-        <v-btn variant="text">
-          <a
-            class="text-subtitle-2"
-            :href="page.href"
-            style="text-decoration: none"
-            >{{ page.title }}</a
-          >
-        </v-btn>
-      </div>
-    </v-sheet>
-
-    <v-divider
-      style="position: relative; top: 18%"
-      horizontal
-      class="border-opacity-100"
-    ></v-divider>
-
-    <!-- Form -->
-    <v-sheet
-      class="mx-auto text-center"
-      style="position: relative; top: 25%"
       color="#00000000"
       max-width="400px"
     >
@@ -249,11 +237,5 @@ export default {
 .s-footer-logo {
   max-width: 400px;
   max-height: 300px;
-}
-
-.s-footer-about {
-  position: relative;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 </style>

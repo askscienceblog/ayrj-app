@@ -7,8 +7,8 @@
 
   <v-container>
     <v-row>
-      <v-sheet class="mx-auto mb-5" width="100%">
-        <p class="text-h5 my-15 font-weight-bold">Featured posts</p>
+      <v-sheet class="mx-16 mb-5" width="100%">
+        <p class="text-h5 my-15 font-weight-bold">Research Blogs</p>
         <v-sheet color="black" height="2" class="mt-n6"></v-sheet>
       </v-sheet>
     </v-row>

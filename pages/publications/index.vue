@@ -33,74 +33,83 @@
     >
     </v-select>
   </div>
+  <v-sheet
+    class="mx-auto mb-10"
+    width="80%"
+    v-if="showFeatured"
+    style="position: relative"
+  >
+    <p class="text-h5 my-5 font-weight-bold">Featured articles</p>
+    <v-divider class="border-opacity-100" thickness="3"></v-divider>
+  </v-sheet>
 
-  <v-container v-if="showFeatured">
-    <v-row>
-      <v-sheet class="mx-auto mb-5" width="100%">
-        <p class="text-h5 my-15 font-weight-bold">Featured articles</p>
-        <v-sheet color="black" height="2" class="mt-n6"></v-sheet>
-      </v-sheet>
-    </v-row>
+  <div v-if="showFeatured && device === 's'">
+    <v-sheet v-for="(article, index) in featured">
+      <div class="my-16">
+        <v-card class="s-featured-info" variant="flat" style="">
+          <p class="text-wrap text-h4 font-weight-medium">
+            {{ article.title }}
+          </p>
+          <p class="text-wrap text-subtitle-1 my-5">
+            {{ article.subtitle }}
+          </p>
+          <v-btn
+            variant="elevated"
+            color="black"
+            :to="`/publications/${article.id}`"
+          >
+            Read More!
+          </v-btn>
+        </v-card>
 
-    <v-row>
-      <v-sheet width="100%" class="my-16" v-for="(article, index) in featured">
-        <v-container>
-          <v-row>
-            <v-col>
-              <v-card v-if="!isOdd(index)" class="text-left" variant="flat">
-                <p class="text-wrap text-h4 font-weight-medium">
-                  {{ article.title }}
-                </p>
-                <p class="text-wrap text-subtitle-1 my-5">
-                  {{ article.subtitle }}
-                </p>
-                <v-btn
-                  variant="elevated"
-                  color="black"
-                  :to="`/publications/${article.id}`"
-                >
-                  Read More!
-                </v-btn>
-              </v-card>
+        <NuxtImg
+          class="s-featured-image"
+          :src="article.img"
+          style="display: inline-block"
+        ></NuxtImg>
 
-              <v-sheet v-else width="100%" class="my-10 mx-10" height="100%"
-                ><NuxtImg class="featured-image" :src="article.img"></NuxtImg>
-              </v-sheet>
-            </v-col>
+        <v-divider
+          width="80%"
+          class="mx-auto my-10 border-opacity-100"
+        ></v-divider>
+      </div>
+    </v-sheet>
+  </div>
 
-            <v-col color="black">
-              <v-sheet
-                v-if="!isOdd(index)"
-                width="100%"
-                class="my-10 mx-10"
-                height="100%"
-                ><NuxtImg class="featured-image" :src="article.img"></NuxtImg>
-              </v-sheet>
+  <div v-if="showFeatured && device == 'l'">
+    <v-container>
+      <v-row v-for="(article, index) in featured">
+        <v-col>
+          <v-card variant="flat" style="">
+            <p class="text-wrap text-h4 font-weight-medium">
+              {{ article.title }}
+            </p>
+            <p class="text-wrap text-subtitle-1 my-5">
+              {{ article.subtitle }}
+            </p>
+            <v-btn
+              variant="elevated"
+              color="black"
+              :to="`/publications/${article.id}`"
+            >
+              Read More!
+            </v-btn>
+          </v-card>
+        </v-col>
 
-              <v-card v-else class="text-left span-a" variant="flat">
-                <p class="text-wrap text-h4 font-weight-medium">
-                  {{ article.title }}
-                </p>
-                <p class="text-wrap text-subtitle-1 my-5">
-                  {{ article.subtitle }}
-                </p>
-                <v-btn
-                  variant="elevated"
-                  color="black"
-                  :to="`/publications/${article.id}`"
-                >
-                  Read More!
-                </v-btn>
-              </v-card>
-            </v-col>
-          </v-row>
-        </v-container>
-      </v-sheet>
-    </v-row>
-  </v-container>
+        <v-col>
+          <NuxtImg class="s-featured-image" :src="article.img"></NuxtImg>
+        </v-col>
 
+        <v-divider
+          width="80%"
+          class="mx-auto my-16 border-opacity-100"
+        ></v-divider>
+      </v-row>
+    </v-container>
+  </div>
   <ProjectsTable
-    v-else
+    v-if="!showFeatured"
     :projects="content"
     :articleSection="tableHeaderString"
   ></ProjectsTable>
@@ -145,9 +154,10 @@ export default {
     device() {
       return useAttrs().device;
     },
-  },
-  mounted() {
-    console.log(useAttrs().device);
+    width() {
+      console.log(useAttrs().width);
+      return useAttrs().width;
+    },
   },
   data() {
     return {
@@ -196,11 +206,22 @@ export default {
 </script>
 
 <style scoped>
-.featured-image {
-  max-height: 500px;
-  max-width: 500px;
+.s-featured-image {
+  max-width: 320px;
+
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
 }
 
+.s-featured-info {
+  width: 80%;
+
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  margin-bottom: 50px;
+}
 .page-title {
   position: absolute;
   top: 50%;

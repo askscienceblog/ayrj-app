@@ -14,6 +14,69 @@
     <p class="text-h3 font-weight-bold page-title">About AYRJ</p>
   </div>
 
+  <!-- Our mision -->
+  <v-sheet
+    color="#eeeeeeee"
+    width="100%"
+    height="auto"
+    class="py-16 d-flex text-center justify-center"
+    v-if="device === 'l'"
+  >
+    <v-sheet class="mt-2" min-width="200" max-width="200" color="#00000000">
+      <p class="text-h1">{{ noOfArticles }}</p>
+      <p class="text-h6 mx-n13 pa-3">Articles Published</p>
+    </v-sheet>
+
+    <v-divider
+      vertical
+      :thickness="4"
+      class="border-opacity-100 mx-6"
+    ></v-divider>
+
+    <v-sheet
+      class="mx-3 ml-10"
+      min-width="200"
+      max-width="200"
+      color="#00000000"
+    >
+      <p class="text-h4 custom-bold">Mission</p>
+      <p class="my-5">
+        Provide a platform for Young Scientists to make meaningful contributions
+        towards the development of science
+      </p>
+    </v-sheet>
+
+    <v-sheet class="mx-3" min-width="200" max-width="200" color="#00000000">
+      <p class="text-h4 custom-bold">Vision</p>
+      <p class="my-5">To become the leading journal for Young Scientists</p>
+    </v-sheet>
+
+    <v-sheet class="mx-3" min-width="200" max-width="200" color="#00000000">
+      <p class="text-h4 custom-bold">Values</p>
+      <v-sheet
+        color="#00000000"
+        class="mt-3 ml-2 text-left"
+        height="auto"
+        width="180"
+      >
+        <v-chip variant="text">
+          <v-icon class="pa-4">mdi-play</v-icon>
+          <p>Integrity above all</p>
+        </v-chip>
+
+        <v-chip variant="text">
+          <v-icon class="pa-4">mdi-play</v-icon>
+          <p>Never give up</p>
+        </v-chip>
+
+        <v-chip variant="text">
+          <v-icon class="pa-4">mdi-play</v-icon>
+          <p>Quality of work</p>
+        </v-chip>
+      </v-sheet>
+    </v-sheet>
+  </v-sheet>
+
   <div class="mx-auto pb-4" style="max-width: 1000px">
     <p class="text-h4 mt-16 font-weight-bold text-center">
       Established in 2023!
@@ -38,9 +101,9 @@
 
   <v-divider horizontal class="border-opacity-100" thickness="3"></v-divider>
   <div
-    class="text-h3 text-center mx-auto"
+    class="text-h4 text-center mx-auto"
     width="300"
-    style="margin-block: 80px"
+    style="margin-block: 50px"
   >
     Our Team
   </div>
@@ -80,53 +143,6 @@
       ></v-divider>
     </div>
   </v-card>
-
-  <v-sheet
-    color="#eeeeeeee"
-    width="100%"
-    height="auto"
-    class="py-16 d-flex text-center justify-center"
-  >
-    <v-sheet class="mt-2" min-width="200" max-width="200" color="#00000000">
-      <p class="text-h1">{{ noOfArticles }}</p>
-      <p class="text-h6 mx-n13 pa-3">Articles Published</p>
-    </v-sheet>
-
-    <v-divider
-      vertical
-      :thickness="4"
-      class="border-opacity-100 mx-6"
-    ></v-divider>
-    <v-sheet
-      class="mx-3 ml-10"
-      min-width="200"
-      max-width="200"
-      color="#00000000"
-    >
-      <p class="text-h4 custom-bold">{{ goals[0].title }}</p>
-      <p class="my-5">{{ goals[0].subtitle }}</p>
-    </v-sheet>
-
-    <v-sheet class="mx-3" min-width="200" max-width="200" color="#00000000">
-      <p class="text-h4 custom-bold">{{ goals[1].title }}</p>
-      <p class="my-5">{{ goals[1].subtitle }}</p>
-    </v-sheet>
-
-    <v-sheet class="mx-3" min-width="200" max-width="200" color="#00000000">
-      <p class="text-h4 custom-bold">{{ goals[2].title }}</p>
-      <v-sheet
-        color="#00000000"
-        class="mt-3 ml-2 text-left"
-        height="auto"
-        width="180"
-      >
-        <v-chip variant="text" v-for="(value, index) in goals[2].subtitle">
-          <v-icon class="pa-4">mdi-play</v-icon>
-          <p>{{ value }}</p>
-        </v-chip>
-      </v-sheet>
-    </v-sheet>
-  </v-sheet>
 
   <v-sheet>
     <v-container>
@@ -402,21 +418,7 @@ export default {
           },
         },
       ],
-      goals: [
-        {
-          title: "Mission",
-          subtitle:
-            "Provide a platform for Young Scientists to make meaningful contributions towards the development of science",
-        },
-        {
-          title: "Vision",
-          subtitle: "To become the leading journal for Young Scientists",
-        },
-        {
-          title: "Values",
-          subtitle: ["Integrity above all", "Never give up", "Quality of work"],
-        },
-      ],
+
       faqs: [
         {
           question: "How do you sustain this website?",

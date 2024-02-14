@@ -21,7 +21,7 @@
     </p>
     <v-btn
       color="grey-darken-1"
-      class="my-auto mx-10"
+      class="my-auto mx-5"
       @click="reqDownload(download.id)"
       icon="mdi-download"
     ></v-btn>

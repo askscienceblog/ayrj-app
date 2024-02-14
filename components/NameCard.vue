@@ -90,8 +90,8 @@ export default {
 }
 
 .s-card {
-  height: 750px;
-  width: 350px;
+  height: 700px;
+  width: 400px;
 }
 
 .l-card {
@@ -100,7 +100,7 @@ export default {
 }
 
 .s-intro-box {
-  height: 330px;
+  height: 285px;
 }
 
 .l-intro-box {

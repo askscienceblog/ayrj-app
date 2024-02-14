@@ -14,14 +14,15 @@
         <p class="text-h3 text-wrap font-weight-bold">
           Asean Young Researchers' Journal
         </p>
-        <p class="text-h6 my-6">
-          Based in Asia, open to the world. Be empowered to publish with ASEAN's
-          first and only journal for youth scientists. No prior publications
-          required.
+        <p class="text-h6 mt-6">Based in Asia, open to the world.</p>
+        <p class="text-h6">
+          Be empowered to publish with ASEAN's first and only journal for youth
+          scientists.
         </p>
+        <p class="text-h6">No prior publications required.</p>
         <div style="display: inline">
           <v-btn
-            class="mt-5"
+            class="mt-6"
             height="80"
             rounded="0"
             variant="outlined"
@@ -36,36 +37,6 @@
     </div>
   </v-sheet>
 
-  <!-- Ad #1 -->
-  <!-- Carousel -->
-  <!-- <v-carousel hide-delimiter-background show-arrows="hover">
-    <v-carousel-item>
-      <v-sheet
-        color="#00000000"
-        class="pt-16 px-3 d-flex flex-row flex-wrap align-content-center"
-      >
-        <div class="mx-auto">
-          <v-btn
-            v-for="highlight in highlights"
-            width="300"
-            height="300"
-            class="mx-2"
-            rounded="0"
-            color="#6fa2a6"
-          >
-            <p class="text-h5 text-wrap">{{ highlight.title }}</p>
-          </v-btn>
-        </div>
-      </v-sheet>
-    </v-carousel-item>
-  </v-carousel> -->
-
-  <!-- <v-divider
-    horizontal
-    class="border-opacity-100 mx-auto"
-    width="1500"
-  ></v-divider> -->
-  <!-- Message -->
   <div
     class="text-center"
     style="

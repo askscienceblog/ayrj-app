@@ -1,12 +1,16 @@
 <template>
   <v-app-bar density="prominent" app>
-    <img
-      :class="{
-        'l-logo-image': device === 'l',
-        's-logo-image': device === 's',
-      }"
-      src="/public/imgs/logo.png"
-    />
+    <v-sheet width="15%">
+      <a href="/">
+        <img
+          :class="{
+            'l-logo-image': device === 'l',
+            's-logo-image': device === 's',
+          }"
+          src="/public/imgs/logo.png"
+        />
+      </a>
+    </v-sheet>
 
     <v-tabs v-if="device === 'l'" class="mx-auto">
       <v-tab v-for="page in pages" :to="page.page">{{ page.title }}</v-tab>
@@ -61,18 +65,17 @@ export default {
 </script>
 <style scoped>
 .l-logo-image {
-  max-width: 400px;
-  max-height: 300px;
-  position: relative;
-  top: -45%;
-  margin-inline-start: 30px;
+  max-width: 250px;
+  top: -30%;
+  position: absolute;
+  margin-inline-start: 100px;
 }
 
 .s-logo-image {
   max-width: 300px;
   max-height: 240px;
-  position: relative;
-  top: -24%;
+  top: -25%;
+  position: absolute;
   margin-inline-start: 30px;
 }
 </style>

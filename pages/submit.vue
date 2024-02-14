@@ -1,50 +1,54 @@
 <template>
   <!-- Manuscript Submission Instructions -->
-  <div class="">
+  <v-sheet
+    ref="background"
+    class="background"
+    :class="{
+      'l-background-scale': device === 'l',
+      's-background-scale': device === 's',
+    }"
+  >
     <v-sheet
-      ref="sectionBackground"
-      class="background"
+      class="overlay"
       :class="{
-        'l-background-scale': device === 'l',
-        's-background-scale': device === 's',
+        'l-overlay': device === 'l',
+        's-overlay': device === 's',
       }"
-    >
-      <v-sheet
-        class="overlay"
-        :class="{
-          'l-overlay': device === 'l',
-          's-overlay': device === 's',
-        }"
-      ></v-sheet>
-      <div class="flex-column page-title">
-        <p class="pa-16 text-h3 text-center font-weight-bold">
-          Submit Your Manuscript
-        </p>
-        <p class="text-h5 my-4 page-subtitle">Manuscript Requirements:</p>
+    ></v-sheet>
+    <div class="background-center">
+      <p class="page-title text-h3 text-center font-weight-bold">
+        Submit Your Manuscript
+      </p>
+      <div class="page-subtitle">
+        <p class="text-h5 my-4">Manuscript Requirements:</p>
         <div v-for="req in reqs" class="d-flex mx-10">
-          <div class="my-3 text-wrap page-subtitle">
-            <v-icon style="display: inline" class="mr-2">mdi-play</v-icon>
+          <div class="my-3 text-wrap">
+            <v-icon class="mr-2 mt-n2" style="display: inline-block"
+              >mdi-play</v-icon
+            >
             <p style="display: inline" class="text-h5 text-wrap">
               {{ req }}
             </p>
           </div>
         </div>
-        <p
-          class="text-h5 pt-8 pb-16 text-wrap"
-          :class="{
-            'text-center': device === 's',
-            'page-subtitle': device === 'l',
-          }"
-        >
-          Email your completed manuscript to askscienceblog@gmail.com
-        </p>
       </div>
-    </v-sheet>
-  </div>
+
+      <p
+        class="text-h5 pt-8 pb-16 text-wrap"
+        :class="{
+          'text-center': device === 's',
+          'page-subtitle': device === 'l',
+        }"
+        style="color: white; position: relative; z-index: 1"
+      >
+        Email your completed manuscript to askscienceblog@gmail.com
+      </p>
+    </div>
+  </v-sheet>
 
   <!-- Questions Section -->
   <v-sheet
-    class="my-16 text-center"
+    class="text-center my-10"
     :class="{
       'd-flex': device === 'l',
       'align-center': device === 'l',
@@ -85,7 +89,7 @@
           variant="outlined"
           class="px-10"
           density="default"
-          height="50"
+          height="40"
         >
           Submit
         </v-btn>
@@ -167,17 +171,24 @@ export default {
 </script>
 
 <style scoped>
-.page-subtitle {
-  position: relative;
-  left: 10%;
-}
-.page-title {
+.background-center {
   position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.page-title {
+  position: relative;
+  padding-block: 50px;
   z-index: 1;
 
+  color: white;
+}
+.page-subtitle {
+  position: relative;
+  z-index: 1;
+
+  margin-inline: 10%;
   color: white;
 }
 
@@ -202,17 +213,17 @@ export default {
 
 .s-overlay {
   width: 100%;
-  height: 1130px;
+  height: 1280px;
 }
 
 .l-overlay {
   width: 100%;
-  height: 930px;
+  height: 880px;
 }
 
 .s-background-scale {
   width: 100%;
-  height: 1000px;
+  height: 1150px;
 
   background-size: auto 100%;
   background-position: center center;
@@ -220,14 +231,14 @@ export default {
 
 .l-background-scale {
   width: 100%;
-  height: 800px;
+  height: 750px;
 
   background-size: 100% 120%;
 }
 
 .s-form {
   width: auto;
-  max-width: 500px;
+  max-width: auto;
 }
 
 .l-form {
