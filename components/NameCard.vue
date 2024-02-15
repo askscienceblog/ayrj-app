@@ -13,10 +13,7 @@
       ><v-divider></v-divider>
     </div>
 
-    <img
-      class="profile-pic ma-8"
-      src="/public/imgs/background/microscope.png"
-    />
+    <img class="profile-pic ma-8" src="/public/background/microscope.png" />
     <v-card-title>{{ name }}</v-card-title>
 
     <v-sheet

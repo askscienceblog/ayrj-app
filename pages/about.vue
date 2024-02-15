@@ -466,7 +466,7 @@ export default {
   height: 200px;
   z-index: 0;
 
-  background-image: url("/public/imgs/background/pipette.jpeg");
+  background-image: url("/public/background/pipette.jpeg");
   background-repeat: no-repeat;
   transition: background-size 4s ease;
   background-position: center center;

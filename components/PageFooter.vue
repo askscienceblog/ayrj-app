@@ -13,7 +13,7 @@
       style="position: relative; left: 5%"
     >
       <!-- Logo -->
-      <img class="l-logo-image" src="/public/imgs/logo.png" />
+      <img class="l-logo-image" src="/public/logo.png" />
 
       <v-divider vertical class="border-opacity-50"></v-divider>
 
@@ -84,7 +84,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
       "
-      src="/public/imgs/logo.png"
+      src="/public/logo.png"
     />
   </v-sheet>
 

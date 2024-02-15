@@ -195,7 +195,7 @@ export default {
 .background {
   z-index: 0;
 
-  background-image: url("/public/imgs/background/samples-blue.jpg");
+  background-image: url("/public/background/samples-blue.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   transition: background-size 4s ease;

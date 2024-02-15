@@ -62,11 +62,11 @@
           </v-btn>
         </v-card>
 
-        <NuxtImg
+        <img
           class="s-featured-image"
           :src="article.img"
           style="display: inline-block"
-        ></NuxtImg>
+        />
 
         <v-divider
           width="80%"
@@ -98,7 +98,7 @@
         </v-col>
 
         <v-col>
-          <NuxtImg class="s-featured-image" :src="article.img"></NuxtImg>
+          <img class="s-featured-image" :src="article.img" />
         </v-col>
 
         <v-divider
@@ -184,7 +184,7 @@ export default {
             "Doctor bartender: phage cocktails to treat multi-drug resistant Mycobacterium abscessus",
           subtitle:
             "M. abscessus is a rising global clinical issue due to their inherent ability to gain resistance to antibiotics and thus difficult in treating patients, it is also pervasive in the environment, making human-pathogen contact a frequent occurrence. This study uses phages (bacteria infecting viruses) to treat these infections.",
-          img: "../public/imgs/featured/phage.jpeg",
+          img: "/featured/phage.jpeg",
           id: "123",
         },
         {
@@ -193,7 +193,7 @@ export default {
             "Doctor bartender: phage cocktails to treat multi-drug resistant Mycobacterium abscessus",
           subtitle:
             "M. abscessus is a rising global clinical issue due to their inherent ability to gain resistance to antibiotics and thus difficult in treating patients, it is also pervasive in the environment, making human-pathogen contact a frequent occurrence. This study uses phages (bacteria infecting viruses) to treat these infections.",
-          img: "../public/imgs/featured/phage.jpeg",
+          img: "/featured/phage.jpeg",
           id: "123",
         },
       ],
@@ -238,7 +238,7 @@ export default {
   width: 100%;
   height: 300px;
 
-  background-image: url("/public/imgs/background/incubator.jpg");
+  background-image: url("/public/background/incubator.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   transition: background-size 4s ease;

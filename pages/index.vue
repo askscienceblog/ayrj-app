@@ -139,7 +139,7 @@ export default {
   width: 100%;
   height: 600px;
 
-  background-image: url("/public/imgs/background/petridish.jpg");
+  background-image: url("/public/background/petridish.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   transition: background-size 4s ease;

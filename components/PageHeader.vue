@@ -7,7 +7,7 @@
             'l-logo-image': device === 'l',
             's-logo-image': device === 's',
           }"
-          src="/public/imgs/logo.png"
+          src="/public/logo.png"
         />
       </a>
     </v-sheet>

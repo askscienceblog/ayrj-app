@@ -33,7 +33,7 @@
               </v-card>
 
               <v-sheet v-else width="100%" class="my-10 mx-10" height="100%"
-                ><NuxtImg class="featured-image" :src="article.img"></NuxtImg>
+                ><img class="featured-image" :src="article.img" />
               </v-sheet>
             </v-col>
 
@@ -43,7 +43,7 @@
                 width="100%"
                 class="my-10 mx-10"
                 height="100%"
-                ><NuxtImg class="featured-image" :src="article.img"></NuxtImg>
+                ><img class="featured-image" :src="article.img" />
               </v-sheet>
 
               <v-card v-else class="text-left pa-16" variant="flat">
@@ -82,13 +82,13 @@ export default {
           section: "Biology",
           title: "Coming soon...",
           subtitle: "Coming soon...",
-          img: "../public/imgs/featured/phage.jpeg",
+          img: "/featured/phage.jpeg",
         },
         {
           section: "Biology",
           title: "Coming soon...",
           subtitle: "Coming soon...",
-          img: "../public/imgs/featured/phage.jpeg",
+          img: "/featured/phage.jpeg",
         },
       ],
     };
@@ -118,7 +118,7 @@ export default {
   width: 100%;
   height: 300px;
 
-  background-image: url("/public/imgs/background/samples-orange.jpg");
+  background-image: url("/public/background/samples-orange.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   transition: background-size 4s ease;

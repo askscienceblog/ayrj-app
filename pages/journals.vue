@@ -70,7 +70,7 @@ export default {
   width: 100%;
   height: 300px;
 
-  background-image: url("/public/imgs/background/microscope.png");
+  background-image: url("/public/background/microscope.png");
   background-repeat: no-repeat;
   background-size: 100%;
   transition: background-size 4s ease;
