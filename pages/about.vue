@@ -111,7 +111,7 @@
     <v-tab value="3">Admin</v-tab>
   </v-tabs>
 
-  <v-card class="my-10 mx-16 text-center" variant="text">
+  <v-card class="my-10 mx-10 text-center" variant="text">
     <p
       class="text-h5 mt-5 mb-5 mx-auto"
       style="

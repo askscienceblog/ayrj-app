@@ -93,7 +93,7 @@ export default {
 
 .s-card {
   height: auto;
-  width: 80%;
+  width: 100%;
 }
 
 .l-card {
