@@ -33,13 +33,8 @@
     >
     </v-select>
   </div>
-  <v-sheet
-    class="mx-auto mb-10"
-    width="80%"
-    v-if="showFeatured"
-    style="position: relative"
-  >
-    <p class="text-h5 mt-3 mb-8 font-weight-bold">Featured articles</p>
+  <v-sheet class="mx-auto mb-10" width="80%" v-if="showFeatured">
+    <p class="text-h5 mt-3 mb-7 font-weight-bold">Featured articles</p>
     <v-divider class="border-opacity-100" thickness="3"></v-divider>
   </v-sheet>
 
@@ -70,7 +65,7 @@
 
         <v-divider
           width="80%"
-          class="mx-auto my-10 border-opacity-100"
+          class="mx-auto mt-16 border-opacity-100"
         ></v-divider>
       </div>
     </v-sheet>

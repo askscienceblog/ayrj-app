@@ -30,8 +30,8 @@
         v-for="page in pages"
         :to="page.page"
         variant="outlined"
-        class="text-center px-16 pb-8 pt-5"
-        style="background-color: white"
+        class="text-center px-16"
+        style="background-color: white; padding-top: 20px; padding-bottom: 30px"
         >{{ page.title }}</v-btn
       >
     </v-menu>

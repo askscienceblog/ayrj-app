@@ -310,7 +310,7 @@ export default {
           name: "Wang Chen",
           title: "Backend Developer | Editorial Board",
           committees: ["Board", "Editorial"],
-          pic: "/members/wang chen.jpg",
+          pic: "/members/wangchen.jpg",
           email: "",
           intro:
             "AYRJ is the platform I wish I had as a student. Now, I am glad to do what I can to help other young researchers with their first publications.",
@@ -336,7 +336,7 @@ export default {
           name: "Ze Dong",
           title: "Editorial Board",
           committees: ["Editorial"],
-          pic: "/members/ze dong.jpg",
+          pic: "/members/zedong.jpg",
           email: "",
           intro:
             "Hi, I'm Ze Dong, part of AYRJ's editorial board. I believe that AYRJ can help encourage youths to take part in valuable research experiences!",
@@ -362,7 +362,7 @@ export default {
           name: "Ern Min",
           title: "Social Media Manager",
           committees: ["Comms"],
-          pic: "/members/ern min.jpg",
+          pic: "/members/ernmin.jpg",
           email: "",
           intro:
             "An enthusiastic and passionate science student with a keen interest in research who looks forward in bringing scientific works of students together",
@@ -375,7 +375,7 @@ export default {
           name: "Ru Ting",
           title: "Publicity Manager",
           committees: ["Comms"],
-          pic: "/members/ru ting.jpg",
+          pic: "/members/ruting.jpg",
           email: "",
           intro:
             "I hope that I can contribute meaningfully to AYRJ although I am not very good at science haha",
@@ -388,7 +388,7 @@ export default {
           name: "Li Xuan",
           title: "Publicity Manager",
           committees: ["Comms"],
-          pic: "/members/li xuan.jpg",
+          pic: "/members/lixuan.jpg",
           email: "",
           intro: "eucalyptus, eu kaluptos, kaluptein",
           links: {

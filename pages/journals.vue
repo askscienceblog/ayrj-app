@@ -7,7 +7,7 @@
 
   <v-sheet class="mx-auto mb-8" width="80%">
     <p class="text-h5 my-15 font-weight-bold">Journals</p>
-    <v-sheet color="black" height="2" class="mt-n6"></v-sheet>
+    <v-divider class="border-opacity-100 mt-n6" thickness="3"></v-divider>
   </v-sheet>
 
   <v-card

@@ -4,9 +4,10 @@
     <v-sheet class="overlay"></v-sheet>
     <p class="text-h3 font-weight-bold page-title">Experiment Blogs</p>
   </div>
-  <v-sheet class="mx-16 mb-5" width="100%">
-    <p class="text-h5 my-15 font-weight-bold">Research Blogs</p>
-    <v-sheet color="black" height="2" class="mt-n6"></v-sheet>
+
+  <v-sheet class="mx-auto mb-8" width="80%">
+    <p class="text-h5 my-15 font-weight-bold">Experiment Blog</p>
+    <v-divider class="border-opacity-100 mt-n6" thickness="3"></v-divider>
   </v-sheet>
 
   <p class="text-center text-h5 my-16">Coming Soon...</p>
