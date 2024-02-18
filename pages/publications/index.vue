@@ -39,18 +39,18 @@
     v-if="showFeatured"
     style="position: relative"
   >
-    <p class="text-h5 my-5 font-weight-bold">Featured articles</p>
+    <p class="text-h5 mt-3 mb-8 font-weight-bold">Featured articles</p>
     <v-divider class="border-opacity-100" thickness="3"></v-divider>
   </v-sheet>
 
   <div v-if="showFeatured && device === 's'">
     <v-sheet v-for="(article, index) in featured">
       <div class="my-16">
-        <v-card class="s-featured-info" variant="flat" style="">
-          <p class="text-wrap text-h4 font-weight-medium">
+        <v-card class="s-featured-card" variant="flat" style="">
+          <p class="text-wrap text-h5 font-weight-bold">
             {{ article.title }}
           </p>
-          <p class="text-wrap text-subtitle-1 my-5">
+          <p class="text-wrap text-justify text-subtitle-1 my-5">
             {{ article.subtitle }}
           </p>
           <v-btn
@@ -214,7 +214,7 @@ export default {
   transform: translate(-50%);
 }
 
-.s-featured-info {
+.s-featured-card {
   width: 80%;
 
   position: relative;

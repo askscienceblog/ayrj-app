@@ -76,27 +76,23 @@
       </v-sheet>
     </v-sheet>
   </v-sheet>
-
-  <div class="mx-auto pb-4" style="max-width: 1000px">
-    <p class="text-h4 mt-16 font-weight-bold text-center">
-      Established in 2023!
-    </p>
-
-    <p class="text-h6 text-wrap text-center font-weight-bold mt-16">
+  <!-- Description -->
+  <div class="mx-auto pb-3 px-10" style="max-width: 1000px">
+    <p class="text-h6 text-wrap text-justify font-weight-bold mt-16">
       ASEAN Young Researchers’ Journal aims to provide a platform for Young
       Researchers in the region to showcase their findings. We hope to provide a
-      safe environment for holistic development and impactful interactions with
+      safe environment for holistic development and interactions with
       like-minded peers.
     </p>
-    <p class="text-wrap my-8 text-center">
+    <p class="text-wrap my-8 text-justify">
       We are a volunteer run project and am not related or affiliated with
       Ministry of Education, Singapore Science Centre or the Association of
       Southeast Asian Nations.
     </p>
-    <p class="text-wrap text-center">
+    <p class="text-wrap text-left">
       We look forward to recieving your manuscripts.
     </p>
-    <p class="text-h6 text-center font-weight-bold my-16">- Jamie & Team</p>
+    <p class="text-h6 text-center font-weight-bold my-16">- AYRJ Volunteers</p>
   </div>
 
   <v-divider horizontal class="border-opacity-100" thickness="3"></v-divider>
@@ -108,14 +104,16 @@
     Our Team
   </div>
   <v-divider horizontal class="border-opacity-100" thickness="3"></v-divider>
+  <v-tabs v-model="tab" align-tabs="center" class="my-5">
+    <v-tab value="0">Journal Board</v-tab>
+    <v-tab value="1">Editorial Board</v-tab>
+    <v-tab value="2">Science Communication</v-tab>
+    <v-tab value="3">Admin</v-tab>
+  </v-tabs>
 
-  <v-card
-    v-for="team in ourTeam"
-    class="my-10 mx-16 text-center"
-    variant="text"
-  >
+  <v-card class="my-10 mx-16 text-center" variant="text">
     <p
-      class="text-h5 mt-10 mb-5 mx-auto"
+      class="text-h5 mt-5 mb-5 mx-auto"
       style="
         width: fit-content;
         padding-inline: 50px;
@@ -174,13 +172,20 @@ import NameCard from "../components/NameCard.vue";
 
 export default {
   components: { NameCard },
+  watch: {
+    tab(newValue, oldValue) {
+      this.tab = newValue;
+    },
+  },
   computed: {
     device() {
       return useAttrs().device;
     },
-
+    team() {
+      return this.ourTeam.at(this.tab);
+    },
     ourTeam() {
-      let team = [
+      return [
         {
           committee: "Journal Board",
           description:
@@ -226,7 +231,6 @@ export default {
           }),
         },
       ];
-      return team;
     },
   },
 
@@ -235,13 +239,14 @@ export default {
   data() {
     return {
       noOfArticles: 3,
+      tab: 0,
 
       ourMembers: [
         {
           name: "Jamie Wen",
           title: "Founder | Chief Editor",
           committees: ["Board", "Editorial"],
-          pic: "",
+          pic: "/members/jamie.jpg",
           email: "",
           intro:
             "It has been my dream to make research more equitable. AYRJ is a tangible initiative that empowers young researchers to showcase their findings. Come join us to push the boundaries of research!",
@@ -256,7 +261,7 @@ export default {
           committees: ["Board", "Editorial"],
           pic: "",
           email: "",
-          intro: "Researcher",
+          intro: "",
           links: {
             linkedIn: "",
             github: "",
@@ -266,7 +271,7 @@ export default {
           name: "Jeremy Tan",
           title: "Administrative Director",
           committees: ["Board", "Admin"],
-          pic: "",
+          pic: "/members/jeremy.jpg",
           email: "",
           intro:
             '"You aren\'t afraid of failing, you are just afraid of what people think of you if you fail" ~Someone. ',
@@ -279,7 +284,7 @@ export default {
           name: "Nicole",
           title: "Communications Director",
           committees: ["Board", "Comms"],
-          pic: "",
+          pic: "/members/nicole.jpg",
           email: "",
           intro:
             "Everyone should have the opportunity to engage with science without barriers! I look forward to connecting with passionate youth scientists and working with AYRJ to make research more accessible.",
@@ -292,7 +297,7 @@ export default {
           name: "Harry Cheong",
           title: "Frontend Developer",
           committees: ["Board"],
-          pic: "",
+          pic: "/members/harry.jpg",
           email: "",
           intro:
             "I love putting fluffy balls within lines, software development and cool ideas.",
@@ -305,7 +310,7 @@ export default {
           name: "Wang Chen",
           title: "Backend Developer | Editorial Board",
           committees: ["Board", "Editorial"],
-          pic: "",
+          pic: "/members/wang chen.jpg",
           email: "",
           intro:
             "AYRJ is the platform I wish I had as a student. Now, I am glad to do what I can to help other young researchers with their first publications.",
@@ -318,7 +323,7 @@ export default {
           name: "Daisy",
           title: "Editorial Board",
           committees: ["Editorial"],
-          pic: "",
+          pic: "/members/daisy.jpg",
           email: "",
           intro:
             "AYRJ would serve as a great platform to expose young scientists and students to the world of research. “It says Oooooo.” -Peter Griffin.",
@@ -331,7 +336,7 @@ export default {
           name: "Ze Dong",
           title: "Editorial Board",
           committees: ["Editorial"],
-          pic: "",
+          pic: "/members/ze dong.jpg",
           email: "",
           intro:
             "Hi, I'm Ze Dong, part of AYRJ's editorial board. I believe that AYRJ can help encourage youths to take part in valuable research experiences!",
@@ -344,7 +349,7 @@ export default {
           name: "Valerie",
           title: "Social Media Manager",
           committees: ["Comms"],
-          pic: "",
+          pic: "/members/valerie.jpg",
           email: "",
           intro:
             "\“Science knows no country, because knowledge belongs to humanity\” — Louis Pasteur. Join our AYRJ family by sharing your research findings with young scientists across the ASEAN region!",
@@ -354,10 +359,10 @@ export default {
           },
         },
         {
-          name: "Erm Min",
+          name: "Ern Min",
           title: "Social Media Manager",
           committees: ["Comms"],
-          pic: "",
+          pic: "/members/ern min.jpg",
           email: "",
           intro:
             "An enthusiastic and passionate science student with a keen interest in research who looks forward in bringing scientific works of students together",
@@ -370,7 +375,7 @@ export default {
           name: "Ru Ting",
           title: "Publicity Manager",
           committees: ["Comms"],
-          pic: "",
+          pic: "/members/ru ting.jpg",
           email: "",
           intro:
             "I hope that I can contribute meaningfully to AYRJ although I am not very good at science haha",
@@ -383,7 +388,7 @@ export default {
           name: "Li Xuan",
           title: "Publicity Manager",
           committees: ["Comms"],
-          pic: "",
+          pic: "/members/li xuan.jpg",
           email: "",
           intro: "eucalyptus, eu kaluptos, kaluptein",
           links: {

@@ -21,7 +21,7 @@
       </p>
       <div class="page-subtitle">
         <p class="text-h5 my-4">Manuscript Requirements:</p>
-        <div v-for="req in reqs" class="d-flex mx-10">
+        <div v-for="req in reqs" class="d-flex mx-5">
           <div class="my-3 text-wrap">
             <v-icon class="mr-2 mt-n2" style="display: inline-block"
               >mdi-play</v-icon
@@ -237,8 +237,7 @@ export default {
 }
 
 .s-form {
-  width: auto;
-  max-width: auto;
+  padding-inline: 50px;
 }
 
 .l-form {

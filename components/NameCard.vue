@@ -13,27 +13,30 @@
       ><v-divider></v-divider>
     </div>
 
-    <img class="profile-pic ma-8" src="/public/background/microscope.png" />
+    <img class="profile-pic mt-8 mb-2" :src="src" :alt="`${name} image`" />
     <v-card-title>{{ name }}</v-card-title>
+    <v-divider
+      width="150"
+      class="mb-2 mt-n1 mx-auto border-opacity-100"
+      thickness="3"
+    ></v-divider>
 
-    <v-sheet
+    <div
       class="text-center text-wrap mx-10"
       :class="{ 's-intro-box': device === 's', 'l-intro-box': device === 'l' }"
     >
-      <v-divider
-        width="150"
-        class="mb-2 mt-n1 mx-auto border-opacity-100"
-        thickness="3"
-      ></v-divider>
-      <p>{{ statement }}</p>
-    </v-sheet>
-    <v-btn
-      v-for="item in linkIcons"
-      class="mx-2"
-      :href="item[1]"
-      :icon="item[0]"
-    >
-    </v-btn>
+      <p class="text-justify mt-5">{{ statement }}</p>
+    </div>
+
+    <div class="my-8">
+      <v-btn
+        v-for="item in linkIcons"
+        class="mx-2"
+        :href="item[1]"
+        :icon="item[0]"
+      >
+      </v-btn>
+    </div>
   </v-card>
 </template>
 
@@ -72,7 +75,7 @@ export default {
       if (this.srcpath != "") {
         return this.srcpath;
       } else {
-        return "/public/imgs/background/microscope.png";
+        return "/background/microscope.png";
       }
     },
   },
@@ -84,10 +87,12 @@ export default {
   border-radius: 50%;
   width: 150px;
   height: 150px;
+
+  object-fit: cover;
 }
 
 .s-card {
-  height: 700px;
+  height: auto;
   width: 400px;
 }
 
@@ -97,10 +102,10 @@ export default {
 }
 
 .s-intro-box {
-  height: 285px;
+  height: auto;
 }
 
 .l-intro-box {
-  height: 180px;
+  height: 140px;
 }
 </style>

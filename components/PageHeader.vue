@@ -12,29 +12,25 @@
       </a>
     </v-sheet>
 
-    <v-tabs v-if="device === 'l'" class="mx-auto">
+    <v-tabs
+      v-if="device === 'l'"
+      style="position: relative; left: 45%; transform: translate(-50%)"
+    >
       <v-tab v-for="page in pages" :to="page.page">{{ page.title }}</v-tab>
     </v-tabs>
 
     <v-menu v-else>
-      <template v-slot:activator="{ props: menu }">
-        <v-tooltip location="start" text="Browse">
-          <template v-slot:activator="{ props: tooltip }">
-            <v-btn
-              class="my-auto ml-auto px-10"
-              v-bind="mergeProps(menu, tooltip)"
-            >
-              <v-icon>mdi-menu</v-icon>
-            </v-btn>
-          </template>
-        </v-tooltip>
+      <template v-slot:activator="{ props }">
+        <v-btn class="my-auto ml-auto px-10" v-bind="props">
+          <v-icon size="x-large">mdi-menu</v-icon>
+        </v-btn>
       </template>
 
       <v-btn
         v-for="page in pages"
         :to="page.page"
         variant="outlined"
-        class="text-center px-5 py-8"
+        class="text-center px-16 pb-8 pt-5"
         style="background-color: white"
         >{{ page.title }}</v-btn
       >

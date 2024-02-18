@@ -29,7 +29,7 @@
             href="/publications/"
             >PUBLISH WITH US</v-btn
           >
-          <v-btn class="mt-5" height="80" rounded="0" href="/publications/"
+          <v-btn class="mt-6" height="80" rounded="0" href="/publications/"
             >READ PUBLICATIONS</v-btn
           >
         </div>

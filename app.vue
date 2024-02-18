@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     findDevice(width) {
-      if (1100 >= width > 0) {
+      if (1400 >= width > 0) {
         return "s";
       } else {
         return "l";

@@ -12,11 +12,12 @@
 
   <v-card
     v-for="download in downloads"
-    class="mx-auto my-2 d-flex align-center justify-center"
+    class="mx-auto my-5 d-flex align-center justify-center"
     height="100"
     max-width="80%"
+    elevation="3"
   >
-    <p class="text-center text-h5 font-weight-bold">
+    <p class="text-center text-h6 font-weight-bold">
       {{ download.title }}
     </p>
     <v-btn

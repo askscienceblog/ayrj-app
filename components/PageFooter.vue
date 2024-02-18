@@ -74,9 +74,9 @@
   </v-sheet>
 
   <!-- "s" Devices -->
-  <v-sheet color="#eeeeee" v-if="device === 's'">
-    <!-- Logo -->
-    <img
+  <!-- <v-sheet color="#eeeeee" v-if="device === 's'"> -->
+  <!-- Logo -->
+  <!-- <img
       class="s-footer-logo"
       style="
         position: relative;
@@ -92,7 +92,7 @@
     horizontal
     class="border-opacity-100"
     v-if="device === 's'"
-  ></v-divider>
+  ></v-divider> -->
 
   <!-- About Us -->
   <v-sheet color="#eeeeee" width="100%" height="300" v-if="device === 's'">
