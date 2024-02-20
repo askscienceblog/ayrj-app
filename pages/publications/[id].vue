@@ -6,22 +6,7 @@
       </p>
     </v-row>
     <v-row>
-      <div class="mx-auto">
-        <p
-          v-for="category in article.categories"
-          style="
-            display: inline-block;
-            color: #3366cc;
-            text-decoration: underline;
-          "
-          class="text-h6 mx-1"
-        >
-          {{ category }}
-        </p>
-      </div>
-    </v-row>
-    <v-row>
-      <p class="text-subtitle-1 mx-auto mb-5">
+      <p class="text-center mx-auto mb-5">
         {{ article.authors }}
       </p>
     </v-row>
@@ -73,7 +58,7 @@ export default {
       if (toRaw(article.data.value)[0].id === this.$route.params.id) {
         this.pageExists = true;
         this.article = toRaw(article.data.value)[0];
-        this.article["authors"] = toRaw(this.article.authors.join(", "));
+        this.article["authors"] = this.article.authors.join(", ");
         this.loaded = true;
       } else {
         this.pageExists = false;
@@ -90,7 +75,12 @@ export default {
         },
       });
 
-      console.log(download);
+      const link = document.createElement("a");
+      const href = URL.createObjectURL(download.data.value);
+      link.href = href;
+      link.target = "_blank";
+      link.click();
+      URL.revokeObjectURL(href);
     },
   },
 

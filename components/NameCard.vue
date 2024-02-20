@@ -32,7 +32,7 @@
       <v-btn
         v-for="item in linkIcons"
         class="mx-2"
-        :href="item[1]"
+        @click="redirect(item[1])"
         :icon="item[0]"
       >
       </v-btn>
@@ -50,7 +50,14 @@ export default {
     device: String,
     srcpath: String,
   },
-
+  methods: {
+    redirect(href) {
+      const link = document.createElement("a");
+      link.href = href;
+      link.target = "_blank";
+      link.click();
+    },
+  },
   computed: {
     linkIcons() {
       let displayIcons = [];

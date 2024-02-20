@@ -15,7 +15,7 @@
   </div>
 
   <v-sheet class="text-center my-16">
-    <p class="mx-auto text-h4 mb-5">Manuscript Requirements</p>
+    <p class="mx-auto text-h4 mb-16">Manuscript Requirements</p>
     <v-divider
       class="border-opacity-100 mx-auto mb-10"
       thickness="3"
@@ -31,7 +31,7 @@
         <v-icon class="mr-2 mt-n2" style="display: inline-block"
           >mdi-play</v-icon
         >
-        <p style="display: inline" class="text-h5 text-wrap">
+        <p style="display: inline" class="text-h6 text-wrap">
           {{ req }}
         </p>
       </div>
