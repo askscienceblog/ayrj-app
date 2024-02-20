@@ -49,9 +49,9 @@ export default {
       { title: "Home", page: "/" },
       { title: "Publications", page: "/publications/" },
       { title: "Journals", page: "/journals" },
-      { title: "Experiment Blog", page: "/blog" },
-      { title: "About AYRJ", page: "/about" },
       { title: "Submit manuscripts", page: "/submit" },
+      { title: "About AYRJ", page: "/about" },
+      { title: "Contact Us", page: "/contact" },
     ],
   }),
   methods: {

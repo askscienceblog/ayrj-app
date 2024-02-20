@@ -78,7 +78,7 @@
   </v-sheet>
   <!-- Description -->
   <div class="mx-auto pb-3 px-10" style="max-width: 1000px">
-    <p class="text-h6 text-wrap text-justify font-weight-bold mt-16">
+    <p class="text-h6 text-wrap text-left font-weight-bold mt-16">
       ASEAN Young Researchers’ Journal aims to provide a platform for Young
       Researchers in the region to showcase their findings. We hope to provide a
       safe environment for holistic development and interactions with

@@ -1,7 +1,7 @@
 <template>
   <v-container v-show="pageExists && loaded" fluid>
     <v-row class="text-center">
-      <p class="font-weight-bold text-h3 pa-16 pb-5 mx-auto">
+      <p class="font-weight-bold text-h3 px-10 pt-16 pb-5 mx-auto">
         {{ article.title }}
       </p>
     </v-row>
@@ -33,14 +33,14 @@
       </v-btn>
     </v-row>
     <v-row>
-      <v-card width="1200" class="mx-auto my-10" variant="text">
+      <v-card width="1200" class="mx-auto my-10 px-10" variant="text">
         <p class="text-h5 my-2">Abstract</p>
         <v-divider horizontal></v-divider>
         <p class="text-wrap mt-3">{{ article.abstract }}</p>
       </v-card>
     </v-row>
     <v-row>
-      <v-card width="1200" class="mx-auto my-10" variant="text">
+      <v-card width="1200" class="mx-auto my-10 px-10" variant="text">
         <p class="text-h5 my-2">Bibliography</p>
         <v-divider horizontal></v-divider>
         <div v-for="src in article.biblio">
@@ -86,6 +86,7 @@ export default {
         method: "GET",
         query: {
           id: this.$route.params.id,
+          paper_type: "published",
         },
       });
 
@@ -102,7 +103,7 @@ export default {
   computed: {},
 
   mounted() {
-    setTimeout(this.reqPaper, 10);
+    setTimeout(this.reqPaper, 1);
   },
 };
 </script>

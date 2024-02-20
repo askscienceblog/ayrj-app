@@ -46,7 +46,7 @@
             {{ article.title }}
           </p>
           <p class="text-wrap text-justify text-subtitle-1 my-5">
-            {{ article.subtitle }}
+            {{ article.abstract }}
           </p>
           <v-btn
             variant="elevated"
@@ -59,7 +59,7 @@
 
         <img
           class="s-featured-image"
-          :src="article.img"
+          src="/featured/phage.jpeg"
           style="display: inline-block"
         />
 
@@ -80,7 +80,7 @@
               {{ article.title }}
             </p>
             <p class="text-wrap text-subtitle-1 my-5">
-              {{ article.subtitle }}
+              {{ article.abstract }}
             </p>
             <v-btn
               variant="elevated"
@@ -93,7 +93,7 @@
         </v-col>
 
         <v-col>
-          <img class="s-featured-image" :src="article.img" />
+          <img class="l-featured-image" src="/featured/phage.jpeg" />
         </v-col>
 
         <v-divider
@@ -140,6 +140,16 @@ export default {
         this.showFeatured = true;
       }
     },
+    async reqFeatured() {
+      const reqFeatured = await useBaseFetch("/features", {
+        method: "GET",
+      });
+      const featured = toRaw(reqFeatured.data.value);
+      this.featured = featured;
+      console.log(featured);
+      console.log(toRaw(featured[0].abstract));
+      console.log(toRaw(featured[0].title));
+    },
   },
 
   computed: {
@@ -172,27 +182,12 @@ export default {
       // Dynamic Content
       content: [],
 
-      featured: [
-        {
-          section: "Biology",
-          title:
-            "Doctor bartender: phage cocktails to treat multi-drug resistant Mycobacterium abscessus",
-          subtitle:
-            "M. abscessus is a rising global clinical issue due to their inherent ability to gain resistance to antibiotics and thus difficult in treating patients, it is also pervasive in the environment, making human-pathogen contact a frequent occurrence. This study uses phages (bacteria infecting viruses) to treat these infections.",
-          img: "/featured/phage.jpeg",
-          id: "123",
-        },
-        {
-          section: "Biology",
-          title:
-            "Doctor bartender: phage cocktails to treat multi-drug resistant Mycobacterium abscessus",
-          subtitle:
-            "M. abscessus is a rising global clinical issue due to their inherent ability to gain resistance to antibiotics and thus difficult in treating patients, it is also pervasive in the environment, making human-pathogen contact a frequent occurrence. This study uses phages (bacteria infecting viruses) to treat these infections.",
-          img: "/featured/phage.jpeg",
-          id: "123",
-        },
-      ],
+      featured: [],
     };
+  },
+
+  mounted() {
+    setTimeout(this.reqFeatured, 1);
   },
   components: {
     ProjectsTable,
@@ -209,6 +204,13 @@ export default {
   transform: translate(-50%);
 }
 
+.l-featured-image {
+  max-width: 400px;
+
+  position: relative;
+  top: 30%;
+  left: 20%;
+}
 .s-featured-card {
   width: 80%;
 
