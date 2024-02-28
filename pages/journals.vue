@@ -23,7 +23,7 @@
     <v-btn
       color="grey-darken-1"
       class="my-auto mx-5"
-      @click="reqDownload(download.id)"
+      @click="reqDownload(download.store)"
       icon="mdi-download"
     ></v-btn>
   </v-card>
@@ -33,22 +33,29 @@
 export default {
   data() {
     return {
-      downloads: [
-        { title: "AYRJ Volume 1 Issue 1", id: "2024q1" },
-        { title: "AYRJ Volume 1 Issue 2", id: "2024q2" },
-        { title: "AYRJ Volume 1 Issue 3", id: "2024q3" },
-      ],
+      downloads: [{ title: "AYRJ Volume 1 Issue 1", store: "help" }],
     };
   },
 
   methods: {
-    async reqDownload(id) {
-      const download = await useBaseFetch("/list/published", {
+    async reqDownload(title) {
+      const download = await useBaseFetch("/journal", {
         method: "GET",
         query: {
-          id: id,
+          title: title,
         },
       });
+
+      if (download.data.value) {
+        const link = document.createElement("a");
+        const href = URL.createObjectURL(download.data.value);
+        link.href = href;
+        link.target = "_blank";
+        link.click();
+        URL.revokeObjectURL(href);
+      } else {
+        alert("Journal Unavailable");
+      }
     },
   },
 };

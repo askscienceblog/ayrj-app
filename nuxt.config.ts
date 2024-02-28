@@ -6,7 +6,6 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    "@nuxt/image",
     "@nuxtjs/robots",
     (_options, nuxt) => {
       nuxt.hooks.hook("vite:extendConfig", (config) => {

@@ -24,8 +24,6 @@
         class="flex-item-center mx-5"
         color="#eeeeee"
       >
-        <p class="text-h5 text-center font-weight-bold">About Us</p>
-
         <div v-for="page in pages" class="text-center">
           <v-btn variant="text">
             <a
@@ -43,25 +41,23 @@
       <!-- Form -->
       <v-sheet class="flex-item-center mx-5" color="#00000000">
         <p class="font-weight-bold ml-6">
-          Join our newsletter. No spam. Just Knowledge
+          Join our newsletter. No spam. Just Knowledge.
         </p>
 
         <v-sheet min-width="380" class="my-6 ml-6" color="#00000000">
           <v-form>
-            <p class="font-weight-bold my-3">First Name:</p>
             <v-text-field
               variant="outlined"
               :rules="rules"
               v-model="firstName"
-              label="Your First Name"
+              label="First Name"
             ></v-text-field>
 
-            <p class="font-weight-bold my-3">Email Address:</p>
             <v-text-field
               variant="outlined"
               :rules="rules"
               v-model="emailAddress"
-              label="Your Email Address"
+              label="Email Address"
             ></v-text-field>
 
             <v-sheet width="100" class="mt-n1"
@@ -80,7 +76,7 @@
     color="#eeeeee"
     width="100%"
     height="300"
-    class="py-15"
+    class="py-11"
     v-if="device === 's'"
   >
     <div v-for="page in pages" class="text-center">
@@ -152,8 +148,8 @@
           class="mx-1"
           density="compact"
           variant="text"
-          icon="mdi-email"
-          href=""
+          icon="mdi-github"
+          @click="pushLink('https://github.com/askscienceblog')"
         >
         </v-btn>
 
@@ -162,7 +158,11 @@
           density="compact"
           variant="text"
           icon="mdi-linkedin"
-          href="https://www.linkedin.com/company/aseanyouthresearchjournal"
+          @click="
+            pushLink(
+              'https://www.linkedin.com/company/aseanyouthresearchjournal'
+            )
+          "
         >
         </v-btn>
 
@@ -171,11 +171,11 @@
           density="compact"
           variant="text"
           icon="mdi-instagram"
-          href="https://instagram.com"
+          @click="pushLink('https://instagram.com')"
         >
         </v-btn>
 
-        <a class="">@The Science Journal</a>
+        <a class="px-2">Follow us @The Science Journal</a>
       </v-col>
     </v-container>
   </v-sheet>
@@ -184,14 +184,15 @@
 <script>
 export default {
   props: { device: String },
-  data: () => {
+  data() {
     return {
       pages: [
-        { title: "How we operate", href: "/about" },
-        { title: "Articles", href: "/articles/" },
-        { title: "Experiment Blog", href: "/blog" },
-        { title: "Contact Us", href: "/submit" },
-        { title: "Submit your manuscript", href: "/submit" },
+        { title: "Home", href: "/" },
+        { title: "Publications", href: "/publications/" },
+        { title: "Journals", href: "/journals" },
+        { title: "Submit manuscripts", href: "/submit" },
+        { title: "About AYRJ", href: "/about" },
+        { title: "Contact Us", href: "/contact" },
       ],
       rules: [
         (value) => {
@@ -201,6 +202,14 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    pushLink(href) {
+      const link = document.createElement("a");
+      link.target = "_blank";
+      link.href = href;
+      link.click();
+    },
   },
 };
 </script>

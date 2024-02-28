@@ -10,7 +10,7 @@
   >
     <v-sheet class="overlay"></v-sheet>
     <div style="max-width: 1000px" class="page-title">
-      <div class="mx-auto">
+      <div class="mx-5">
         <p class="text-h3 text-wrap font-weight-bold">
           Asean Young Researchers' Journal
         </p>
@@ -24,12 +24,18 @@
           <v-btn
             class="mt-6"
             height="80"
+            width="200"
             rounded="0"
             variant="outlined"
             href="/publications/"
             >PUBLISH WITH US</v-btn
           >
-          <v-btn class="mt-6" height="80" rounded="0" href="/publications/"
+          <v-btn
+            class="mt-6"
+            height="80"
+            width="200"
+            rounded="0"
+            href="/publications/"
             >READ PUBLICATIONS</v-btn
           >
         </div>
@@ -46,6 +52,7 @@
       transform: translate(-50%, -50%);
       margin-top: 100px;
       margin-bottom: 150px;
+      padding-inline: 30px;
 
       max-width: 1000px;
       height: auto;
@@ -76,13 +83,13 @@
   <!-- Ad #2 -->
   <v-sheet
     width="100%"
-    height="500"
+    height="420"
     color="#52787b"
     style="opacity: 0.7"
     class="text-center"
   >
-    <v-card variant="text" max-width="500" class="mx-auto pt-16">
-      <p class="text-h4 text-wrap font-weight-bold mt-16">
+    <v-card variant="text" max-width="500" class="mx-auto px-12 py-16">
+      <p class="text-h4 text-wrap font-weight-bold">
         Calling Citizen Scientists
       </p>
       <p class="my-6">
@@ -109,15 +116,6 @@ export default {
     device() {
       return useAttrs().device;
     },
-  },
-  data() {
-    return {
-      // highlights: [
-      //   { title: "Mycobacterium and phages", href: "" },
-      //   { title: "Novel wastewater treatment", href: "" },
-      //   { title: "Genetic editing to better mushroom", href: "" },
-      // ],
-    };
   },
 };
 </script>

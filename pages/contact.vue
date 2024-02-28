@@ -9,7 +9,7 @@
     >
     </v-sheet>
     <v-sheet class="overlay"></v-sheet>
-    <p class="text-h3 font-weight-bold page-title">Publications</p>
+    <p class="text-h3 font-weight-bold page-title">Contact Us</p>
   </div>
 
   <!-- Questions Section -->
@@ -28,7 +28,7 @@
         's-form': device === 's',
         'l-form': device === 'l',
       }"
-      ><p class="text-h4 py-5">Have a question?</p>
+      ><p class="text-h4 pb-8">Have a question?</p>
       <v-form>
         <v-text-field
           variant="outlined"

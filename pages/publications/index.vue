@@ -19,7 +19,7 @@
       hide-details="auto"
       variant="outlined"
       v-model="userSearchContent"
-      @input="search"
+      @input="searchName()"
     ></v-text-field>
 
     <v-select
@@ -28,8 +28,6 @@
       variant="outlined"
       :items="articleCategories"
       v-model="userSelectedCategory"
-      multiple
-      chips
     >
     </v-select>
   </div>
@@ -115,6 +113,12 @@ import { useAttrs } from "vue";
 import ProjectsTable from "../components/ProjectsTable.vue";
 
 export default {
+  watch: {
+    userSelectedCategory(newValue, oldValue) {
+      this.searchCategory(newValue);
+    },
+  },
+
   methods: {
     isOdd(index) {
       if (index % 2 === 0) {
@@ -123,18 +127,36 @@ export default {
         return true;
       }
     },
-    async search() {
+    async searchName() {
+      // console.log(category);
       const reqContent = await useBaseFetch("/list/published", {
         method: "GET",
         query: {
           length: 5,
-          contains_content: this.userSearchContent,
-          content_match_quality_limit: 0.2,
+          contains: this.userSearchContent,
+          quality_limit: 100,
         },
       });
       if (this.userSearchContent) {
         this.content = toRaw(reqContent.data.value);
-        console.log(this.content);
+        // console.log(this.content);
+        this.showFeatured = false;
+      } else {
+        this.showFeatured = true;
+      }
+    },
+    async searchCategory(category) {
+      const reqContent = await useBaseFetch("/list/published", {
+        method: "GET",
+        query: {
+          length: 5,
+          quality_limit: 100,
+          category: category,
+        },
+      });
+
+      if (this.userSelectedCategory) {
+        this.content = toRaw(reqContent.data.value);
         this.showFeatured = false;
       } else {
         this.showFeatured = true;
@@ -146,9 +168,7 @@ export default {
       });
       const featured = toRaw(reqFeatured.data.value);
       this.featured = featured;
-      console.log(featured);
-      console.log(toRaw(featured[0].abstract));
-      console.log(toRaw(featured[0].title));
+      // console.log(featured);
     },
   },
 
