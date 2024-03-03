@@ -174,7 +174,11 @@ export default {
 
   computed: {
     tableHeaderString() {
-      return `Search Results for \"${this.userSearchContent}\"`;
+      if (this.userSearchContent) {
+        return `Search Results for \"${this.userSearchContent}\"`;
+      } else {
+        return `Search Results for ${this.userSelectedCategory}`;
+      }
     },
     device() {
       return useAttrs().device;
