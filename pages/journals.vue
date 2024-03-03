@@ -23,7 +23,7 @@
     <v-btn
       color="grey-darken-1"
       class="my-auto mx-5"
-      @click="reqDownload(download.store)"
+      @click="reqDownload(download.id)"
       icon="mdi-download"
     ></v-btn>
   </v-card>
@@ -33,20 +33,21 @@
 export default {
   data() {
     return {
-      downloads: [{ title: "AYRJ Volume 1 Issue 1", store: "help" }],
+      downloads: [{ title: "AYRJ Volume 1 Issue 1", id: "Issue 1" }],
     };
   },
 
   methods: {
-    async reqDownload(title) {
-      const download = await useBaseFetch("/journal", {
+    async reqDownload(id) {
+      const download = await useBaseFetch("/get/journal", {
         method: "GET",
         query: {
-          title: title,
+          id: id,
         },
       });
 
       if (download.data.value) {
+        console.log(download.data.value);
         const link = document.createElement("a");
         const href = URL.createObjectURL(download.data.value);
         link.href = href;
