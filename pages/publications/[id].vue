@@ -44,6 +44,7 @@
 import NotFound from "/components/NotFound.vue";
 export default {
   components: { NotFound },
+  props: { device: String },
   methods: {
     async reqPaper() {
       const article = await useBaseFetch("/list/published", {
@@ -75,12 +76,19 @@ export default {
         },
       });
 
-      const link = document.createElement("a");
-      const href = URL.createObjectURL(download.data.value);
-      link.href = href;
-      link.target = "_blank";
-      link.click();
-      URL.revokeObjectURL(href);
+      if (download.data.value) {
+        const link = document.createElement("a");
+        const href = URL.createObjectURL(download.data.value);
+        link.href = href;
+        link.target = "_blank";
+        if (this.device === "s") {
+          link.download = download.data.value.type;
+        }
+        link.click();
+        URL.revokeObjectURL(href);
+      } else {
+        alert(`Article ${this.$route.params.id} Unavailable`);
+      }
     },
   },
 
@@ -90,7 +98,6 @@ export default {
       article: {},
     };
   },
-  computed: {},
 
   mounted() {
     setTimeout(this.reqPaper, 1);

@@ -31,6 +31,9 @@
 
 <script>
 export default {
+  props: {
+    device: String,
+  },
   data() {
     return {
       downloads: [{ title: "AYRJ Volume 1 Issue 1", id: "Issue 1" }],
@@ -47,11 +50,13 @@ export default {
       });
 
       if (download.data.value) {
-        console.log(download.data.value);
         const link = document.createElement("a");
         const href = URL.createObjectURL(download.data.value);
         link.href = href;
         link.target = "_blank";
+        if (this.device === "s") {
+          link.download = download.data.value.type;
+        }
         link.click();
         URL.revokeObjectURL(href);
       } else {

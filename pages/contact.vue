@@ -81,10 +81,8 @@
 
 <script>
 export default {
-  computed: {
-    device() {
-      return useAttrs().device;
-    },
+  props: {
+    device: String,
   },
   data() {
     return {

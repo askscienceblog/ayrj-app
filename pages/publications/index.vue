@@ -14,7 +14,7 @@
 
   <div class="text-center mt-16">
     <v-text-field
-      style="display: inline-table; width: 60%"
+      style="display: inline-table; width: 65%"
       label="Search Publications by Article Name"
       hide-details="auto"
       variant="outlined"
@@ -23,7 +23,7 @@
     ></v-text-field>
 
     <v-select
-      style="display: inline-table; width: 20%"
+      style="display: inline-table; width: 25%"
       label="Categories"
       variant="outlined"
       :items="articleCategories"
@@ -105,14 +105,18 @@
     v-if="!showFeatured"
     :projects="content"
     :articleSection="tableHeaderString"
+    :device="device"
   ></ProjectsTable>
 </template>
 
 <script>
-import { useAttrs } from "vue";
 import ProjectsTable from "../components/ProjectsTable.vue";
 
 export default {
+  props: {
+    device: String,
+    width: Number,
+  },
   watch: {
     userSelectedCategory(newValue, oldValue) {
       this.searchCategory(newValue);
@@ -168,7 +172,6 @@ export default {
       });
       const featured = toRaw(reqFeatured.data.value);
       this.featured = featured;
-      // console.log(featured);
     },
   },
 
@@ -179,13 +182,6 @@ export default {
       } else {
         return `Search Results for ${this.userSelectedCategory}`;
       }
-    },
-    device() {
-      return useAttrs().device;
-    },
-    width() {
-      console.log(useAttrs().width);
-      return useAttrs().width;
     },
   },
   data() {

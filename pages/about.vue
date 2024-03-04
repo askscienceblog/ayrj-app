@@ -172,15 +172,13 @@ import NameCard from "../components/NameCard.vue";
 
 export default {
   components: { NameCard },
+  props: { device: String },
   watch: {
     tab(newValue, oldValue) {
       this.tab = newValue;
     },
   },
   computed: {
-    device() {
-      return useAttrs().device;
-    },
     team() {
       return this.ourTeam.at(this.tab);
     },
