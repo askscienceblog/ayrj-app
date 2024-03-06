@@ -179,7 +179,7 @@
         >
         </v-btn>
 
-        <a class="px-2">Follow us @The Science Journal</a>
+        <a class="px-2">Check out our socials</a>
       </v-col>
     </v-container>
   </v-sheet>
