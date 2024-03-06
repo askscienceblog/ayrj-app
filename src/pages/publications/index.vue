@@ -12,9 +12,9 @@
     <p class="text-h3 font-weight-bold page-title">Publications</p>
   </div>
 
-  <div class="text-center mt-16">
+  <div class="text-center mt-16 mb-10">
     <v-text-field
-      style="display: inline-table; width: 65%"
+      style="display: inline-table; width: 60%"
       label="Search Publications by Article Name"
       hide-details="auto"
       variant="outlined"
@@ -23,7 +23,7 @@
     ></v-text-field>
 
     <v-select
-      style="display: inline-table; width: 25%"
+      style="display: inline-table; width: 20%"
       label="Categories"
       variant="outlined"
       :items="articleCategories"

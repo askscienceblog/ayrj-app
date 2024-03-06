@@ -171,7 +171,11 @@
           density="compact"
           variant="text"
           icon="mdi-instagram"
-          @click="pushLink('https://instagram.com')"
+          @click="
+            pushLink(
+              'https://www.instagram.com/asean.youngresearchersjournal?igsh=ZXlzaDR3OXQzM2xj'
+            )
+          "
         >
         </v-btn>
 
