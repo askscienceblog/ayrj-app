@@ -44,6 +44,7 @@
       style="background-color: black; color: white"
       class="mb-10 mt-4"
       rounded="l"
+      @click="reqTemplate"
       >Download Template
       <v-icon>mdi-download</v-icon>
     </v-btn>
@@ -60,12 +61,11 @@
 </template>
 
 <script>
-export default {
-  computed: {
-    device() {
-      return useAttrs().device;
-    },
+import { useBaseFetch } from '~/composables/useBaseFetch';
 
+export default {
+  props: {device: String},
+  computed: {
     dividerWidth() {
       if (this.device === "s") {
         return "auto";
@@ -73,6 +73,27 @@ export default {
         return "700";
       }
     },
+  },
+  methods: {
+    async reqTemplate() {
+      const download = await useBaseFetch("/get/template", {
+        method: "GET",
+        query : {
+          id: 0,
+        }
+      })
+      console.log(download)
+      if (download.data.value) {
+        const link = document.createElement("a");
+        const href = URL.createObjectURL(download.data.value);
+        link.href = href;
+        link.download = "ayrj-template.docx";
+        link.click();
+        URL.revokeObjectURL(href);
+      } else {
+        alert("Template Unavailable");
+      }
+    }
   },
   data() {
     return {
