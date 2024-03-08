@@ -51,9 +51,14 @@
     class="mx-auto mb-2 py-16"
     v-for="project in projects"
   >
-    <v-card-title class="text-h4 text-wrap mx-5 mb-8">{{
+    <!-- <v-card-title class="text-h4 text-wrap mx-5 mb-8">{{
       project.title
-    }}</v-card-title>
+    }}</v-card-title> -->
+
+    <Title>
+      ::the-title A [rich text](/) will be **rendered** by the component. ::
+    </Title>
+
     <v-card-text class="mx-5">
       {{ project.abstract }}
       <v-spacer></v-spacer>
@@ -73,11 +78,16 @@
 </template>
 
 <script>
+import Title from "./content/Title.vue";
+
 export default {
   props: {
     projects: Object,
     articleSection: String,
     device: String,
+  },
+  components: {
+    Title,
   },
 };
 </script>

@@ -14,7 +14,11 @@
 
   <div class="text-center mt-16 mb-10">
     <v-text-field
-      style="display: inline-table; width: 60%"
+      style="display: inline-table"
+      :class="{
+        's-field': device === 's' ? true : false,
+        'l-field': device === 's' ? false : true,
+      }"
       label="Search Publications by Article Name"
       hide-details="auto"
       variant="outlined"
@@ -23,7 +27,11 @@
     ></v-text-field>
 
     <v-select
-      style="display: inline-table; width: 20%"
+      style="display: inline-table"
+      :class="{
+        's-select': device === 's' ? true : false,
+        'l-select': device === 's' ? false : true,
+      }"
       label="Categories"
       variant="outlined"
       :items="articleCategories"
@@ -31,7 +39,11 @@
     >
     </v-select>
   </div>
-  <v-sheet class="mx-auto mb-10" width="80%" v-if="showFeatured">
+  <v-sheet
+    class="mx-auto mb-10"
+    :width="`${device === 'l' ? '80%' : '90%'}`"
+    v-if="showFeatured"
+  >
     <p class="text-h5 mt-3 mb-7 font-weight-bold">Featured articles</p>
     <v-divider class="border-opacity-100" thickness="3"></v-divider>
   </v-sheet>
@@ -62,7 +74,7 @@
         />
 
         <v-divider
-          width="80%"
+          width="90%"
           class="mx-auto mt-16 border-opacity-100"
         ></v-divider>
       </div>
@@ -73,7 +85,7 @@
     <v-container>
       <v-row v-for="(article, index) in featured">
         <v-col>
-          <v-card variant="flat" style="">
+          <v-card variant="flat" class="l-featured-card">
             <p class="text-wrap text-h4 font-weight-medium">
               {{ article.title }}
             </p>
@@ -216,29 +228,6 @@ export default {
 </script>
 
 <style scoped>
-.s-featured-image {
-  max-width: 320px;
-
-  position: relative;
-  left: 50%;
-  transform: translate(-50%);
-}
-
-.l-featured-image {
-  max-width: 400px;
-
-  position: relative;
-  top: 30%;
-  left: 20%;
-}
-.s-featured-card {
-  width: 80%;
-
-  position: relative;
-  left: 50%;
-  transform: translate(-50%);
-  margin-bottom: 50px;
-}
 .page-title {
   position: absolute;
   top: 50%;
@@ -274,11 +263,57 @@ export default {
   opacity: 0.5;
 }
 
+.s-featured-image {
+  max-width: 320px;
+
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.l-featured-image {
+  max-width: 400px;
+
+  position: relative;
+  top: 30%;
+  left: 20%;
+}
+
 .l-background-scale {
   background-size: 100% 100%;
 }
+
 .s-background-scale {
   background-position: center center;
   background-size: auto 100%;
+}
+
+.s-featured-card {
+  width: 90%;
+
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  margin-bottom: 50px;
+}
+
+.l-featured-card {
+  width: 100%;
+}
+
+.s-field {
+  width: 65%;
+}
+
+.s-select {
+  width: 25%;
+}
+
+.l-field {
+  width: 60%;
+}
+
+.l-select {
+  width: 20%;
 }
 </style>
