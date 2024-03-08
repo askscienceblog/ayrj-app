@@ -79,9 +79,6 @@ export default {
     articleSection: String,
     device: String,
   },
-  components: {
-    Title,
-  },
 };
 </script>
 
