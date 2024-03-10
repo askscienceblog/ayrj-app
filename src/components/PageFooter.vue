@@ -48,20 +48,26 @@
           <v-form>
             <v-text-field
               variant="outlined"
-              :rules="rules"
+              :rules="nameRule"
               v-model="firstName"
               label="First Name"
             ></v-text-field>
 
             <v-text-field
               variant="outlined"
-              :rules="rules"
+              :rules="emailRule"
               v-model="emailAddress"
               label="Email Address"
             ></v-text-field>
 
             <v-sheet width="100" class="mt-n1"
-              ><v-btn type="submit" color="blue" block>Submit</v-btn>
+              ><v-btn
+                type="submit"
+                color="blue"
+                block
+                @click="formUnavailable()"
+                >Submit</v-btn
+              >
             </v-sheet>
           </v-form>
         </v-sheet>
@@ -118,20 +124,24 @@
         <v-form>
           <v-text-field
             variant="outlined"
-            :rules="rules"
+            :rules="nameRule"
             v-model="firstName"
             label="First Name"
+            required
           ></v-text-field>
 
           <v-text-field
             variant="outlined"
-            :rules="rules"
+            :rules="emailRule"
             v-model="emailAddress"
             label="Email Address"
+            required
           ></v-text-field>
 
           <v-sheet width="100" class="mx-auto"
-            ><v-btn type="submit" color="blue" block>Submit</v-btn></v-sheet
+            ><v-btn type="submit" color="blue" block @click="formUnavailable()"
+              >Submit</v-btn
+            ></v-sheet
           >
         </v-form>
       </v-sheet>
@@ -190,6 +200,9 @@ export default {
   props: { device: String },
   data() {
     return {
+      firstName: null,
+      emailAddress: null,
+
       pages: [
         { title: "Home", href: "/" },
         { title: "Publications", href: "/publications/" },
@@ -198,11 +211,18 @@ export default {
         { title: "About AYRJ", href: "/about" },
         { title: "Contact Us", href: "/contact" },
       ],
-      rules: [
+      nameRule: [
         (value) => {
-          if (value) return true;
+          if (value?.length <= 10) return true;
+          console.log(value);
+          return "Field info must be a string";
+        },
+      ],
+      emailRule: [
+        (value) => {
+          if (/.+@.+\..+/.test(value)) return true;
 
-          return "";
+          return "E-mail must be valid.";
         },
       ],
     };
@@ -213,6 +233,9 @@ export default {
       link.target = "_blank";
       link.href = href;
       link.click();
+    },
+    formUnavailable() {
+      alert("Newsletter Coming Soon...");
     },
   },
 };

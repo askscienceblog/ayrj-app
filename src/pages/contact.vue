@@ -33,22 +33,26 @@
         <v-text-field
           variant="outlined"
           label="Name"
-          :rules="rules"
+          :rules="rule"
+          required
         ></v-text-field>
         <v-text-field
           variant="outlined"
           label="Phone Number"
-          :rules="rules"
+          :rules="phoneRule"
+          required
         ></v-text-field>
         <v-text-field
           variant="outlined"
           label="Email"
-          :rules="rules"
+          :rules="emailRule"
+          required
         ></v-text-field>
         <v-textarea
           variant="outlined"
           label="Message"
-          :rules="rules"
+          :rules="rule"
+          required
         ></v-textarea>
         <v-btn
           type="submit"
@@ -56,6 +60,7 @@
           class="px-10"
           density="default"
           height="40"
+          @click="formUnavailable"
         >
           Submit
         </v-btn>
@@ -84,13 +89,32 @@ export default {
   props: {
     device: String,
   },
+  methods: {
+    formUnavailable() {
+      alert("Please email contact_us@ayrj.org for any enquires");
+    },
+  },
   data() {
     return {
-      rules: [
+      rule: [
         (value) => {
           if (value) return true;
 
-          return "";
+          return "Field must be filled";
+        },
+      ],
+      emailRule: [
+        (value) => {
+          if (/.+@.+\..+/.test(value)) return true;
+
+          return "Invalid email.";
+        },
+      ],
+      phoneRule: [
+        (value) => {
+          if (Number(value) > 0) return true;
+
+          return "Invalid Phone Number";
         },
       ],
       channels: [
@@ -99,7 +123,7 @@ export default {
           contents: [
             {
               icon: "mdi-email",
-              iconTag: "askscienceblog@gmail.com",
+              iconTag: "contact_us@ayrj.org",
               href: "https://www.google.com/gmail",
             },
           ],
