@@ -37,28 +37,31 @@
       </div>
     </div>
 
-    <v-btn
-      variant="outlined"
-      width="200"
-      height="80"
-      style="background-color: black; color: white"
-      class="mb-10 mt-4 mx-10"
-      rounded="l"
-      @click="reqTemplate"
-      >Template
-      <v-icon class="mx-1">mdi-download</v-icon>
-    </v-btn>
-    <v-btn
-      variant="outlined"
-      width="200"
-      height="80"
-      style="background-color: black; color: white"
-      class="mb-10 mt-4 mx-10"
-      rounded="l"
-      @click="reqForm"
-      >Form
-      <v-icon class="mx-1">mdi-download</v-icon>
-    </v-btn>
+    <div class="d-flex justify-center align-center flex-wrap">
+      <v-btn
+        variant="outlined"
+        width="400"
+        height="80"
+        style="background-color: black; color: white"
+        class="mb-10 mt-4"
+        rounded="l"
+        @click="reqTemplate"
+        >Template
+        <v-icon class="mx-1">mdi-download</v-icon>
+      </v-btn>
+      <v-btn
+        variant="outlined"
+        width="400"
+        height="80"
+        style="background-color: black; color: white"
+        class="mb-10 mt-4"
+        rounded="l"
+        @click="reqForm"
+        >Form
+        <v-icon class="mx-1">mdi-download</v-icon>
+      </v-btn>
+    </div>
+
     <v-divider
       class="border-opacity-100 mx-auto"
       thickness="3"
