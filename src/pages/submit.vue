@@ -134,6 +134,7 @@ export default {
         "Abstract with 250 word limit is required",
         "Include full name, country and institution of the authors",
         "All materials must be submitted in Microsoft Word Document",
+        "Agree to terms of publication outlined in application form",
       ],
     };
   },
