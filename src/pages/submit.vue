@@ -39,14 +39,25 @@
 
     <v-btn
       variant="outlined"
-      width="300"
+      width="200"
       height="80"
       style="background-color: black; color: white"
-      class="mb-10 mt-4"
+      class="mb-10 mt-4 mx-10"
       rounded="l"
       @click="reqTemplate"
-      >Download Template
-      <v-icon>mdi-download</v-icon>
+      >Template
+      <v-icon class="mx-1">mdi-download</v-icon>
+    </v-btn>
+    <v-btn
+      variant="outlined"
+      width="200"
+      height="80"
+      style="background-color: black; color: white"
+      class="mb-10 mt-4 mx-10"
+      rounded="l"
+      @click="reqForm"
+      >Form
+      <v-icon class="mx-1">mdi-download</v-icon>
     </v-btn>
     <v-divider
       class="border-opacity-100 mx-auto"
@@ -61,10 +72,10 @@
 </template>
 
 <script>
-import { useBaseFetch } from '~/composables/useBaseFetch';
+import { useBaseFetch } from "~/composables/useBaseFetch";
 
 export default {
-  props: {device: String},
+  props: { device: String },
   computed: {
     dividerWidth() {
       if (this.device === "s") {
@@ -78,11 +89,10 @@ export default {
     async reqTemplate() {
       const download = await useBaseFetch("/get/template", {
         method: "GET",
-        query : {
+        query: {
           id: 0,
-        }
-      })
-      console.log(download)
+        },
+      });
       if (download.data.value) {
         const link = document.createElement("a");
         const href = URL.createObjectURL(download.data.value);
@@ -93,7 +103,26 @@ export default {
       } else {
         alert("Template Unavailable");
       }
-    }
+    },
+
+    async reqForm() {
+      const download = await useBaseFetch("/get/form", {
+        method: "GET",
+        query: {
+          id: 0,
+        },
+      });
+      if (download.data.value) {
+        const link = document.createElement("a");
+        const href = URL.createObjectURL(download.data.value);
+        link.href = href;
+        link.download = "ayrj-application-form.pdf";
+        link.click();
+        URL.revokeObjectURL(href);
+      } else {
+        alert("Template Unavailable");
+      }
+    },
   },
   data() {
     return {
