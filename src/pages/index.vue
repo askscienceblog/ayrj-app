@@ -27,7 +27,7 @@
             width="200"
             rounded="0"
             variant="outlined"
-            href="/publications/"
+            href="/submit/"
             >PUBLISH WITH US</v-btn
           >
           <v-btn
