@@ -100,7 +100,7 @@ export default {
         const link = document.createElement("a");
         const href = URL.createObjectURL(download.data.value);
         link.href = href;
-        link.download = "ayrj-template.docx";
+        link.download = "template.docx";
         link.click();
         URL.revokeObjectURL(href);
       } else {
@@ -119,7 +119,7 @@ export default {
         const link = document.createElement("a");
         const href = URL.createObjectURL(download.data.value);
         link.href = href;
-        link.download = "ayrj-application-form.pdf";
+        link.download = "application";
         link.click();
         URL.revokeObjectURL(href);
       } else {
