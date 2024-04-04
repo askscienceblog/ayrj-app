@@ -69,7 +69,7 @@
     ></v-divider>
 
     <p class="text-h5 mt-16 mx-10 text-wrap font-weight-bold">
-      Email your completed manuscript to askscienceblog@gmail.com
+      Email your completed manuscript to contact_us@ayrj.org
     </p>
   </v-sheet>
 </template>
