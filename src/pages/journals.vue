@@ -55,7 +55,7 @@ export default {
         link.href = href;
         link.target = "_blank";
         if (this.device === "s") {
-          link.download = download.data.value.type;
+          link.download = `Journal ${id}`;
         }
         link.click();
         URL.revokeObjectURL(href);

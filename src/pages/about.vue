@@ -242,7 +242,7 @@ export default {
       ourMembers: [
         {
           name: "Jamie Wen",
-          title: "Founder | Chief Editor",
+          title: "Founder | Editorial Board Reviewer",
           committees: ["Board", "Editorial"],
           pic: "/members/jamie.jpg",
           email: "",
@@ -306,7 +306,7 @@ export default {
         },
         {
           name: "Wang Chen",
-          title: "Backend Developer | Editorial Board",
+          title: "Backend Developer | Chief Editor",
           committees: ["Board", "Editorial"],
           pic: "/members/wangchen.jpg",
           email: "",
@@ -332,7 +332,7 @@ export default {
         },
         {
           name: "Ze Dong",
-          title: "Editorial Board",
+          title: "Editorial Board Reviewer",
           committees: ["Editorial"],
           pic: "/members/zedong.jpg",
           email: "",
@@ -415,6 +415,19 @@ export default {
           email: "",
           intro:
             "Always intrigued by the wonders of science, always curious, always hungry",
+          links: {
+            linkedIn: "",
+            github: "",
+          },
+        },
+        {
+          name: "Prof Charles",
+          title: "Editorial Board Reviewer",
+          committees: ["Editorial"],
+          pic: "/members/charles.jpeg",
+          email: "",
+          intro:
+            "Director, Centre for Sustainable Development. Newcastle Australisa Institute of Higher Education",
           links: {
             linkedIn: "",
             github: "",
