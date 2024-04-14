@@ -13,7 +13,7 @@
       style="position: relative; left: 5%"
     >
       <!-- Logo -->
-      <img class="l-logo-image" src="/public/logo.png" />
+      <img class="l-logo-image" src="/public/icons/logo.png" />
 
       <v-divider vertical class="border-opacity-50"></v-divider>
 
@@ -189,7 +189,11 @@
         >
         </v-btn>
 
-        <a class="px-2">Check out our socials</a>
+        <button class="button" @click="pushLink('https://discord.gg/9mp269dC')">
+          <img src="/public/icons/discord.png" class="discord-icon" />
+        </button>
+
+        <a class="px-2">Check out our socials!</a>
       </v-col>
     </v-container>
   </v-sheet>
@@ -256,5 +260,17 @@ export default {
 .s-footer-logo {
   max-width: 400px;
   max-height: 300px;
+}
+
+.discord-icon {
+  width: 55px;
+  margin-top: -14px;
+  margin-left: -5px;
+  margin-right: -10px;
+  vertical-align: top;
+}
+
+.button {
+  border: none;
 }
 </style>
