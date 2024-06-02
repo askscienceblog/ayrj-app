@@ -47,6 +47,7 @@ export default {
   data: () => ({
     pages: [
       { title: "Home", page: "/" },
+      { title: "Comics", page: "/comics" },
       { title: "Publications", page: "/publications/" },
       { title: "Journals", page: "/journals" },
       { title: "Submit manuscripts", page: "/submit" },
