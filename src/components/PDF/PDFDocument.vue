@@ -58,7 +58,7 @@ export default {
     async loadPage() {
       const page = await toRaw(this.pdf).getPage(this.page);
 
-      const viewport = page.getViewport({ scale: 5 });
+      const viewport = page.getViewport({ scale: 3 });
 
       // Prepare canvas using PDF page dimensions
       const canvas = this.$refs.pdfCanvas;
