@@ -58,13 +58,7 @@ export default {
     async loadPage() {
       const page = await toRaw(this.pdf).getPage(this.page);
 
-      // console.log(page);
-
-      const unscaledViewport = page.getViewport({ scale: 1 });
-      const scale = Math.min((this.width * 0.8) / unscaledViewport.width);
-      console.log(this.$refs.pdfCanvas.width);
-      const viewport = page.getViewport({ scale: scale });
-      console.log(viewport);
+      const viewport = page.getViewport({ scale: 5 });
 
       // Prepare canvas using PDF page dimensions
       const canvas = this.$refs.pdfCanvas;
@@ -72,6 +66,7 @@ export default {
       canvas.height = viewport.height;
       canvas.width = viewport.width;
 
+      canvas.style.width = `${this.width * 0.8}px`;
       // Render PDF page into canvas context
       const renderContext = {
         canvasContext: context,
