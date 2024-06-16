@@ -67,6 +67,9 @@ export default {
       canvas.width = viewport.width;
 
       canvas.style.width = `${this.width * 0.8}px`;
+      canvas.style.height = `${
+        ((this.width * 0.8) / viewport.width) * viewport.height
+      }px`;
       // Render PDF page into canvas context
       const renderContext = {
         canvasContext: context,
