@@ -21,21 +21,34 @@
       :items="comicsTitles"
       v-model="selectedComicTitle"
     ></v-select>
-    <embed
+    <!-- <embed
       :class="{ display: showComic }"
-      v-if="showComic"
+      v-if="device === 'l' && showComic"
       :src="selectedComic?.path"
       height="800"
     />
     <embed />
+    <v-btn variant="outlined"></v-btn> -->
+    <pdfdocument
+      :class="{ display: showComic }"
+      v-if="showComic"
+      :src="selectedComic?.path"
+      :width="width"
+      :key="selectedComic.title"
+    ></pdfdocument>
   </div>
 </template>
 
 <script>
+import pdfdocument from "../components/PDF/PDFDocument.vue";
+
 export default {
   props: {
     width: Number,
     device: String,
+  },
+  components: {
+    pdfdocument,
   },
   data() {
     return {
