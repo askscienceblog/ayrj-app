@@ -88,12 +88,14 @@
       <v-row v-for="(article, index) in featured">
         <v-col>
           <v-card variant="flat" class="l-featured-card">
-            <p class="text-wrap text-h4 font-weight-medium">
-              {{ article.title }}
-            </p>
-            <p class="text-wrap text-subtitle-1 my-5">
-              {{ article.abstract }}
-            </p>
+            <p
+              class="text-wrap text-h4 font-weight-medium"
+              v-html="parseMarked(article.title)"
+            ></p>
+            <p
+              class="text-wrap text-subtitle-1 my-5"
+              v-html="parseMarked(article.abstract)"
+            ></p>
             <v-btn
               variant="elevated"
               color="black"
@@ -138,9 +140,9 @@ export default {
   },
 
   methods: {
-    parseMarked(HTML) {
+    parseMarked(content) {
       const marked = window["marked"];
-      const results = marked.parse(HTML);
+      const results = marked.parse(content);
       return results;
     },
 
