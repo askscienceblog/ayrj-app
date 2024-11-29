@@ -1,9 +1,10 @@
 <template>
   <v-container v-show="pageExists && loaded" fluid>
     <v-row class="text-center">
-      <p class="font-weight-bold text-h3 px-10 pt-16 pb-5 mx-auto">
-        {{ article.title }}
-      </p>
+      <p
+        class="font-weight-bold text-h3 px-10 pt-16 pb-5 mx-auto"
+        v-html="parseMarked(article.title)"
+      ></p>
     </v-row>
     <v-row>
       <p class="text-center mx-auto mb-5">
@@ -21,7 +22,7 @@
       <v-card width="1200" class="mx-auto my-10 px-10" variant="text">
         <p class="text-h5 my-2">Abstract</p>
         <v-divider horizontal></v-divider>
-        <p class="text-wrap mt-3">{{ article.abstract }}</p>
+        <p class="text-wrap mt-3" v-html="parseMarked(article.abstract)"></p>
       </v-card>
     </v-row>
     <v-row>
@@ -46,6 +47,14 @@ export default {
   components: { NotFound },
   props: { device: String },
   methods: {
+    parseMarked(content) {
+      if (!content) {
+        return;
+      }
+      const marked = window["marked"];
+      const results = marked.parse(content);
+      return results;
+    },
     async reqPaper() {
       const article = await useBaseFetch("/list/published", {
         method: "GET",

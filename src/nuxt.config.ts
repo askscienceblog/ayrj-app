@@ -20,6 +20,11 @@ export default defineNuxtConfig({
           type: "module",
           defer: true,
         },
+        {
+          src: "https://cdn.jsdelivr.net/npm/marked/marked.min.js",
+          type: "module",
+          defer: true,
+        },
       ],
     },
   },

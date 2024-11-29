@@ -52,12 +52,14 @@
     <v-sheet v-for="(article, index) in featured">
       <div class="my-16">
         <v-card class="s-featured-card" variant="flat" style="">
-          <p class="text-wrap text-h5 font-weight-bold">
-            {{ article.title }}
-          </p>
-          <p class="text-wrap text-justify text-subtitle-1 my-5">
-            {{ article.abstract }}
-          </p>
+          <p
+            class="text-wrap text-h5 font-weight-bold"
+            v-html="parseMarked(article.title)"
+          ></p>
+          <p
+            class="text-wrap text-justify text-subtitle-1 my-5"
+            v-html="parseMarked(article.abstract)"
+          ></p>
           <v-btn
             variant="elevated"
             color="black"
@@ -136,6 +138,12 @@ export default {
   },
 
   methods: {
+    parseMarked(HTML) {
+      const marked = window["marked"];
+      const results = marked.parse(HTML);
+      return results;
+    },
+
     isOdd(index) {
       if (index % 2 === 0) {
         return false;
