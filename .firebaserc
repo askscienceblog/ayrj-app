@@ -1,5 +1,18 @@
 {
   "projects": {
     "default": "ayrj-app"
-  }
+  },
+  "targets": {
+    "ayrj-app": {
+      "hosting": {
+        "app": [
+          "ayrj-app"
+        ],
+        "api": [
+          "ayrj-api"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
