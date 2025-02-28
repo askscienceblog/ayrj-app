@@ -1,12 +1,9 @@
 <template>
   <div style="position: relative">
-    <v-sheet
-      class="background"
-      :class="{
-        'l-background-scale': device === 'l' ? true : false,
-        's-background-scale': device === 's' ? true : false,
-      }"
-    >
+    <v-sheet class="background" :class="{
+      'l-background-scale': device === 'l' ? true : false,
+      's-background-scale': device === 's' ? true : false,
+    }">
     </v-sheet>
     <v-sheet class="overlay"></v-sheet>
     <p class="text-h3 font-weight-bold text-center page-title">
@@ -16,61 +13,43 @@
 
   <v-sheet class="text-center my-16">
     <p class="mx-auto text-h4 mb-16">Manuscript Requirements</p>
-    <v-divider
-      class="border-opacity-100 mx-auto mb-10"
-      thickness="3"
-      :width="dividerWidth"
-    ></v-divider>
+    <v-divider class="border-opacity-100 mx-auto mb-10" thickness="3" :width="dividerWidth"></v-divider>
 
-    <div
-      style="width: fit-content; padding-inline: 20px"
-      class="mx-auto"
-      width="fix-content"
-    >
-      <div v-for="req in reqs" class="my-5 text-wrap text-left" width="300px">
-        <v-icon class="mr-2 mt-n2" style="display: inline-block"
-          >mdi-play</v-icon
-        >
-        <p style="display: inline" class="text-h6 text-wrap">
-          {{ req }}
+    <div style="width: fit-content; padding-inline: 20px" class="mx-auto" width="fix-content">
+      <div class="my-5 text-wrap text-left" width="300px">
+        <p style="padding: 10px" class="text-h6 text-wrap">
+          All applicants should submit the following documents to <adress><a
+              href="mailto:contact_us@ayrj.org">contact_us@ayrj.org</a>
+          </adress>
         </p>
+        <ul style="padding-left: 30px" class="text-h6 text-wrap">
+          <li>Submit a signed copy of the
+            Publication Agreement Form</li>
+          <li>For participants in the Singapore Science and Engineering Fair (SSEF):</li>
+          <ul style="padding-left: 30px">
+            <li>SSEF Abstract</li>
+            <li>SSEF Report</li>
+          </ul>
+          <li>For other applicants:</li>
+          <ul style="padding-left: 30px">
+            <li>Download the template below and format the manuscript accordingly</li>
+          </ul>
+        </ul>
       </div>
     </div>
 
     <div class="d-flex justify-center align-center flex-wrap">
-      <v-btn
-        variant="outlined"
-        width="400"
-        height="80"
-        style="background-color: black; color: white"
-        class="mb-10 mt-4"
-        rounded="l"
-        @click="reqTemplate"
-        >Template
+      <v-btn variant="outlined" width="400" height="80" style="background-color: black; color: white" class="mb-10 mt-4"
+        rounded="l" @click="reqTemplate">Manuscript Template
         <v-icon class="mx-1">mdi-download</v-icon>
       </v-btn>
-      <v-btn
-        variant="outlined"
-        width="400"
-        height="80"
-        style="background-color: black; color: white"
-        class="mb-10 mt-4"
-        rounded="l"
-        @click="reqForm"
-        >Form
+      <v-btn variant="outlined" width="400" height="80" style="background-color: black; color: white" class="mb-10 mt-4"
+        rounded="l" @click="reqForm">Publication Agreement Form
         <v-icon class="mx-1">mdi-download</v-icon>
       </v-btn>
     </div>
 
-    <v-divider
-      class="border-opacity-100 mx-auto"
-      thickness="3"
-      :width="dividerWidth"
-    ></v-divider>
-
-    <p class="text-h5 mt-16 mx-10 text-wrap font-weight-bold">
-      Email your completed manuscript to contact_us@ayrj.org
-    </p>
+    <v-divider class="border-opacity-100 mx-auto" thickness="3" :width="dividerWidth"></v-divider>
   </v-sheet>
 </template>
 
@@ -127,20 +106,6 @@ export default {
       }
     },
   },
-  data() {
-    return {
-      reqs: [
-        "Font must be in Times New Roman 12",
-        "Single Line Spacing",
-        "Justified Alignment",
-        "1-inch margins",
-        "Abstract with 250 word limit is required",
-        "Include full name, country and institution of the authors",
-        "All materials must be submitted in Microsoft Word Document",
-        "Agree to terms of publication outlined in application form",
-      ],
-    };
-  },
 };
 </script>
 
@@ -183,6 +148,7 @@ export default {
 .l-background-scale {
   background-size: 100% 200%;
 }
+
 .s-background-scale {
   background-position: center center;
   background-size: 100% 140%;
