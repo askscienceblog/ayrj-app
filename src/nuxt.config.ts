@@ -9,6 +9,9 @@ export default defineNuxtConfig({
       meta: [
         { name: "viewport", content: "width=device-width, inital-scale=1" },
       ],
+      link: [
+        {rel: "icon", href: "/icons/ico.png"}
+      ],
       script: [
         {
           src: "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.3.136/pdf.min.mjs",
