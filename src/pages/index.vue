@@ -59,12 +59,11 @@
     "
   >
     <p class="text-h4 font-weight-bold my-10">
-      The platform for you to unleash your research potential
+      Singapore Research and Humanities Olympiad
     </p>
     <div style="max-width: 600px" class="mx-auto">
       <p class="text-wrap text-h6">
-        As youth scientists, we know the struggle. Join us in our battle to make
-        scientific research more accessible for all.
+        Empowering Youth Through Scientific Engagement
       </p>
     </div>
 
