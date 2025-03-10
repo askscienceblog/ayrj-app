@@ -73,9 +73,9 @@
       variant="outlined"
       rounded="0"
       color="#52787b"
-      href="/submit"
+      href="/shro"
     >
-      PUBLISH WITH US NOW
+      COMING SOON...
     </v-btn>
   </div>
 
