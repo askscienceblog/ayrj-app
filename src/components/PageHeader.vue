@@ -50,6 +50,7 @@ export default {
       { title: "Comics", page: "/comics" },
       { title: "Publications", page: "/publications/" },
       { title: "Journals", page: "/journals" },
+			{ title: "SHRO", page: "/shro" },
       { title: "Submit manuscripts", page: "/submit" },
       { title: "About AYRJ", page: "/about" },
       { title: "Contact Us", page: "/contact" },
