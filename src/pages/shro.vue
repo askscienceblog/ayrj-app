@@ -13,12 +13,13 @@
 
   <v-sheet class="text-center text-wrap my-16">
     <p class="mx-auto text-h4 mb-16">Apply now to SHRO and secure a 6 month research project under prominent researchers</p>
-    <v-btn class="mx-auto" height="80" width="200" rounded="0" @click="openTab("https://qr.codes/VK1RUs")">REGISTER NOW!<v-btn/>
+    <v-btn class="mx-auto" height="80" width="200" rounded="0" @click="openTab('https://qr.codes/VK1RUs')">REGISTER NOW!<v-btn/>
   </v-sheet>
 </template>
 
 <script>
 import { useBaseFetch } from "~/composables/useBaseFetch";
+import { openTab } from "~/composables/openTab";
 
 export default {
   props: { device: String },
