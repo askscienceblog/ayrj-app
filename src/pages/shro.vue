@@ -71,6 +71,6 @@ export default {
 }
 
 .s-background-scale {
-  background-size: auto 80%;
+  background-size: auto 100%;
 }
 </style>
