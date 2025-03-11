@@ -12,7 +12,7 @@
   </div>
 
   <v-sheet class="text-center text-wrap my-16">
-    <p class="mx-auto text-h4 mb-16">Apply now to SHRO and secure a 6 month research project under prominent researchers</p>
+    <p class="mx-10 text-h4 font-weight-bold">Apply now to SHRO and secure a 6 month research project under prominent researchers</p>
     <v-btn class="mx-auto" height="80" width="200" rounded="0" @click="openTab('https://qr.codes/VK1RUs')">REGISTER NOW!</v-btn>
   </v-sheet>
 </template>
@@ -67,11 +67,10 @@ export default {
 }
 
 .l-background-scale {
-  background-size: 100% 200%;
+  background-size: 100% 100%;
 }
 
 .s-background-scale {
-  background-position: center center;
-  background-size: 100% 140%;
+  background-size: auto 80%;
 }
 </style>
