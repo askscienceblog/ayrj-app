@@ -12,8 +12,8 @@
   </div>
 
   <v-sheet class="text-center text-wrap my-16">
-    <p class="mx-10 text-h4 font-weight-bold">Apply now to SHRO and secure a 6 month research project under prominent researchers</p>
-    <v-btn class="mx-auto" height="80" width="200" rounded="0" @click="openTab('https://qr.codes/VK1RUs')">REGISTER NOW!</v-btn>
+    <p class="mx-10 text-h5 font-weight-bold">Apply now to SHRO and secure a 6 month research project under prominent researchers</p>
+    <v-btn class="mx-auto mt-16" height="80" width="200" rounded="0" @click="openTab('https://qr.codes/VK1RUs')">REGISTER NOW!</v-btn>
   </v-sheet>
 </template>
 
