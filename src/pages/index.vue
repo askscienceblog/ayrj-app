@@ -59,7 +59,7 @@
     "
   >
     <p class="text-h4 font-weight-bold my-10">
-      Singapore Humanities and Research Olympiad
+      Science and Humanities Research Olympiad
     </p>
     <div style="max-width: 600px" class="mx-auto">
       <p class="text-wrap text-h6">
