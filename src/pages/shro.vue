@@ -6,7 +6,7 @@
     }">
     </v-sheet>
     <v-sheet class="overlay"></v-sheet>
-    <p class="text-h3 font-weight-bold text-center page-title">
+    <p class="text-h4 font-weight-bold text-center page-title">
       Science and Humanities Research Olympiad
     </p>
   </div>
