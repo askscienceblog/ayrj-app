@@ -106,9 +106,10 @@
   <v-divider horizontal class="border-opacity-100" thickness="3"></v-divider>
   <v-tabs v-model="tab" align-tabs="center" class="my-5">
     <v-tab value="0">Journal Board</v-tab>
-    <v-tab value="1">Editorial Board</v-tab>
+    <v-tab value="1">Volunteering</v-tab>
+    <!-- <v-tab value="1">Editorial Board</v-tab>
     <v-tab value="2">Science Communication</v-tab>
-    <v-tab value="3">Admin</v-tab>
+    <v-tab value="3">Admin</v-tab> -->
   </v-tabs>
 
   <v-card class="my-10 mx-10 text-center" variant="text">
@@ -196,38 +197,49 @@ export default {
           }),
         },
         {
-          committee: "Editorial Board",
+          committee: "Volunteers",
           description:
-            "The Editorial Board is in charge of the processing, appraisal and approval of all received research papers.",
-          email: "",
+            "Our events are only made possible with the support of our volunteers.",
+          email: null,
           members: this.ourMembers.filter((member) => {
-            if (toRaw(member).committees.includes("Editorial")) {
+            if (toRaw(member).committees.includes("Volunteer")) {
               return true;
             }
           }),
         },
-        {
-          committee: "Science Communications",
-          description:
-            "The Science Communications Committee is in charge of publicity and design to grow our community of researchers.",
-          email: "",
-          members: this.ourMembers.filter((member) => {
-            if (toRaw(member).committees.includes("Comms")) {
-              return true;
-            }
-          }),
-        },
-        {
-          committee: "Admin",
-          description:
-            "The Administrative Committee is in charge of managing paper work and external relations with partnering organisations.",
-          email: "",
-          members: this.ourMembers.filter((member) => {
-            if (toRaw(member).committees.includes("Admin")) {
-              return true;
-            }
-          }),
-        },
+        // {
+        //   committee: "Editorial Board",
+        //   description:
+        //     "The Editorial Board is in charge of the processing, appraisal and approval of all received research papers.",
+        //   email: "",
+        //   members: this.ourMembers.filter((member) => {
+        //     if (toRaw(member).committees.includes("Editorial")) {
+        //       return true;
+        //     }
+        //   }),
+        // },
+        // {
+        //   committee: "Science Communications",
+        //   description:
+        //     "The Science Communications Committee is in charge of publicity and design to grow our community of researchers.",
+        //   email: "",
+        //   members: this.ourMembers.filter((member) => {
+        //     if (toRaw(member).committees.includes("Comms")) {
+        //       return true;
+        //     }
+        //   }),
+        // },
+        // {
+        //   committee: "Admin",
+        //   description:
+        //     "The Administrative Committee is in charge of managing paper work and external relations with partnering organisations.",
+        //   email: "",
+        //   members: this.ourMembers.filter((member) => {
+        //     if (toRaw(member).committees.includes("Admin")) {
+        //       return true;
+        //     }
+        //   }),
+        // },
       ];
     },
   },
@@ -242,8 +254,8 @@ export default {
       ourMembers: [
         {
           name: "Jamie Wen",
-          title: "Founder | Editorial Board Reviewer",
-          committees: ["Board", "Editorial"],
+          title: "Founder | Chair",
+          committees: ["Board"],
           pic: "/members/jamie.jpg",
           email: "",
           intro:
@@ -254,9 +266,9 @@ export default {
           },
         },
         {
-          name: "Dr. Low Jian Hui",
-          title: "Senior Editorial Board",
-          committees: ["Board", "Editorial"],
+          name: "Yi Wang",
+          title: "Vice-Chair",
+          committees: ["Board"],
           pic: "",
           email: "",
           intro: "",
@@ -266,28 +278,28 @@ export default {
           },
         },
         {
+          name: "Yee Shong",
+          title: "Liason Officer",
+          committees: ["Board"],
+          pic: "",
+          email: "",
+          intro: "",
+          links: {
+            linkedIn: "",
+            github: "",
+          },
+        },
+
+        {
           name: "Jeremy Tan",
           title: "Administrative Director",
-          committees: ["Board", "Admin"],
+          committees: ["Board"],
           pic: "/members/jeremy.jpg",
           email: "",
           intro:
             '"You aren\'t afraid of failing, you are just afraid of what people think of you if you fail" ~Someone. ',
           links: {
             linkedIn: "https://www.linkedin.com/in/jeremy-tan-554875262",
-            github: "",
-          },
-        },
-        {
-          name: "Nicole",
-          title: "Communications Director",
-          committees: ["Board", "Comms"],
-          pic: "/members/nicole.jpg",
-          email: "",
-          intro:
-            "Everyone should have the opportunity to engage with science without barriers! I look forward to connecting with passionate youth scientists and working with AYRJ to make research more accessible.",
-          links: {
-            linkedIn: "https://www.linkedin.com/in/nicole-ho-557253202/",
             github: "",
           },
         },
@@ -306,7 +318,7 @@ export default {
         },
         {
           name: "Wang Chen",
-          title: "Backend Developer | Chief Editor",
+          title: "Backend Developer",
           committees: ["Board", "Editorial"],
           pic: "/members/wangchen.jpg",
           email: "",
@@ -319,115 +331,12 @@ export default {
         },
         {
           name: "Daisy",
-          title: "Editorial Board",
-          committees: ["Editorial"],
+          title: "Event Planner",
+          committees: ["Volunteer"],
           pic: "/members/daisy.jpg",
           email: "",
           intro:
             "AYRJ would serve as a great platform to expose young scientists and students to the world of research. “It says Oooooo.” -Peter Griffin.",
-          links: {
-            linkedIn: "",
-            github: "",
-          },
-        },
-        {
-          name: "Ze Dong",
-          title: "Editorial Board Reviewer",
-          committees: ["Editorial"],
-          pic: "/members/zedong.jpg",
-          email: "",
-          intro:
-            "Hi, I'm Ze Dong, part of AYRJ's editorial board. I believe that AYRJ can help encourage youths to take part in valuable research experiences!",
-          links: {
-            linkedIn: "https://www.linkedin.com/in/ze-dong-saw-9b3936242",
-            github: "https://github.com/sawzedong",
-          },
-        },
-        {
-          name: "Valerie",
-          title: "Social Media Manager",
-          committees: ["Comms"],
-          pic: "/members/valerie.jpg",
-          email: "",
-          intro:
-            "\“Science knows no country, because knowledge belongs to humanity\” — Louis Pasteur. Join our AYRJ family by sharing your research findings with young scientists across the ASEAN region!",
-          links: {
-            linkedIn: "http://linkedin.com/in/valerie-chan-wy",
-            github: "",
-          },
-        },
-        {
-          name: "Ern Min",
-          title: "Social Media Manager",
-          committees: ["Comms"],
-          pic: "/members/ernmin.jpg",
-          email: "",
-          intro:
-            "An enthusiastic and passionate science student with a keen interest in research who looks forward in bringing scientific works of students together",
-          links: {
-            linkedIn: "https://www.linkedin.com/in/tan-ern-min-b0a63b2b1",
-            github: "",
-          },
-        },
-        {
-          name: "Ru Ting",
-          title: "Publicity Manager",
-          committees: ["Comms"],
-          pic: "/members/ruting.jpg",
-          email: "",
-          intro:
-            "I hope that I can contribute meaningfully to AYRJ although I am not very good at science haha",
-          links: {
-            linkedIn: "https://www.linkedin.com/in/ru-ting-ho-0025b02b1/",
-            github: "",
-          },
-        },
-        {
-          name: "Li Xuan",
-          title: "Publicity Manager",
-          committees: ["Comms"],
-          pic: "/members/lixuan.jpg",
-          email: "",
-          intro: "eucalyptus, eu kaluptos, kaluptein",
-          links: {
-            linkedIn: "https://www.linkedin.com/in/lew-li-xuan-b2363a2b1",
-            github: "",
-          },
-        },
-        {
-          name: "Kai Zhe",
-          title: "Administrative Associate",
-          committees: ["Admin"],
-          pic: "",
-          email: "",
-          intro:
-            "I believe in the power of open communication and collaboration in advancing science. AYRJ enables this by providing a platform for student researchers to share their work with each other.",
-          links: {
-            linkedIn: "http://linkedin.com/in/kai-zhe-t-093683243",
-            github: "",
-          },
-        },
-        {
-          name: "Linus",
-          title: "Administrative Associate",
-          committees: ["Admin"],
-          pic: "",
-          email: "",
-          intro:
-            "Always intrigued by the wonders of science, always curious, always hungry",
-          links: {
-            linkedIn: "",
-            github: "",
-          },
-        },
-        {
-          name: "Prof Charles",
-          title: "Editorial Board Reviewer",
-          committees: ["Editorial"],
-          pic: "/members/charles.jpeg",
-          email: "",
-          intro:
-            "Director, Centre for Sustainable Development. Newcastle Australisa Institute of Higher Education",
           links: {
             linkedIn: "",
             github: "",
