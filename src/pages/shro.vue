@@ -24,7 +24,11 @@
       height="80"
       width="200"
       rounded="0"
-      @click="openTab('https://qr.codes/VK1RUs')"
+      @click="
+        openTab(
+          'https://docs.google.com/forms/d/1MbhSxP-q0qzZFRYJHrawekJs869mTGhABaeseajtYig/viewform?pli=1&pli=1&pli=1&chromeless=1&pli=1&fbclid=PAZXh0bgNhZW0CMTEAAab8v1npv6pn3saUiybjDmq5fmYSm5f7fqJw38_ykRg8bbKE9LqToay1qg8_aem_PBKIJeVWoK9o1ZIVA9_NVw&edit_requested=true&edit_requested=true#response=ACYDBNhpZFzvjAjCthRd9j2nmyZWucf-8Cl5ayTemWvJzy0Z-a7cCLWc9l0GiHKBL9RGL3M '
+        )
+      "
       >REGISTER NOW!</v-btn
     >
   </v-sheet>
