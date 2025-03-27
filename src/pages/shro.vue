@@ -19,8 +19,18 @@
       Apply now to SHRO and secure a 6 month research project under prominent
       researchers
     </p>
+
+    <p class="py-15 text-h5 font-weight-bold mx-10">
+      Look out for our exciting program ahead!
+    </p>
+
+    <p class="mx-10 text-h5 font-weight-bold">
+      Sign up as one or up to group of three with friends from ANY pre-U
+      institution (secondary school/polytechnic/junior college)
+    </p>
+
     <v-btn
-      class="mx-auto mt-16"
+      class="mt-16 font-weight-bold"
       height="80"
       width="200"
       rounded="0"
@@ -31,6 +41,62 @@
       "
       >REGISTER NOW!</v-btn
     >
+  </v-sheet>
+
+  <v-sheet class="text-center py-10">
+    <v-timeline
+      align="start"
+      line-thickness="3"
+      line-color="black"
+      class="mx-auto"
+      style="width: 100%"
+    >
+      <v-timeline-item>
+        <div class="text-left py-8">
+          <div class="text-h5 font-weight-bold">12 March</div>
+          <div class="text-h6" style="width: 300px">
+            Opening of registration of SHRO 2025
+          </div>
+        </div>
+      </v-timeline-item>
+
+      <v-timeline-item>
+        <div class="mx-right text-right py-8 ml-auto" style="width: 300px">
+          <div class="text-h5 font-weight-bold">April</div>
+          <div class="text-h6">Virtual interview and shortlisting</div>
+        </div>
+      </v-timeline-item>
+
+      <v-timeline-item>
+        <div class="text-left py-8" style="width: 300px">
+          <div class="text-h5 font-weight-bold">31 May</div>
+          <div class="text-h6">
+            In-person project pitch for shortlisted candidates
+          </div>
+        </div>
+      </v-timeline-item>
+      <v-timeline-item>
+        <div class="py-8 text-right ml-auto" style="width: 300px">
+          <div class="text-h5 font-weight-bold">June</div>
+          <div class="text-h6">Commencement and Mentorship</div>
+        </div>
+      </v-timeline-item>
+      <v-timeline-item>
+        <div class="text-left py-8" style="width: 300px">
+          <div class="text-h5 font-weight-bold">Oct/Nov</div>
+          <div class="text-h6">Stand down for end of year examinations</div>
+        </div>
+      </v-timeline-item>
+      <v-timeline-item>
+        <div class="text-right py-8 ml-auto" style="width: 300px">
+          <div class="text-h5 font-weight-bold">Dec/Jan</div>
+          <p class="text-h6">
+            Resume research project. Submission of project findings and prize
+            presentations
+          </p>
+        </div>
+      </v-timeline-item>
+    </v-timeline>
   </v-sheet>
 </template>
 

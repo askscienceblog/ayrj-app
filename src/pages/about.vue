@@ -106,7 +106,7 @@
   <v-divider horizontal class="border-opacity-100" thickness="3"></v-divider>
   <v-tabs v-model="tab" align-tabs="center" class="my-5">
     <v-tab value="0">Journal Board</v-tab>
-    <v-tab value="1">Volunteering</v-tab>
+    <v-tab value="1">Volunteers</v-tab>
     <!-- <v-tab value="1">Editorial Board</v-tab>
     <v-tab value="2">Science Communication</v-tab>
     <v-tab value="3">Admin</v-tab> -->
