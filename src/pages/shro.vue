@@ -54,21 +54,40 @@
       <v-timeline-item>
         <div class="text-left py-8">
           <div class="text-h5 font-weight-bold">12 March</div>
-          <div class="text-h6" style="width: 300px">
+          <div
+            class="text-h6"
+            :class="{ 'l-timeline-textbox': true ? device == 'l' : false }"
+          >
             Opening of registration of SHRO 2025
           </div>
         </div>
       </v-timeline-item>
 
       <v-timeline-item>
-        <div class="mx-right text-right py-8 ml-auto" style="width: 300px">
+        <div
+          class="mx-right text-right py-8 ml-auto"
+          :class="{ 'l-timeline-textbox': true ? device == 'l' : false }"
+        >
           <div class="text-h5 font-weight-bold">April</div>
           <div class="text-h6">Virtual interview and shortlisting</div>
         </div>
       </v-timeline-item>
 
       <v-timeline-item>
-        <div class="text-left py-8" style="width: 300px">
+        <div
+          class="mx-right py-8 text-left"
+          :class="{ 'l-timeline-textbox': true ? device == 'l' : false }"
+        >
+          <div class="text-h5 font-weight-bold">18 April</div>
+          <div class="text-h6">Registration Closed</div>
+        </div>
+      </v-timeline-item>
+
+      <v-timeline-item>
+        <div
+          class="text-right py-8 ml-auto"
+          :class="{ 'l-timeline-textbox': true ? device === 'l' : false }"
+        >
           <div class="text-h5 font-weight-bold">31 May</div>
           <div class="text-h6">
             In-person project pitch for shortlisted candidates
@@ -76,19 +95,28 @@
         </div>
       </v-timeline-item>
       <v-timeline-item>
-        <div class="py-8 text-right ml-auto" style="width: 300px">
+        <div
+          class="py-8 text-left"
+          :class="{ 'l-timeline-textbox': true ? device === 'l' : false }"
+        >
           <div class="text-h5 font-weight-bold">June</div>
           <div class="text-h6">Commencement and Mentorship</div>
         </div>
       </v-timeline-item>
       <v-timeline-item>
-        <div class="text-left py-8" style="width: 300px">
+        <div
+          class="text-right py-8 mr-auto"
+          :class="{ 'l-timeline-textbox': true ? device === 'l' : false }"
+        >
           <div class="text-h5 font-weight-bold">Oct/Nov</div>
           <div class="text-h6">Stand down for end of year examinations</div>
         </div>
       </v-timeline-item>
       <v-timeline-item>
-        <div class="text-right py-8 ml-auto" style="width: 300px">
+        <div
+          class="text-left py-8"
+          :class="{ 'l-timeline-textbox': true ? device === 'l' : false }"
+        >
           <div class="text-h5 font-weight-bold">Dec/Jan</div>
           <p class="text-h6">
             Resume research project. Submission of project findings and prize
@@ -123,11 +151,15 @@ export default {
   width: 100%;
   height: 400px;
 
-  background-image: url("/public/background/shro.png");
+  background-image: url("/public/background/shro-logo.png");
   background-repeat: no-repeat;
   background-size: 100%;
   transition: background-size 4s ease;
   background-position: center center;
+}
+
+.l-timeline-textbox {
+  width: 300px;
 }
 
 .overlay {
@@ -147,7 +179,7 @@ export default {
 }
 
 .l-background-scale {
-  background-size: 100% 100%;
+  background-size: auto 100%;
 }
 
 .s-background-scale {
