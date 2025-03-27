@@ -105,7 +105,7 @@
       </v-timeline-item>
       <v-timeline-item>
         <div
-          class="text-right py-8 mr-auto"
+          class="text-right py-8 ml-auto"
           :class="{ 'l-timeline-textbox': true ? device === 'l' : false }"
         >
           <div class="text-h5 font-weight-bold">Oct/Nov</div>
