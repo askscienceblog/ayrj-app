@@ -21,21 +21,32 @@
 
     <v-menu v-else>
       <template v-slot:activator="{ props }">
-        <v-btn class="my-auto ml-auto px-10" v-bind="props">
-          <v-icon size="x-large">mdi-menu</v-icon>
+        <v-btn
+          class="my-auto ml-auto px-10"
+          v-bind="props"
+          @click="showMenu = !showMenu"
+        >
+          <v-icon v-if="!showMenu" size="x-large">mdi-menu</v-icon>
+          <v-icon v-else size="medium">mdi-triangle-down</v-icon>
         </v-btn>
       </template>
-
-      <v-btn
-        v-for="page in pages"
-        :to="page.page"
-        variant="outlined"
-        class="text-center px-16"
-        style="background-color: white; padding-top: 20px; padding-bottom: 30px"
-        >{{ page.title }}</v-btn
-      >
     </v-menu>
   </v-app-bar>
+  <v-sheet
+    v-if="showMenu"
+    v-show="showMenu"
+    style="width: 100%; padding-top: 130px; height: 460px"
+  >
+    <v-btn
+      v-for="page in pages"
+      :to="page.page"
+      @click="showMenu = !showMenu"
+      variant="outlined"
+      class="text-center pa-8"
+      style="background-color: white; width: 100%"
+      >{{ page.title }}</v-btn
+    >
+  </v-sheet>
 </template>
 <script>
 import { mergeProps } from "vue";
@@ -45,12 +56,13 @@ export default {
     device: String,
   },
   data: () => ({
+    showMenu: false,
     pages: [
       { title: "Home", page: "/" },
       { title: "Comics", page: "/comics" },
       { title: "Publications", page: "/publications/" },
       { title: "Journals", page: "/journals" },
-			{ title: "SHRO", page: "/shro" },
+      { title: "SHRO", page: "/shro" },
       { title: "Submit manuscripts", page: "/submit" },
       { title: "About AYRJ", page: "/about" },
       { title: "Contact Us", page: "/contact" },
@@ -59,6 +71,13 @@ export default {
   methods: {
     mergeProps,
   },
+  // watch: {
+  //   overlay(val) {
+  //     if (val) {
+  //       this.overlay;
+  //     }
+  //   },
+  // },
 };
 </script>
 <style scoped>
