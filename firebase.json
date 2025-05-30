@@ -12,6 +12,10 @@
         "destination": "/misc/event.pdf"
       },
       {
+        "source": "/shro/participantschedule",
+        "destination": "/misc/schedule.pdf"
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }
